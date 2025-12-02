@@ -1,5 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+}
 
 // Showcase Pages
 import CalaShowcase from './pages/CalaShowcase';
@@ -82,20 +93,33 @@ function PortfolioHome() {
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
-            <span className="text-sm text-white/60">Professional Website Templates</span>
+        <div className="mb-16">
+          {/* Logo */}
+          <div className="mb-12">
+            <h1
+              className="text-2xl md:text-3xl font-bold text-white"
+              style={{ fontFamily: "'Space Mono', monospace" }}
+            >
+              LocalWebBuilders
+            </h1>
           </div>
-          <h1
-            className="text-5xl md:text-7xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Space Mono', monospace" }}
-          >
-            LocalWebBuilders
-          </h1>
-          <p className="text-xl text-white/50 max-w-2xl mx-auto">
-            Beautiful, professional websites for local restaurants and food brands.
-            Click any template to view the full demo.
-          </p>
+
+          {/* Title & Description */}
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
+              <span className="text-sm text-white/60">Restaurant & Food Brand Templates</span>
+            </div>
+            <h2
+              className="text-4xl md:text-6xl font-bold text-white mb-4"
+              style={{ fontFamily: "'Space Mono', monospace" }}
+            >
+              Templates
+            </h2>
+            <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto">
+              Beautiful, professional websites for local restaurants and food brands.
+              Click any template to view the full demo.
+            </p>
+          </div>
         </div>
 
         {/* Template Grid */}
@@ -168,6 +192,7 @@ function PortfolioHome() {
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* Portfolio Home */}
         <Route path="/" element={<PortfolioHome />} />

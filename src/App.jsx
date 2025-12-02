@@ -113,10 +113,13 @@ function PortfolioHome() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             to="/"
-            className="text-xl font-bold"
+            className="font-bold flex items-center gap-2"
             style={{ fontFamily: "'Space Mono', monospace", color: '#f0f0f5' }}
           >
-            LocalWebBuilders
+            <span className="w-9 h-8 rounded-lg flex items-center justify-center text-xs font-black" style={{ background: '#ff6b35', color: 'white' }}>
+              LWB
+            </span>
+            <span className="hidden sm:inline text-xl">LocalWebBuilders</span>
           </Link>
 
           <div className="flex items-center gap-4">
@@ -169,7 +172,7 @@ function PortfolioHome() {
           </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mb-12 md:mb-20 px-4">
+        <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mt-4 mb-12 md:mb-20 px-4">
           {[
             { value: '8+', label: 'Templates' },
             { value: '5-7', label: 'Days' },

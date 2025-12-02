@@ -181,10 +181,13 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             to="/"
-            className="text-xl font-bold"
+            className="font-bold flex items-center gap-2"
             style={{ fontFamily: "'Space Mono', monospace", color: colors.text }}
           >
-            LocalWebBuilders
+            <span className="w-9 h-8 rounded-lg flex items-center justify-center text-xs font-black" style={{ background: colors.accent, color: 'white' }}>
+              LWB
+            </span>
+            <span className="hidden sm:inline text-xl">LocalWebBuilders</span>
           </Link>
 
           <div className="flex items-center gap-4">

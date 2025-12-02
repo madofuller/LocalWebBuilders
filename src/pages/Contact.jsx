@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Send, CheckCircle, Mail, Phone, Loader2, AlertCircle } from 'lucide-react';
 
 const colors = {
-  bg: '#0a0a0f',
+  bg: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%)',
   surface: '#14141f',
   surfaceHover: '#1a1a2e',
   border: '#2a2a3e',
@@ -175,24 +175,34 @@ export default function Contact() {
     <div className="min-h-screen" style={{ background: colors.bg, fontFamily: "'Inter', sans-serif" }}>
       
       {/* Header */}
-      <header className="py-6 px-6 border-b" style={{ borderColor: colors.border }}>
+      <nav className="relative z-10 px-6 py-6 border-b" style={{ borderColor: colors.border }}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors">
-            <ArrowLeft size={20} />
-            <span className="text-sm">Back to Templates</span>
-          </Link>
-          <span className="text-xl font-bold" style={{ fontFamily: "'Space Mono', monospace", color: colors.text }}>
-            Get Started
-          </span>
           <Link 
-            to="/pricing" 
-            className="text-sm hover:underline"
+            to="/" 
+            className="flex items-center gap-2 transition-colors"
             style={{ color: colors.textMuted }}
           >
-            View Pricing
+            <ArrowLeft size={18} />
+            <span className="text-sm">Templates</span>
+          </Link>
+          
+          <Link
+            to="/"
+            className="text-xl font-bold"
+            style={{ fontFamily: "'Space Mono', monospace", color: colors.text }}
+          >
+            LocalWebBuilders
+          </Link>
+
+          <Link 
+            to="/pricing" 
+            className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
+            style={{ background: colors.accent, color: 'white' }}
+          >
+            Pricing
           </Link>
         </div>
-      </header>
+      </nav>
 
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-2 gap-16">

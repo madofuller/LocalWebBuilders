@@ -7,6 +7,19 @@ import { Check, ArrowRight, ArrowLeft, Sparkles, Zap, Rocket, X } from 'lucide-r
    Competing with Squarespace pricing model
    ============================================ */
 
+// Theme colors matching Contact page
+const colors = {
+  bg: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%)',
+  surface: '#14141f',
+  surfaceHover: '#1a1a2e',
+  border: '#2a2a3e',
+  text: '#f0f0f5',
+  textMuted: '#8888a0',
+  accent: '#ff6b35',
+  accentHover: '#ff8555',
+  green: '#10b981'
+};
+
 const plans = [
   {
     id: 'personal',
@@ -16,8 +29,7 @@ const plans = [
     yearlyPrice: 12,
     sqspMonthly: 25,
     sqspYearly: 16,
-    color: '#ff6b35',
-    gradient: 'from-orange-500 to-amber-400',
+    color: colors.accent,
     features: [
       'Custom website built for you',
       'Fast, secure hosting included',
@@ -36,8 +48,7 @@ const plans = [
     yearlyPrice: 18,
     sqspMonthly: 36,
     sqspYearly: 23,
-    color: '#ff6b35',
-    gradient: 'from-orange-500 to-amber-400',
+    color: colors.accent,
     popular: true,
     features: [
       'Everything in Personal',
@@ -58,8 +69,7 @@ const plans = [
     yearlyPrice: 33,
     sqspMonthly: 59,
     sqspYearly: 39,
-    color: '#f97316',
-    gradient: 'from-orange-500 to-amber-400',
+    color: colors.accent,
     features: [
       'Everything in Business',
       'Full e-commerce/ordering',
@@ -86,28 +96,28 @@ export default function Pricing() {
   const [hoveredPlan, setHoveredPlan] = useState(null);
 
   return (
-    <div 
+    <div
       className="min-h-screen relative overflow-hidden"
-      style={{ 
-        background: '#050508',
+      style={{
+        background: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%)',
         fontFamily: "'Inter', sans-serif"
       }}
     >
       {/* Animated background gradient blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute w-[800px] h-[800px] rounded-full opacity-20 blur-[120px]"
+          className="absolute w-[800px] h-[800px] rounded-full opacity-15 blur-[120px]"
           style={{
-            background: 'linear-gradient(135deg, #ff6b35, #f97316)',
+            background: `linear-gradient(135deg, ${colors.accent}, #ff8c61)`,
             top: '-20%',
             right: '-10%',
             animation: 'float 20s ease-in-out infinite'
           }}
         />
         <div
-          className="absolute w-[600px] h-[600px] rounded-full opacity-15 blur-[100px]"
+          className="absolute w-[600px] h-[600px] rounded-full opacity-10 blur-[100px]"
           style={{
-            background: 'linear-gradient(135deg, #ff8c61, #ff6b35)',
+            background: `linear-gradient(135deg, ${colors.accent}, #ff8c61)`,
             bottom: '-10%',
             left: '-5%',
             animation: 'float 25s ease-in-out infinite reverse'
@@ -128,11 +138,12 @@ export default function Pricing() {
       `}</style>
 
       {/* Navigation */}
-      <nav className="relative z-10 px-6 py-6">
+      <nav className="relative z-10 px-6 py-6 border-b" style={{ borderColor: colors.border }}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link 
             to="/" 
-            className="flex items-center gap-2 text-white/50 hover:text-white transition-colors"
+            className="flex items-center gap-2 transition-colors"
+            style={{ color: colors.textMuted }}
           >
             <ArrowLeft size={18} />
             <span className="text-sm">Templates</span>
@@ -140,17 +151,18 @@ export default function Pricing() {
           
           <Link
             to="/"
-            className="text-xl font-bold text-white"
-            style={{ fontFamily: "'Space Mono', monospace" }}
+            className="text-xl font-bold"
+            style={{ fontFamily: "'Space Mono', monospace", color: colors.text }}
           >
             LocalWebBuilders
           </Link>
 
           <Link 
             to="/contact" 
-            className="text-sm text-white/50 hover:text-white transition-colors"
+            className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
+            style={{ background: colors.accent, color: 'white' }}
           >
-            Contact
+            Get Started
           </Link>
         </div>
       </nav>
@@ -158,23 +170,16 @@ export default function Pricing() {
       {/* Hero */}
       <section className="relative z-10 px-6 pt-12 pb-8 text-center">
         <h1
-          className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight"
-          style={{ fontFamily: "'Space Mono', monospace" }}
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
+          style={{ fontFamily: "'Space Mono', monospace", color: colors.text }}
         >
           Cheaper than<br/>
-          <span
-            className="bg-clip-text text-transparent"
-            style={{
-              backgroundImage: 'linear-gradient(90deg, #ff6b35, #f97316, #ff6b35)',
-              backgroundSize: '200% auto',
-              animation: 'shimmer 3s linear infinite'
-            }}
-          >
+          <span style={{ color: colors.accent }}>
             doing it yourself
           </span>
         </h1>
         
-        <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-12">
+        <p className="text-lg md:text-xl max-w-2xl mx-auto mb-12" style={{ color: colors.textMuted }}>
           We build it. We host it. We maintain it.<br/>
           You just run your business.
         </p>

@@ -101,34 +101,34 @@ function PortfolioHome() {
   ];
 
   return (
-    <div 
-      className="min-h-screen py-20 px-6"
-      style={{ 
+    <div
+      className="min-h-screen py-8 md:py-20 px-4 md:px-6"
+      style={{
         background: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%)',
         fontFamily: "'Inter', sans-serif"
       }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16">
+        <div className="mb-12 md:mb-16">
           {/* Top Nav */}
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-8 md:mb-12">
             <h1
-              className="text-2xl md:text-3xl font-bold text-white"
+              className="text-xl md:text-3xl font-bold text-white"
               style={{ fontFamily: "'Space Mono', monospace" }}
             >
               LocalWebBuilders
             </h1>
-            <div className="flex items-center gap-4">
-              <Link 
+            <div className="flex items-center gap-2 md:gap-4">
+              <Link
                 to="/pricing"
-                className="text-white/70 hover:text-white transition-colors text-sm font-medium"
+                className="text-white/70 hover:text-white transition-colors text-xs md:text-sm font-medium"
               >
                 Pricing
               </Link>
-              <Link 
+              <Link
                 to="/contact"
-                className="px-5 py-2.5 rounded-lg font-medium text-sm transition-all hover:scale-105"
+                className="px-3 py-2 md:px-5 md:py-2.5 rounded-lg font-medium text-xs md:text-sm transition-all hover:scale-105"
                 style={{ background: '#ff6b35', color: 'white' }}
               >
                 Get Started
@@ -138,30 +138,30 @@ function PortfolioHome() {
 
           {/* Title & Description */}
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
-              <span className="text-sm text-white/60">Restaurant & Food Brand Templates</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 mb-4 md:mb-6">
+              <span className="text-xs md:text-sm text-white/60">Restaurant & Food Brand Templates</span>
             </div>
             <h2
-              className="text-4xl md:text-6xl font-bold text-white mb-4"
+              className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight"
               style={{ fontFamily: "'Space Mono', monospace" }}
             >
               Beautiful Websites,<br/>Built Fast
             </h2>
-            <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-8">
+            <p className="text-base md:text-lg lg:text-xl text-white/50 max-w-2xl mx-auto mb-6 md:mb-8 px-4">
               Professional websites for local restaurants and food brands.
               Pick a style, we handle the rest.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+              <Link
                 to="/pricing"
-                className="px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
+                className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-base md:text-lg transition-all hover:scale-105"
                 style={{ background: '#ff6b35', color: 'white' }}
               >
                 View Pricing →
               </Link>
-              <a 
+              <a
                 href="#templates"
-                className="px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105 border border-white/20 text-white hover:bg-white/5"
+                className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-base md:text-lg transition-all hover:scale-105 border border-white/20 text-white hover:bg-white/5"
               >
                 Browse Templates
               </a>
@@ -170,27 +170,27 @@ function PortfolioHome() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-20">
+        <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mb-12 md:mb-20 px-4">
           {[
             { value: '8+', label: 'Templates' },
-            { value: '5-7', label: 'Days Delivery' },
-            { value: '100%', label: 'Satisfaction' }
+            { value: '5-7', label: 'Days' },
+            { value: '100%', label: 'Happy' }
           ].map((stat, i) => (
             <div key={i} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1" style={{ fontFamily: "'Space Mono', monospace" }}>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1" style={{ fontFamily: "'Space Mono', monospace" }}>
                 {stat.value}
               </div>
-              <div className="text-sm text-white/40">{stat.label}</div>
+              <div className="text-xs md:text-sm text-white/40">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Template Grid */}
-        <div id="templates" className="scroll-mt-8">
-          <h3 className="text-xl font-bold text-white/60 mb-8 text-center uppercase tracking-wider">
+        <div id="templates" className="scroll-mt-8 px-4 md:px-0">
+          <h3 className="text-base md:text-xl font-bold text-white/60 mb-6 md:mb-8 text-center uppercase tracking-wider">
             Choose Your Style
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {templates.map((template, i) => (
               <Link 
                 key={i}
@@ -249,31 +249,31 @@ function PortfolioHome() {
         </div>
 
         {/* Bottom CTA */}
-        <div 
-          className="mt-20 rounded-3xl p-12 text-center"
+        <div
+          className="mt-12 md:mt-20 rounded-2xl md:rounded-3xl p-8 md:p-12 text-center mx-4 md:mx-0"
           style={{ background: 'linear-gradient(135deg, #ff6b35 0%, #8b5cf6 100%)' }}
         >
-          <h3 
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
+          <h3
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4"
             style={{ fontFamily: "'Space Mono', monospace" }}
           >
             Ready to Get Started?
           </h3>
-          <p className="text-lg text-white/90 mb-8 max-w-xl mx-auto">
-            Pick a template you love and we'll customize it for your business. 
+          <p className="text-base md:text-lg text-white/90 mb-6 md:mb-8 max-w-xl mx-auto">
+            Pick a template you love and we'll customize it for your business.
             Delivered in as little as 5 days.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link
               to="/contact"
-              className="px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
+              className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-base md:text-lg transition-all hover:scale-105"
               style={{ background: 'white', color: '#0a0a0f' }}
             >
               Start Your Project
             </Link>
             <Link
               to="/pricing"
-              className="px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105 border-2 border-white text-white"
+              className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-base md:text-lg transition-all hover:scale-105 border-2 border-white text-white"
             >
               See Pricing
             </Link>
@@ -281,7 +281,7 @@ function PortfolioHome() {
         </div>
 
         {/* Footer */}
-        <div className="mt-20 text-center text-white/30 text-sm">
+        <div className="mt-12 md:mt-20 text-center text-white/30 text-xs md:text-sm px-4">
           <p>© 2025 LocalWebBuilders. All templates are fully customizable.</p>
         </div>
       </div>

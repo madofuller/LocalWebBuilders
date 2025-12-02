@@ -157,11 +157,6 @@ export default function Pricing() {
 
       {/* Hero */}
       <section className="relative z-10 px-6 pt-12 pb-8 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
-          <Sparkles size={14} className="text-amber-400" />
-          <span className="text-sm text-white/70">We build it. You own it. Simple.</span>
-        </div>
-        
         <h1
           className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight"
           style={{ fontFamily: "'Space Mono', monospace" }}

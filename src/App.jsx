@@ -102,41 +102,44 @@ function PortfolioHome() {
 
   return (
     <div
-      className="min-h-screen py-8 md:py-20 px-4 md:px-6"
+      className="min-h-screen"
       style={{
-        background: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%)',
+        background: '#0a0a0f',
         fontFamily: "'Inter', sans-serif"
       }}
     >
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-12 md:mb-16">
-          {/* Top Nav */}
-          <div className="flex items-center justify-between mb-8 md:mb-12">
-            <h1
-              className="text-xl md:text-3xl font-bold text-white"
-              style={{ fontFamily: "'Space Mono', monospace" }}
-            >
-              LocalWebBuilders
-            </h1>
-            <div className="flex items-center gap-2 md:gap-4">
-              <Link
-                to="/pricing"
-                className="text-white/70 hover:text-white transition-colors text-xs md:text-sm font-medium"
-              >
-                Pricing
-              </Link>
-              <Link
-                to="/contact"
-                className="px-3 py-2 md:px-5 md:py-2.5 rounded-lg font-medium text-xs md:text-sm transition-all hover:scale-105"
-                style={{ background: '#ff6b35', color: 'white' }}
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
+      {/* Navbar - consistent with Pricing/Contact */}
+      <nav className="px-6 py-6 border-b" style={{ borderColor: '#2a2a3e' }}>
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <Link
+            to="/"
+            className="text-xl font-bold"
+            style={{ fontFamily: "'Space Mono', monospace", color: '#f0f0f5' }}
+          >
+            LocalWebBuilders
+          </Link>
 
-          {/* Title & Description */}
+          <div className="flex items-center gap-4">
+            <Link 
+              to="/pricing" 
+              className="text-sm font-medium transition-colors hover:opacity-80"
+              style={{ color: '#8888a0' }}
+            >
+              Pricing
+            </Link>
+            <Link 
+              to="/contact" 
+              className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
+              style={{ background: '#ff6b35', color: 'white' }}
+            >
+              Get Started
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      <div className="max-w-7xl mx-auto py-12 md:py-20 px-4 md:px-6">
+        {/* Title & Description */}
           <div className="text-center">
             <h2
               className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight"
@@ -164,7 +167,6 @@ function PortfolioHome() {
               </a>
             </div>
           </div>
-        </div>
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mb-12 md:mb-20 px-4">
@@ -248,7 +250,7 @@ function PortfolioHome() {
         {/* Bottom CTA */}
         <div
           className="mt-12 md:mt-20 rounded-2xl md:rounded-3xl p-8 md:p-12 text-center mx-4 md:mx-0"
-          style={{ background: 'linear-gradient(135deg, #ff6b35 0%, #f97316 100%)' }}
+          style={{ background: '#ff6b35' }}
         >
           <h3
             className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4"

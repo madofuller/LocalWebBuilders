@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Send, CheckCircle, Mail, Phone, Loader2, AlertCircle } from 'lucide-react';
 
 const colors = {
-  bg: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%)',
+  bg: '#0a0a0f',
   surface: '#14141f',
   surfaceHover: '#1a1a2e',
   border: '#2a2a3e',
@@ -172,20 +172,13 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: colors.bg, fontFamily: "'Inter', sans-serif" }}>
-      
+    <div 
+      className="min-h-screen" 
+      style={{ background: colors.bg, fontFamily: "'Inter', sans-serif" }}
+    >
       {/* Header */}
-      <nav className="relative z-10 px-6 py-6 border-b" style={{ borderColor: colors.border }}>
+      <nav className="px-6 py-6 border-b" style={{ borderColor: colors.border }}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link 
-            to="/" 
-            className="flex items-center gap-2 transition-colors"
-            style={{ color: colors.textMuted }}
-          >
-            <ArrowLeft size={18} />
-            <span className="text-sm">Templates</span>
-          </Link>
-          
           <Link
             to="/"
             className="text-xl font-bold"
@@ -194,13 +187,22 @@ export default function Contact() {
             LocalWebBuilders
           </Link>
 
-          <Link 
-            to="/pricing" 
-            className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
-            style={{ background: colors.accent, color: 'white' }}
-          >
-            Pricing
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link 
+              to="/" 
+              className="text-sm font-medium transition-colors hover:opacity-80"
+              style={{ color: colors.textMuted }}
+            >
+              Templates
+            </Link>
+            <Link 
+              to="/pricing" 
+              className="text-sm font-medium transition-colors hover:opacity-80"
+              style={{ color: colors.textMuted }}
+            >
+              Pricing
+            </Link>
+          </div>
         </div>
       </nav>
 

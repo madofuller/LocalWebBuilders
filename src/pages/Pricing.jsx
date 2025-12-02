@@ -7,9 +7,9 @@ import { Check, ArrowRight, ArrowLeft, Sparkles, Zap, Rocket, X } from 'lucide-r
    Competing with Squarespace pricing model
    ============================================ */
 
-// Theme colors matching Contact page
+// Theme colors
 const colors = {
-  bg: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%)',
+  bg: '#0a0a0f',
   surface: '#14141f',
   surfaceHover: '#1a1a2e',
   border: '#2a2a3e',
@@ -97,58 +97,15 @@ export default function Pricing() {
 
   return (
     <div
-      className="min-h-screen relative overflow-hidden"
+      className="min-h-screen"
       style={{
-        background: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%)',
+        background: colors.bg,
         fontFamily: "'Inter', sans-serif"
       }}
     >
-      {/* Animated background gradient blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute w-[800px] h-[800px] rounded-full opacity-15 blur-[120px]"
-          style={{
-            background: `linear-gradient(135deg, ${colors.accent}, #ff8c61)`,
-            top: '-20%',
-            right: '-10%',
-            animation: 'float 20s ease-in-out infinite'
-          }}
-        />
-        <div
-          className="absolute w-[600px] h-[600px] rounded-full opacity-10 blur-[100px]"
-          style={{
-            background: `linear-gradient(135deg, ${colors.accent}, #ff8c61)`,
-            bottom: '-10%',
-            left: '-5%',
-            animation: 'float 25s ease-in-out infinite reverse'
-          }}
-        />
-      </div>
-
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -30px) scale(1.05); }
-          66% { transform: translate(-20px, 20px) scale(0.95); }
-        }
-        @keyframes shimmer {
-          0% { background-position: -200% center; }
-          100% { background-position: 200% center; }
-        }
-      `}</style>
-
       {/* Navigation */}
-      <nav className="relative z-10 px-6 py-6 border-b" style={{ borderColor: colors.border }}>
+      <nav className="px-6 py-6 border-b" style={{ borderColor: colors.border }}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link 
-            to="/" 
-            className="flex items-center gap-2 transition-colors"
-            style={{ color: colors.textMuted }}
-          >
-            <ArrowLeft size={18} />
-            <span className="text-sm">Templates</span>
-          </Link>
-          
           <Link
             to="/"
             className="text-xl font-bold"
@@ -157,13 +114,22 @@ export default function Pricing() {
             LocalWebBuilders
           </Link>
 
-          <Link 
-            to="/contact" 
-            className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
-            style={{ background: colors.accent, color: 'white' }}
-          >
-            Get Started
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link 
+              to="/" 
+              className="text-sm font-medium transition-colors hover:opacity-80"
+              style={{ color: colors.textMuted }}
+            >
+              Templates
+            </Link>
+            <Link 
+              to="/contact" 
+              className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
+              style={{ background: colors.accent, color: 'white' }}
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
       </nav>
 

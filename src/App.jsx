@@ -6,6 +6,10 @@ import CalaShowcase from './pages/CalaShowcase';
 import CateringShowcase from './pages/CateringShowcase';
 import BBQShowcase from './pages/BBQShowcase';
 import AfricanShowcase from './pages/AfricanShowcase';
+import VeganBrandShowcase from './pages/VeganBrandShowcase';
+import PlantBasedShowcase from './pages/PlantBasedShowcase';
+import SmashBurgerShowcase from './pages/SmashBurgerShowcase';
+import GourmetMeatsShowcase from './pages/GourmetMeatsShowcase';
 
 // Portfolio Landing Page
 function PortfolioHome() {
@@ -37,6 +41,34 @@ function PortfolioHome() {
       type: 'African Flavors Brand',
       colors: ['#2D9E4F', '#E63946', '#FFD23F'],
       emoji: '🌍'
+    },
+    { 
+      path: '/vegan', 
+      name: 'Golden Yeast', 
+      type: 'Vegan Food Brand',
+      colors: ['#2D8B4E', '#FFE03D', '#E94E8C'],
+      emoji: '🌱'
+    },
+    { 
+      path: '/plant-based', 
+      name: 'Bloom Kitchen', 
+      type: 'Plant-Based Spreads',
+      colors: ['#A8C5A8', '#F4A460', '#E8B4B8'],
+      emoji: '🌸'
+    },
+    { 
+      path: '/smash-burger', 
+      name: 'TopStack', 
+      type: 'Smash Burger Joint',
+      colors: ['#FFE135', '#1A1A1A', '#E63946'],
+      emoji: '🍔'
+    },
+    { 
+      path: '/gourmet-meats', 
+      name: "Phil's Prime", 
+      type: 'Gourmet Meats & Sausages',
+      colors: ['#B8E4D8', '#FFCBA4', '#C5B9E8'],
+      emoji: '🥩'
     }
   ];
 
@@ -48,26 +80,26 @@ function PortfolioHome() {
         fontFamily: "'Inter', sans-serif"
       }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
-            <span className="text-sm text-white/60">Restaurant Templates</span>
+            <span className="text-sm text-white/60">Professional Website Templates</span>
           </div>
-          <h1 
+          <h1
             className="text-5xl md:text-7xl font-bold text-white mb-4"
             style={{ fontFamily: "'Space Mono', monospace" }}
           >
-            Template<br/>Portfolio
+            LocalWebBuilders
           </h1>
           <p className="text-xl text-white/50 max-w-2xl mx-auto">
-            Beautiful, production-ready restaurant website templates. 
+            Beautiful, professional websites for local restaurants and food brands.
             Click any template to view the full demo.
           </p>
         </div>
 
         {/* Template Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {templates.map((template, i) => (
             <Link 
               key={i}
@@ -83,25 +115,25 @@ function PortfolioHome() {
               </div>
               
               {/* Content */}
-              <div className="p-8">
-                <div className="flex items-start justify-between mb-6">
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-4">
                   <div>
-                    <span className="text-sm text-white/40 uppercase tracking-wider">
+                    <span className="text-xs text-white/40 uppercase tracking-wider">
                       {template.type}
                     </span>
-                    <h2 className="text-3xl font-bold text-white mt-1">
+                    <h2 className="text-2xl font-bold text-white mt-1">
                       {template.name}
                     </h2>
                   </div>
-                  <span className="text-4xl">{template.emoji}</span>
+                  <span className="text-3xl">{template.emoji}</span>
                 </div>
 
                 {/* Color swatches */}
-                <div className="flex gap-2 mb-6">
+                <div className="flex gap-2 mb-4">
                   {template.colors.map((color, j) => (
                     <div 
                       key={j}
-                      className="w-8 h-8 rounded-lg border border-white/10"
+                      className="w-6 h-6 rounded-md border border-white/10"
                       style={{ background: color }}
                     />
                   ))}
@@ -126,7 +158,7 @@ function PortfolioHome() {
 
         {/* Footer */}
         <div className="mt-20 text-center text-white/30 text-sm">
-          <p>© 2025 Restaurant Template System. All templates are fully customizable.</p>
+          <p>© 2025 LocalWebBuilders. All templates are fully customizable.</p>
         </div>
       </div>
     </div>
@@ -145,6 +177,10 @@ export default function App() {
         <Route path="/catering" element={<CateringShowcase />} />
         <Route path="/bbq" element={<BBQShowcase />} />
         <Route path="/african" element={<AfricanShowcase />} />
+        <Route path="/vegan" element={<VeganBrandShowcase />} />
+        <Route path="/plant-based" element={<PlantBasedShowcase />} />
+        <Route path="/smash-burger" element={<SmashBurgerShowcase />} />
+        <Route path="/gourmet-meats" element={<GourmetMeatsShowcase />} />
       </Routes>
     </Router>
   );

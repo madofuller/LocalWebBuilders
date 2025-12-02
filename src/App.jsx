@@ -138,9 +138,6 @@ function PortfolioHome() {
 
           {/* Title & Description */}
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 mb-4 md:mb-6">
-              <span className="text-xs md:text-sm text-white/60">Restaurant & Food Brand Templates</span>
-            </div>
             <h2
               className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight"
               style={{ fontFamily: "'Space Mono', monospace" }}
@@ -251,7 +248,7 @@ function PortfolioHome() {
         {/* Bottom CTA */}
         <div
           className="mt-12 md:mt-20 rounded-2xl md:rounded-3xl p-8 md:p-12 text-center mx-4 md:mx-0"
-          style={{ background: 'linear-gradient(135deg, #ff6b35 0%, #8b5cf6 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #ff6b35 0%, #f97316 100%)' }}
         >
           <h3
             className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4"

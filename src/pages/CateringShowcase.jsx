@@ -3,6 +3,7 @@ import {
   MapPin, Phone, Mail, ChevronRight, Instagram, 
   Facebook, ArrowRight, Menu, X, Users, Utensils, ChefHat
 } from 'lucide-react';
+import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
    JOYFUL TABLE - Catering & Events Agency
@@ -52,7 +53,9 @@ export default function CateringShowcase() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.peach }}>
+    <>
+      <TemplateFloatingCTA templateName="Joyful Table Catering" templateSlug="joyful-table" />
+      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif", background: colors.peach }}>
       
       {/* ========== HEADER ========== */}
       <header 
@@ -424,5 +427,6 @@ export default function CateringShowcase() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

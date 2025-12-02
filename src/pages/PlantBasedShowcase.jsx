@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Instagram, Facebook, ArrowRight, Menu, X, MapPin, ChevronRight
 } from 'lucide-react';
+import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
    BLOOM KITCHEN - Plant-Based Spreads & Sauces
@@ -49,7 +50,9 @@ export default function PlantBasedShowcase() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
+    <>
+      <TemplateFloatingCTA templateName="Bloom Kitchen" templateSlug="bloom" />
+      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
       
       {/* ========== HEADER ========== */}
       <header 
@@ -399,6 +402,7 @@ export default function PlantBasedShowcase() {
         </div>
       </footer>
     </div>
+    </>
   );
 }
 

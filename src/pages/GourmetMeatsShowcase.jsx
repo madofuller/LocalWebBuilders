@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Instagram, Facebook, Twitter, ArrowRight, Menu, X, ShoppingCart, Star
 } from 'lucide-react';
+import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
    PHIL'S PRIME - Gourmet Meats & Sausages
@@ -43,7 +44,9 @@ export default function GourmetMeatsShowcase() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
+    <>
+      <TemplateFloatingCTA templateName="Phil's Prime" templateSlug="phils-prime" />
+      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
       
       {/* ========== HEADER ========== */}
       <header 
@@ -357,5 +360,6 @@ export default function GourmetMeatsShowcase() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

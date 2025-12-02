@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Instagram, ArrowRight, Menu, X, ShoppingBag
 } from 'lucide-react';
+import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
    TOPSTACK - Smash Burger Joint
@@ -51,7 +53,9 @@ export default function SmashBurgerShowcase() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
+    <>
+      <TemplateFloatingCTA templateName="TopStack Burgers" templateSlug="topstack" />
+      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
       
       {/* ========== HEADER ========== */}
       <header 
@@ -67,11 +71,15 @@ export default function SmashBurgerShowcase() {
           </span>
 
           <nav className="hidden md:flex items-center gap-8">
-            {['OUR SPOTS', 'MENU', 'LESS JUNK MORE FUNK'].map(item => (
-              <a key={item} href="#" className="text-sm font-bold hover:opacity-70" style={{ color: colors.black }}>
-                {item}
-              </a>
-            ))}
+            <Link to="/smash-burger/menu" className="text-sm font-bold hover:opacity-70" style={{ color: colors.black }}>
+              MENU
+            </Link>
+            <a href="#locations" className="text-sm font-bold hover:opacity-70" style={{ color: colors.black }}>
+              OUR SPOTS
+            </a>
+            <a href="#about" className="text-sm font-bold hover:opacity-70" style={{ color: colors.black }}>
+              OUR STORY
+            </a>
           </nav>
 
           <a 
@@ -280,6 +288,7 @@ export default function SmashBurgerShowcase() {
         </div>
       </footer>
     </div>
+    </>
   );
 }
 

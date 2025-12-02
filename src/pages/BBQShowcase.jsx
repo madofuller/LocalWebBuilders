@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   MapPin, Phone, Clock, Star, ChevronRight, Instagram, 
   Facebook, ArrowRight, Menu, X, Flame
 } from 'lucide-react';
+import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
    OAKFIRE - Smokehouse & Bar
@@ -63,7 +65,9 @@ export default function BBQShowcase() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ fontFamily: "'Lato', sans-serif" }}>
+    <>
+      <TemplateFloatingCTA templateName="Oakfire BBQ" templateSlug="oakfire" />
+      <div className="min-h-screen pt-12" style={{ fontFamily: "'Lato', sans-serif" }}>
       
       {/* ========== HEADER ========== */}
       <header 
@@ -76,15 +80,19 @@ export default function BBQShowcase() {
           <div className="flex items-center gap-8">
             <span className="text-xs tracking-widest" style={{ color: colors.teal }}>EST. 2018</span>
             <nav className="hidden md:flex items-center gap-6">
-              {['Menu', 'Drinks', 'Locations'].map(item => (
-                <a 
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+              {[
+                { label: 'Menu', href: '/bbq/menu' },
+                { label: 'About', href: '/bbq/about' },
+                { label: 'Locations', href: '#locations' }
+              ].map(item => (
+                <Link 
+                  key={item.label}
+                  to={item.href}
                   className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
                   style={{ color: colors.teal }}
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </Link>
               ))}
             </nav>
           </div>
@@ -98,16 +106,20 @@ export default function BBQShowcase() {
 
           <div className="flex items-center gap-6">
             <nav className="hidden md:flex items-center gap-6">
-              {['Catering', 'Events'].map(item => (
-                <a 
-                  key={item}
-                  href="#"
-                  className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
-                  style={{ color: colors.teal }}
-                >
-                  {item}
-                </a>
-              ))}
+              <Link 
+                to="/bbq/locations"
+                className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
+                style={{ color: colors.teal }}
+              >
+                Locations
+              </Link>
+              <Link 
+                to="/bbq/catering"
+                className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
+                style={{ color: colors.teal }}
+              >
+                Catering
+              </Link>
             </nav>
             <a 
               href="#order"
@@ -160,14 +172,14 @@ export default function BBQShowcase() {
                 the best damn sides you've ever had.
               </p>
               
-              <a 
-                href="#menu"
+              <Link 
+                to="/bbq/menu"
                 className="inline-flex items-center gap-2 text-sm font-semibold underline hover:opacity-70 transition-opacity"
                 style={{ color: colors.teal }}
               >
                 VIEW FULL MENU
                 <ArrowRight size={16} />
-              </a>
+              </Link>
             </div>
 
             <div className="relative">
@@ -537,5 +549,6 @@ export default function BBQShowcase() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

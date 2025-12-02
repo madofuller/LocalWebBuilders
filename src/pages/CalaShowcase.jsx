@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   MapPin, Phone, Clock, Star, ChevronRight, Instagram, 
   Facebook, ArrowRight, Smartphone, Menu, X
 } from 'lucide-react';
+import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
    SOLARA - Mediterranean Restaurant Showcase
@@ -88,7 +90,9 @@ export default function CalaShowcase() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <>
+      <TemplateFloatingCTA templateName="Solara Mediterranean" templateSlug="solara" />
+      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif" }}>
       
       {/* ========== STICKY HEADER ========== */}
       <header 
@@ -102,16 +106,27 @@ export default function CalaShowcase() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Left Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {['Menu', 'Locations', 'About'].map(item => (
-              <a 
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
-                style={{ color: colors.darkBrown }}
-              >
-                {item.toUpperCase()}
-              </a>
-            ))}
+            <Link 
+              to="/mediterranean/menu"
+              className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
+              style={{ color: colors.darkBrown }}
+            >
+              MENU
+            </Link>
+            <a 
+              href="#locations"
+              className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
+              style={{ color: colors.darkBrown }}
+            >
+              LOCATIONS
+            </a>
+            <a 
+              href="#about"
+              className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
+              style={{ color: colors.darkBrown }}
+            >
+              ABOUT
+            </a>
           </nav>
 
           {/* Logo */}
@@ -725,5 +740,6 @@ export default function CalaShowcase() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

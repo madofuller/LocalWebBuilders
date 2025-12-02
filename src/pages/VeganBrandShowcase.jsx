@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Instagram, ArrowRight, Menu, X, ShoppingCart, Leaf
 } from 'lucide-react';
+import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
    GOLDEN YEAST - Vegan Nutritional Yeast Brand
@@ -51,7 +52,9 @@ export default function VeganBrandShowcase() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <>
+      <TemplateFloatingCTA templateName="Golden Yeast Vegan" templateSlug="golden-yeast" />
+      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif" }}>
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -302,6 +305,7 @@ export default function VeganBrandShowcase() {
         </div>
       </footer>
     </div>
+    </>
   );
 }
 

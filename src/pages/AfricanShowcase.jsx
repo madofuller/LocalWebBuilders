@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   MapPin, Phone, ChevronRight, Instagram, 
   Facebook, ArrowRight, Menu, X, Twitter, ShoppingBag
 } from 'lucide-react';
+import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
    SAFARI SPICE - African Flavors Brand
@@ -65,7 +67,9 @@ export default function AfricanShowcase() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <>
+      <TemplateFloatingCTA templateName="Safari Spice" templateSlug="safari-spice" />
+      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif" }}>
       
       {/* ========== HEADER ========== */}
       <header 
@@ -76,16 +80,27 @@ export default function AfricanShowcase() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <nav className="hidden md:flex items-center gap-6">
-            {['Shop', 'Recipes', 'About'].map(item => (
-              <a 
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-sm font-semibold tracking-wide hover:opacity-70 transition-opacity"
-                style={{ color: colors.white }}
-              >
-                {item}
-              </a>
-            ))}
+            <Link 
+              to="/african/shop"
+              className="text-sm font-semibold tracking-wide hover:opacity-70 transition-opacity"
+              style={{ color: colors.white }}
+            >
+              Shop
+            </Link>
+            <Link 
+              to="/african/recipes"
+              className="text-sm font-semibold tracking-wide hover:opacity-70 transition-opacity"
+              style={{ color: colors.white }}
+            >
+              Recipes
+            </Link>
+            <a 
+              href="#about"
+              className="text-sm font-semibold tracking-wide hover:opacity-70 transition-opacity"
+              style={{ color: colors.white }}
+            >
+              About
+            </a>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -209,9 +224,10 @@ export default function AfricanShowcase() {
               { name: 'SUYA', desc: 'Spice Blend', img: images.meat, price: '$10', color: colors.orange },
               { name: 'JOLLY PUFFS', desc: 'Snack Mix', img: images.snacks, price: '$8', color: colors.yellow }
             ].map((product, i) => (
-              <div 
+              <Link 
                 key={i}
-                className="rounded-3xl overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] group"
+                to="/african/product"
+                className="rounded-3xl overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] group block"
               >
                 <div className="aspect-square overflow-hidden" style={{ background: product.color }}>
                   <img 
@@ -235,19 +251,19 @@ export default function AfricanShowcase() {
                     {product.price}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <a 
-              href="#"
+            <Link 
+              to="/african/product"
               className="inline-flex items-center gap-2 text-lg font-semibold underline"
               style={{ color: colors.green }}
             >
               Shop All Products
               <ArrowRight size={18} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -576,5 +592,6 @@ export default function AfricanShowcase() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

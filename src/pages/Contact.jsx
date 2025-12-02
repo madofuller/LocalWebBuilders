@@ -38,7 +38,7 @@ const plans = [
 // CONFIGURATION - Update this with your Web3Forms access key
 // Get your free key at: https://web3forms.com/
 // ============================================
-const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE'; // Replace with your actual key
+const WEB3FORMS_ACCESS_KEY = '9eb905d2-2fba-4295-bb14-4efb62c5bd80';
 const CONTACT_EMAIL = 'contact@localwebbuilders.com';
 
 export default function Contact() {
@@ -149,7 +149,10 @@ export default function Contact() {
           >
             <CheckCircle size={40} style={{ color: colors.green }} />
           </div>
-          <h1 className="text-3xl font-bold mb-4" style={{ color: colors.text }}>
+          <h1
+            className="text-3xl font-bold mb-4"
+            style={{ color: colors.text, fontFamily: "'Space Mono', monospace" }}
+          >
             Message Sent!
           </h1>
           <p className="mb-8" style={{ color: colors.textMuted }}>
@@ -196,7 +199,10 @@ export default function Contact() {
           
           {/* Left - Info */}
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: colors.text }}>
+            <h1
+              className="text-4xl md:text-5xl font-bold mb-6"
+              style={{ color: colors.text, fontFamily: "'Space Mono', monospace" }}
+            >
               Let's Build Your<br/>
               <span style={{ color: colors.accent }}>Dream Website</span>
             </h1>

@@ -16,8 +16,8 @@ const plans = [
     yearlyPrice: 12,
     sqspMonthly: 25,
     sqspYearly: 16,
-    color: '#3b82f6',
-    gradient: 'from-blue-500 to-cyan-400',
+    color: '#ff6b35',
+    gradient: 'from-orange-500 to-amber-400',
     features: [
       'Custom website built for you',
       'Fast, secure hosting included',
@@ -36,8 +36,8 @@ const plans = [
     yearlyPrice: 18,
     sqspMonthly: 36,
     sqspYearly: 23,
-    color: '#8b5cf6',
-    gradient: 'from-violet-500 to-purple-500',
+    color: '#ff6b35',
+    gradient: 'from-orange-500 to-amber-400',
     popular: true,
     features: [
       'Everything in Personal',
@@ -95,19 +95,19 @@ export default function Pricing() {
     >
       {/* Animated background gradient blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div 
+        <div
           className="absolute w-[800px] h-[800px] rounded-full opacity-20 blur-[120px]"
-          style={{ 
-            background: 'linear-gradient(135deg, #8b5cf6, #3b82f6)',
+          style={{
+            background: 'linear-gradient(135deg, #ff6b35, #f97316)',
             top: '-20%',
             right: '-10%',
             animation: 'float 20s ease-in-out infinite'
           }}
         />
-        <div 
+        <div
           className="absolute w-[600px] h-[600px] rounded-full opacity-15 blur-[100px]"
-          style={{ 
-            background: 'linear-gradient(135deg, #f97316, #8b5cf6)',
+          style={{
+            background: 'linear-gradient(135deg, #ff8c61, #ff6b35)',
             bottom: '-10%',
             left: '-5%',
             animation: 'float 25s ease-in-out infinite reverse'
@@ -162,12 +162,15 @@ export default function Pricing() {
           <span className="text-sm text-white/70">We build it. You own it. Simple.</span>
         </div>
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight">
+        <h1
+          className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight"
+          style={{ fontFamily: "'Space Mono', monospace" }}
+        >
           Cheaper than<br/>
-          <span 
+          <span
             className="bg-clip-text text-transparent"
-            style={{ 
-              backgroundImage: 'linear-gradient(90deg, #8b5cf6, #3b82f6, #8b5cf6)',
+            style={{
+              backgroundImage: 'linear-gradient(90deg, #ff6b35, #f97316, #ff6b35)',
               backgroundSize: '200% auto',
               animation: 'shimmer 3s linear infinite'
             }}
@@ -189,7 +192,7 @@ export default function Pricing() {
           <button
             onClick={() => setIsYearly(!isYearly)}
             className="relative w-16 h-8 rounded-full p-1 transition-colors"
-            style={{ background: isYearly ? '#8b5cf6' : '#333' }}
+            style={{ background: isYearly ? '#ff6b35' : '#333' }}
           >
             <div 
               className="w-6 h-6 rounded-full bg-white transition-transform shadow-lg"
@@ -333,15 +336,15 @@ export default function Pricing() {
               <div
                 key={i}
                 className={`flex items-center justify-between p-5 rounded-2xl border transition-all ${
-                  item.highlight 
-                    ? 'bg-violet-500/10 border-violet-500/30' 
+                  item.highlight
+                    ? 'bg-orange-500/10 border-orange-500/30'
                     : 'bg-white/[0.02] border-white/5 hover:bg-white/[0.04]'
                 }`}
               >
                 <div className="flex items-center gap-4">
-                  <div 
+                  <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg ${
-                      item.highlight ? 'bg-violet-500 text-white' : 'bg-white/5 text-white/30'
+                      item.highlight ? 'bg-orange-500 text-white' : 'bg-white/5 text-white/30'
                     }`}
                   >
                     {item.name.charAt(0)}
@@ -353,7 +356,7 @@ export default function Pricing() {
                     <p className="text-sm text-white/40">{item.note}</p>
                   </div>
                 </div>
-                <div className={`text-right ${item.highlight ? 'text-violet-400' : 'text-white/50'}`}>
+                <div className={`text-right ${item.highlight ? 'text-orange-400' : 'text-white/50'}`}>
                   <span className="text-xl font-bold">{item.price}</span>
                 </div>
               </div>
@@ -365,15 +368,18 @@ export default function Pricing() {
       {/* What's Included Visual */}
       <section className="relative z-10 px-6 py-20">
         <div className="max-w-6xl mx-auto">
-          <div 
+          <div
             className="rounded-3xl p-8 md:p-12 border border-white/10"
-            style={{ background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1))' }}
+            style={{ background: 'linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(249, 115, 22, 0.1))' }}
           >
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                <h2
+                  className="text-3xl md:text-4xl font-bold text-white mb-6"
+                  style={{ fontFamily: "'Space Mono', monospace" }}
+                >
                   Everything included.<br/>
-                  <span className="text-violet-400">Zero hassle.</span>
+                  <span className="text-orange-400">Zero hassle.</span>
                 </h2>
                 <p className="text-white/50 mb-8">
                   We handle the tech so you can focus on your business. 
@@ -399,7 +405,7 @@ export default function Pricing() {
               </div>
               <div className="relative">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 to-blue-500/20" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20" />
                   <div className="absolute inset-4 rounded-xl bg-white/5 backdrop-blur border border-white/10 p-4">
                     <div className="flex gap-1.5 mb-4">
                       <div className="w-3 h-3 rounded-full bg-red-500/50" />
@@ -427,7 +433,10 @@ export default function Pricing() {
       {/* FAQ */}
       <section className="relative z-10 px-6 py-20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">
+          <h2
+            className="text-3xl font-bold text-white text-center mb-12"
+            style={{ fontFamily: "'Space Mono', monospace" }}
+          >
             Questions? Answers.
           </h2>
           
@@ -469,7 +478,10 @@ export default function Pricing() {
       {/* Final CTA */}
       <section className="relative z-10 px-6 py-20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            style={{ fontFamily: "'Space Mono', monospace" }}
+          >
             Ready to ditch the DIY?
           </h2>
           <p className="text-xl text-white/50 mb-10">
@@ -485,7 +497,7 @@ export default function Pricing() {
             <Link
               to="/contact"
               className="px-8 py-4 rounded-xl font-semibold text-white transition-all hover:scale-105 flex items-center justify-center gap-2"
-              style={{ background: 'linear-gradient(135deg, #8b5cf6, #3b82f6)' }}
+              style={{ background: '#ff6b35' }}
             >
               Start for ${isYearly ? '12' : '19'}/month
               <ArrowRight size={18} />

@@ -16,16 +16,13 @@ export default function TemplateFloatingCTA({ templateName, templateSlug }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (dismissed) return null;
-
   return (
     <>
-      {/* Top bar - always visible */}
+      {/* Top bar - static, not fixed - sits above template navbar */}
       <div 
-        className="fixed top-0 left-0 right-0 z-[100] py-3 px-4 flex items-center justify-between"
+        className="w-full py-3 px-4 flex items-center justify-between"
         style={{ 
-          background: 'rgba(10, 10, 15, 0.95)',
-          backdropFilter: 'blur(10px)',
+          background: 'rgba(10, 10, 15, 0.98)',
           borderBottom: '1px solid rgba(255,255,255,0.1)'
         }}
       >
@@ -59,41 +56,43 @@ export default function TemplateFloatingCTA({ templateName, templateSlug }) {
       </div>
 
       {/* Bottom floating bar - shows on scroll */}
-      <div 
-        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] transition-all duration-300 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'
-        }`}
-      >
+      {!dismissed && (
         <div 
-          className="flex items-center gap-4 px-6 py-4 rounded-2xl shadow-2xl"
-          style={{ 
-            background: 'rgba(10, 10, 15, 0.95)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255,255,255,0.1)'
-          }}
+          className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] transition-all duration-300 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'
+          }`}
         >
-          <div className="hidden sm:block">
-            <p className="text-white font-medium">Love this design?</p>
-            <p className="text-white/50 text-sm">Starting at $12/mo</p>
-          </div>
-          
-          <Link 
-            to={`/contact?template=${templateSlug}`}
-            className="px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 flex items-center gap-2"
-            style={{ background: '#ff6b35', color: 'white' }}
+          <div 
+            className="flex items-center gap-4 px-6 py-4 rounded-2xl shadow-2xl"
+            style={{ 
+              background: 'rgba(10, 10, 15, 0.95)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255,255,255,0.1)'
+            }}
           >
-            Get Started
-            <ArrowRight size={18} />
-          </Link>
+            <div className="hidden sm:block">
+              <p className="text-white font-medium">Love this design?</p>
+              <p className="text-white/50 text-sm">Starting at $12/mo</p>
+            </div>
+            
+            <Link 
+              to={`/contact?template=${templateSlug}`}
+              className="px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 flex items-center gap-2"
+              style={{ background: '#ff6b35', color: 'white' }}
+            >
+              Get Started
+              <ArrowRight size={18} />
+            </Link>
 
-          <button 
-            onClick={() => setDismissed(true)}
-            className="p-2 rounded-lg hover:bg-white/10 transition-colors text-white/50 hover:text-white"
-          >
-            <X size={18} />
-          </button>
+            <button 
+              onClick={() => setDismissed(true)}
+              className="p-2 rounded-lg hover:bg-white/10 transition-colors text-white/50 hover:text-white"
+            >
+              <X size={18} />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

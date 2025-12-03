@@ -75,7 +75,7 @@ const menuCategories = [
       { name: 'Oak-Smoked Beef Sandwich', desc: 'Sliced brisket, pickles, onion, white bread', price: 16, img: images.sandwich },
       { name: 'Chopped Brisket Sandwich', desc: 'Hand-chopped, house sauce, slaw', price: 15 },
       { name: 'Pulled Pork Sandwich', desc: 'Carolina gold, pickles, brioche bun', price: 14 },
-      { name: "Loro Club Sandwich", desc: 'Turkey, bacon, avocado, chipotle mayo', price: 16 }
+      { name: "Oakfire Club", desc: 'Turkey, bacon, avocado, chipotle mayo', price: 16 }
     ]
   },
   {

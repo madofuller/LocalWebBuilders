@@ -5,6 +5,10 @@ import {
   Facebook, ArrowRight, Menu, X, Flame
 } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
+import { LanguageProvider, useLanguage } from '../context/LanguageContext';
+import LanguageToggle from '../components/LanguageToggle';
+import { OrderButtons } from '../components/OnlineOrdering';
+import { MapEmbed, LocationCard } from '../components/MapEmbed';
 
 /* ============================================
    OAKFIRE - Smokehouse & Bar
@@ -54,9 +58,92 @@ const SmokeWisp = ({ className = "" }) => (
   </svg>
 );
 
-export default function BBQShowcase() {
+// Ordering links configuration - customize per restaurant
+const orderingLinks = [
+  { platform: 'doordash', url: 'https://doordash.com' },
+  { platform: 'ubereats', url: 'https://ubereats.com' },
+  { platform: 'direct', url: '#order' },
+];
+
+// Location data for maps
+const locationData = [
+  {
+    name: 'Oakfire Austin',
+    address: '1234 South Congress Ave, Austin, TX 78704',
+    phone: '(512) 555-0123',
+    hours: [
+      { days: 'Mon-Thu', time: '11am - 9pm' },
+      { days: 'Fri-Sat', time: '11am - 10pm' },
+      { days: 'Sunday', time: '11am - 8pm' },
+    ],
+    image: 'https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=600&q=80',
+  },
+  {
+    name: 'Oakfire Dallas',
+    address: '5678 Main Street, Dallas, TX 75201',
+    phone: '(214) 555-0456',
+    hours: [
+      { days: 'Mon-Thu', time: '11am - 9pm' },
+      { days: 'Fri-Sat', time: '11am - 10pm' },
+      { days: 'Sunday', time: '11am - 8pm' },
+    ],
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80',
+  },
+];
+
+// Translated content
+const content = {
+  heroTitle: {
+    en: 'Smoked meats,\nboozy slushees,\nrad veggies,\nchill vibes.',
+    es: 'Carnes ahumadas,\nslushees con licor,\nverduras increíbles,\nvibraciones relajadas.',
+    fr: 'Viandes fumées,\nslushees alcoolisés,\nlégumes savoureux,\nambiance décontractée.',
+  },
+  heroDesc: {
+    en: 'Oakfire is Texas-style barbecue meets Asian smokehouse. Come for the brisket, stay for the frozen cocktails and the best damn sides you\'ve ever had.',
+    es: 'Oakfire es barbacoa texana con toques de ahumado asiático. Ven por el brisket, quédate por los cócteles helados y las mejores guarniciones que hayas probado.',
+    fr: 'Oakfire est un barbecue texan qui rencontre le fumoir asiatique. Venez pour le brisket, restez pour les cocktails glacés et les meilleurs accompagnements que vous ayez jamais goûtés.',
+  },
+  viewMenu: {
+    en: 'VIEW FULL MENU',
+    es: 'VER MENÚ COMPLETO',
+    fr: 'VOIR LE MENU COMPLET',
+  },
+  locationsTitle: {
+    en: 'Kick back, relax,\nand stay awhile.',
+    es: 'Relájate, descansa,\ny quédate un rato.',
+    fr: 'Détendez-vous,\net restez un moment.',
+  },
+  locationsDesc: {
+    en: 'Top-shelf patios, beautiful indoors, and an atmosphere that feels like a backyard BBQ with your coolest friends.',
+    es: 'Terrazas de primera, interiores hermosos y un ambiente que se siente como una barbacoa en el jardín con tus mejores amigos.',
+    fr: 'Terrasses haut de gamme, intérieurs magnifiques et une atmosphère de barbecue entre amis.',
+  },
+  foundersTitle: {
+    en: 'JAKE\nTHORNTON\n×\nMARCUS\nREED',
+    es: 'JAKE\nTHORNTON\n×\nMARCUS\nREED',
+    fr: 'JAKE\nTHORNTON\n×\nMARCUS\nREED',
+  },
+  foundersDesc: {
+    en: 'What happens when a legendary pitmaster teams up with an award-winning chef? Magic. Pure, smoky, delicious magic. Oakfire was born from their shared obsession with fire, flavor, and good times.',
+    es: '¿Qué pasa cuando un legendario maestro del ahumado se une con un chef galardonado? Magia. Pura magia ahumada y deliciosa. Oakfire nació de su obsesión compartida por el fuego, el sabor y los buenos momentos.',
+    fr: 'Que se passe-t-il quand un légendaire maître du fumoir fait équipe avec un chef primé? De la magie. Pure, fumée, délicieuse magie. Oakfire est né de leur obsession commune pour le feu, la saveur et les bons moments.',
+  },
+  drinksTitle: {
+    en: 'Drinks so good,\nyou\'ll forget about the meat.\n(almost)',
+    es: 'Bebidas tan buenas,\nque olvidarás la carne.\n(casi)',
+    fr: 'Des boissons si bonnes,\nvous oublierez la viande.\n(presque)',
+  },
+  drinksDesc: {
+    en: 'Our bar program is as serious as our smoker. Fresh-squeezed cocktails, boozy slushees, Texas beers on tap, and a curated wine list.',
+    es: 'Nuestro programa de bar es tan serio como nuestro ahumador. Cócteles recién exprimidos, slushees con licor, cervezas texanas de barril y una selección de vinos.',
+    fr: 'Notre programme de bar est aussi sérieux que notre fumoir. Cocktails fraîchement pressés, slushees alcoolisés, bières texanes à la pression et une sélection de vins.',
+  },
+};
+
+function BBQShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, tCustom } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -67,11 +154,11 @@ export default function BBQShowcase() {
   return (
     <>
       <TemplateFloatingCTA templateName="Oakfire BBQ" templateSlug="oakfire" />
-      <div className="min-h-screen pt-12" style={{ fontFamily: "'Lato', sans-serif" }}>
+      <div className="min-h-screen" style={{ fontFamily: "'Lato', sans-serif" }}>
       
       {/* ========== HEADER ========== */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled ? 'py-3' : 'py-5'
         }`}
         style={{ background: colors.cream }}
@@ -104,14 +191,14 @@ export default function BBQShowcase() {
             OAKFIRE
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             <nav className="hidden md:flex items-center gap-6">
               <Link 
                 to="/bbq/locations"
                 className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
                 style={{ color: colors.teal }}
               >
-                Locations
+                {t('locations')}
               </Link>
               <Link 
                 to="/bbq/catering"
@@ -121,13 +208,17 @@ export default function BBQShowcase() {
                 Catering
               </Link>
             </nav>
-            <a 
-              href="#order"
-              className="px-5 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
+            {/* Language Toggle */}
+            <div className="hidden sm:block" style={{ color: colors.teal }}>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/bbq/order"
+              className="px-5 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105 inline-block"
               style={{ background: colors.coral, color: colors.cream }}
             >
-              ORDER
-            </a>
+              {t('orderOnline').toUpperCase()}
+            </Link>
           </div>
 
           <button 
@@ -157,19 +248,19 @@ export default function BBQShowcase() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8"
                 style={{ fontFamily: "'Playfair Display', serif", color: colors.teal }}
               >
-                Smoked meats,<br/>
-                <span style={{ fontStyle: 'italic' }}>boozy slushees,</span><br/>
-                rad veggies,<br/>
-                chill vibes.
+                {tCustom(content.heroTitle).split('\n').map((line, i) => (
+                  <span key={i}>
+                    {i === 1 ? <span style={{ fontStyle: 'italic' }}>{line}</span> : line}
+                    {i < 3 && <br/>}
+                  </span>
+                ))}
               </h1>
               
               <p 
                 className="text-lg mb-8 max-w-md"
                 style={{ color: colors.darkText, opacity: 0.7 }}
               >
-                Oakfire is Texas-style barbecue meets Asian smokehouse. 
-                Come for the brisket, stay for the frozen cocktails and 
-                the best damn sides you've ever had.
+                {tCustom(content.heroDesc)}
               </p>
               
               <Link 
@@ -177,7 +268,7 @@ export default function BBQShowcase() {
                 className="inline-flex items-center gap-2 text-sm font-semibold underline hover:opacity-70 transition-opacity"
                 style={{ color: colors.teal }}
               >
-                VIEW FULL MENU
+                {tCustom(content.viewMenu)}
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -282,14 +373,19 @@ export default function BBQShowcase() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <p className="text-sm tracking-widest mb-4" style={{ color: colors.coral }}>
-              BEVERAGE PROGRAM
+              {t('menu').toUpperCase()}
             </p>
             <h2 
               className="text-4xl md:text-5xl font-bold"
               style={{ fontFamily: "'Playfair Display', serif", color: colors.cream }}
             >
-              Grab a drink and let the<br/>good times flow.
+              {tCustom(content.drinksTitle).split('\n').map((line, i) => (
+                <span key={i}>{line}{i < 2 && <br/>}</span>
+              ))}
             </h2>
+            <p className="text-lg mt-4 max-w-2xl mx-auto" style={{ color: colors.cream, opacity: 0.8 }}>
+              {tCustom(content.drinksDesc)}
+            </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -327,51 +423,46 @@ export default function BBQShowcase() {
               className="text-4xl md:text-5xl font-bold mb-4"
               style={{ fontFamily: "'Playfair Display', serif", color: colors.teal }}
             >
-              Kick back, relax,<br/>
-              <span style={{ fontStyle: 'italic' }}>and stay awhile.</span>
+              {tCustom(content.locationsTitle).split('\n').map((line, i) => (
+                <span key={i}>
+                  {i === 1 ? <span style={{ fontStyle: 'italic' }}>{line}</span> : line}
+                  {i === 0 && <br/>}
+                </span>
+              ))}
             </h2>
             <p className="text-lg" style={{ color: colors.darkText, opacity: 0.7 }}>
-              Top-shelf patios, beautiful indoors, and an atmosphere 
-              that feels like a backyard BBQ with your coolest friends.
+              {tCustom(content.locationsDesc)}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {[
-              { city: 'Austin', address: '2115 South Congress Ave', img: images.austin },
-              { city: 'Dallas', address: '1530 Main Street', img: images.dallas }
-            ].map((loc, i) => (
-              <div 
+            {locationData.map((loc, i) => (
+              <LocationCard
                 key={i}
-                className="rounded-3xl overflow-hidden group cursor-pointer"
-                style={{ background: colors.teal }}
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img 
-                    src={loc.img}
-                    alt={loc.city}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-8">
-                  <h3 
-                    className="text-3xl font-bold mb-2"
-                    style={{ fontFamily: "'Playfair Display', serif", color: colors.cream }}
-                  >
-                    {loc.city}
-                  </h3>
-                  <p style={{ color: colors.cream, opacity: 0.7 }}>{loc.address}</p>
-                  <a 
-                    href="#"
-                    className="inline-flex items-center gap-2 mt-4 text-sm font-semibold"
-                    style={{ color: colors.coral }}
-                  >
-                    VIEW DETAILS
-                    <ArrowRight size={16} />
-                  </a>
-                </div>
-              </div>
+                name={loc.name}
+                address={loc.address}
+                phone={loc.phone}
+                hours={loc.hours}
+                image={loc.image}
+                accentColor={colors.coral}
+              />
             ))}
+          </div>
+          
+          {/* Online Ordering Section */}
+          <div className="mt-16 text-center">
+            <h3 
+              className="text-2xl font-bold mb-6"
+              style={{ fontFamily: "'Playfair Display', serif", color: colors.teal }}
+            >
+              {t('orderOnline')}
+            </h3>
+            <OrderButtons 
+              links={orderingLinks}
+              layout="row"
+              size="lg"
+              className="justify-center"
+            />
           </div>
         </div>
       </section>
@@ -385,9 +476,9 @@ export default function BBQShowcase() {
                 className="text-5xl md:text-7xl font-black leading-none mb-8"
                 style={{ fontFamily: "'Alfa Slab One', serif", color: colors.teal }}
               >
-                AARON<br/>FRANKLIN<br/>
+                JAKE<br/>THORNTON<br/>
                 <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400, fontStyle: 'italic' }}>×</span><br/>
-                TYSON<br/>COLE
+                MARCUS<br/>REED
               </h2>
             </div>
 
@@ -550,5 +641,14 @@ export default function BBQShowcase() {
       </footer>
     </div>
     </>
+  );
+}
+
+// Wrap with LanguageProvider
+export default function BBQShowcase() {
+  return (
+    <LanguageProvider>
+      <BBQShowcaseContent />
+    </LanguageProvider>
   );
 }

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Instagram, Facebook, Twitter, ArrowRight, Menu, X, ShoppingCart, Star
 } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
+import { LanguageProvider, useLanguage } from '../context/LanguageContext';
+import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
    PHIL'S PRIME - Gourmet Meats & Sausages
@@ -34,8 +37,9 @@ const images = {
   platter: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=80',
 };
 
-export default function GourmetMeatsShowcase() {
+function GourmetMeatsShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -46,11 +50,11 @@ export default function GourmetMeatsShowcase() {
   return (
     <>
       <TemplateFloatingCTA templateName="Phil's Prime" templateSlug="phils-prime" />
-      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
+      <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
       
       {/* ========== HEADER ========== */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-2 shadow-sm' : 'py-4'}`}
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'py-2 shadow-sm' : 'py-4'}`}
         style={{ background: colors.cream }}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -69,10 +73,19 @@ export default function GourmetMeatsShowcase() {
             Phil's <span className="font-bold not-italic">PRIME</span>
           </span>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-4">
             <a href="#" className="text-sm hover:opacity-70" style={{ color: colors.black }}>Recipes</a>
-            <a href="#" className="text-sm hover:opacity-70" style={{ color: colors.black }}>Find Phil's</a>
-            <ShoppingCart size={20} style={{ color: colors.black }} />
+            <div style={{ color: colors.black }}>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/gourmet-meats/order"
+              className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium"
+              style={{ background: colors.coral, color: colors.white }}
+            >
+              <ShoppingCart size={16} />
+              {t('orderOnline')}
+            </Link>
           </div>
         </div>
       </header>
@@ -361,5 +374,13 @@ export default function GourmetMeatsShowcase() {
       </footer>
     </div>
     </>
+  );
+}
+
+export default function GourmetMeatsShowcase() {
+  return (
+    <LanguageProvider>
+      <GourmetMeatsShowcaseContent />
+    </LanguageProvider>
   );
 }

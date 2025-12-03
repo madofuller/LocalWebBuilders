@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Instagram, ArrowRight, Menu, X, ShoppingCart, Leaf
 } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
+import { LanguageProvider, useLanguage } from '../context/LanguageContext';
+import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
    GOLDEN YEAST - Vegan Nutritional Yeast Brand
@@ -42,8 +45,9 @@ const Marquee = ({ items, bgColor, textColor }) => (
   </div>
 );
 
-export default function VeganBrandShowcase() {
+function VeganBrandShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -54,7 +58,7 @@ export default function VeganBrandShowcase() {
   return (
     <>
       <TemplateFloatingCTA templateName="Golden Yeast Vegan" templateSlug="golden-yeast" />
-      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif" }}>
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -67,7 +71,7 @@ export default function VeganBrandShowcase() {
 
       {/* ========== HEADER ========== */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}
         style={{ background: colors.green }}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -78,22 +82,25 @@ export default function VeganBrandShowcase() {
             GOLDEN YEAST
           </span>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {['Shop', 'Recipes', 'About'].map(item => (
               <a key={item} href="#" className="text-sm font-bold hover:opacity-70" style={{ color: colors.white }}>
                 {item}
               </a>
             ))}
+            <div style={{ color: colors.white }}>
+              <LanguageToggle style="buttons" />
+            </div>
           </nav>
 
-          <a 
-            href="#"
+          <Link 
+            to="/vegan-brand/order"
             className="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm"
             style={{ background: colors.yellow, color: colors.darkGreen }}
           >
             <ShoppingCart size={16} />
-            CART (0)
-          </a>
+            {t('orderOnline').toUpperCase()}
+          </Link>
         </div>
       </header>
 
@@ -309,3 +316,10 @@ export default function VeganBrandShowcase() {
   );
 }
 
+export default function VeganBrandShowcase() {
+  return (
+    <LanguageProvider>
+      <VeganBrandShowcaseContent />
+    </LanguageProvider>
+  );
+}

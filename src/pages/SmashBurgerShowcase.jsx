@@ -4,6 +4,8 @@ import {
   Instagram, ArrowRight, Menu, X, ShoppingBag
 } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
+import { LanguageProvider, useLanguage } from '../context/LanguageContext';
+import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
    TOPSTACK - Smash Burger Joint
@@ -43,8 +45,9 @@ const JaggedEdge = ({ color }) => (
   </svg>
 );
 
-export default function SmashBurgerShowcase() {
+function SmashBurgerShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -55,11 +58,11 @@ export default function SmashBurgerShowcase() {
   return (
     <>
       <TemplateFloatingCTA templateName="TopStack Burgers" templateSlug="topstack" />
-      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
+      <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
       
       {/* ========== HEADER ========== */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}
         style={{ background: colors.cream }}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -70,7 +73,7 @@ export default function SmashBurgerShowcase() {
             topstack
           </span>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             <Link to="/smash-burger/menu" className="text-sm font-bold hover:opacity-70" style={{ color: colors.black }}>
               MENU
             </Link>
@@ -80,15 +83,18 @@ export default function SmashBurgerShowcase() {
             <a href="#about" className="text-sm font-bold hover:opacity-70" style={{ color: colors.black }}>
               OUR STORY
             </a>
+            <div style={{ color: colors.black }}>
+              <LanguageToggle style="buttons" />
+            </div>
           </nav>
 
-          <a 
-            href="#"
+          <Link 
+            to="/smash-burger/order"
             className="px-5 py-2.5 font-bold text-sm"
             style={{ background: colors.black, color: colors.yellow }}
           >
-            [ ORDER NOW ]
-          </a>
+            [ {t('orderOnline').toUpperCase()} ]
+          </Link>
         </div>
       </header>
 
@@ -292,3 +298,10 @@ export default function SmashBurgerShowcase() {
   );
 }
 
+export default function SmashBurgerShowcase() {
+  return (
+    <LanguageProvider>
+      <SmashBurgerShowcaseContent />
+    </LanguageProvider>
+  );
+}

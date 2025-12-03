@@ -26,11 +26,19 @@ import GourmetMeatsShowcase from './pages/GourmetMeatsShowcase';
 import BBQMenu from './pages/BBQMenu';
 import BBQAbout from './pages/BBQAbout';
 import BBQLocations from './pages/BBQLocations';
+import BBQOrder from './pages/BBQOrder';
 import BBQCatering from './pages/BBQCatering';
 import MediterraneanMenu from './pages/MediterraneanMenu';
 import MediterraneanAbout from './pages/MediterraneanAbout';
 import MediterraneanLocations from './pages/MediterraneanLocations';
+import MediterraneanOrder from './pages/MediterraneanOrder';
 import AfricanProduct from './pages/AfricanProduct';
+import AfricanOrder from './pages/AfricanOrder';
+import SmashBurgerOrder from './pages/SmashBurgerOrder';
+import CateringOrder from './pages/CateringOrder';
+import VeganOrder from './pages/VeganOrder';
+import PlantBasedOrder from './pages/PlantBasedOrder';
+import GourmetMeatsOrder from './pages/GourmetMeatsOrder';
 import AfricanShop from './pages/AfricanShop';
 import AfricanRecipes from './pages/AfricanRecipes';
 import SmashBurgerMenu from './pages/SmashBurgerMenu';
@@ -308,27 +316,36 @@ export default function App() {
         <Route path="/mediterranean/menu" element={<MediterraneanMenu />} />
         <Route path="/mediterranean/about" element={<MediterraneanAbout />} />
         <Route path="/mediterranean/locations" element={<MediterraneanLocations />} />
+        <Route path="/mediterranean/order" element={<MediterraneanOrder />} />
         
         <Route path="/catering" element={<CateringShowcase />} />
+        <Route path="/catering/order" element={<CateringOrder />} />
         
         <Route path="/bbq" element={<BBQShowcase />} />
         <Route path="/bbq/menu" element={<BBQMenu />} />
         <Route path="/bbq/about" element={<BBQAbout />} />
         <Route path="/bbq/locations" element={<BBQLocations />} />
         <Route path="/bbq/catering" element={<BBQCatering />} />
+        <Route path="/bbq/order" element={<BBQOrder />} />
         
         <Route path="/african" element={<AfricanShowcase />} />
         <Route path="/african/product" element={<AfricanProduct />} />
         <Route path="/african/shop" element={<AfricanShop />} />
         <Route path="/african/recipes" element={<AfricanRecipes />} />
+        <Route path="/african/order" element={<AfricanOrder />} />
         
         <Route path="/vegan" element={<VeganBrandShowcase />} />
         <Route path="/plant-based" element={<PlantBasedShowcase />} />
         
         <Route path="/smash-burger" element={<SmashBurgerShowcase />} />
         <Route path="/smash-burger/menu" element={<SmashBurgerMenu />} />
+        <Route path="/smash-burger/order" element={<SmashBurgerOrder />} />
         
         <Route path="/gourmet-meats" element={<GourmetMeatsShowcase />} />
+        <Route path="/gourmet-meats/order" element={<GourmetMeatsOrder />} />
+        
+        <Route path="/vegan-brand/order" element={<VeganOrder />} />
+        <Route path="/plant-based/order" element={<PlantBasedOrder />} />
       </Routes>
     </Router>
   );

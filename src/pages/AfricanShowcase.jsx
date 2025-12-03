@@ -5,6 +5,8 @@ import {
   Facebook, ArrowRight, Menu, X, Twitter, ShoppingBag
 } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
+import { LanguageProvider, useLanguage } from '../context/LanguageContext';
+import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
    SAFARI SPICE - African Flavors Brand
@@ -56,9 +58,10 @@ const WavyDivider = ({ color, flip = false }) => (
   </svg>
 );
 
-export default function AfricanShowcase() {
+function AfricanShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -69,11 +72,11 @@ export default function AfricanShowcase() {
   return (
     <>
       <TemplateFloatingCTA templateName="Safari Spice" templateSlug="safari-spice" />
-      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif" }}>
       
       {/* ========== HEADER ========== */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled ? 'py-3' : 'py-5'
         }`}
         style={{ background: colors.green }}
@@ -126,14 +129,17 @@ export default function AfricanShowcase() {
             >
               Flavor Notes
             </a>
-            <a 
-              href="#shop"
+            <div style={{ color: colors.white }}>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/african/order"
               className="flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold transition-transform hover:scale-105"
               style={{ background: colors.yellow, color: colors.darkText }}
             >
               <ShoppingBag size={16} />
-              Shop Now
-            </a>
+              {t('orderOnline')}
+            </Link>
           </div>
 
           <button 
@@ -593,5 +599,13 @@ export default function AfricanShowcase() {
       </footer>
     </div>
     </>
+  );
+}
+
+export default function AfricanShowcase() {
+  return (
+    <LanguageProvider>
+      <AfricanShowcaseContent />
+    </LanguageProvider>
   );
 }

@@ -5,6 +5,8 @@ import {
   Facebook, ArrowRight, Smartphone, Menu, X
 } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
+import { LanguageProvider, useLanguage } from '../context/LanguageContext';
+import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
    SOLARA - Mediterranean Restaurant Showcase
@@ -79,9 +81,10 @@ const SunburstDeco = ({ size = 120, color = colors.golden }) => (
   </svg>
 );
 
-export default function CalaShowcase() {
+function CalaShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -92,11 +95,11 @@ export default function CalaShowcase() {
   return (
     <>
       <TemplateFloatingCTA templateName="Solara Mediterranean" templateSlug="solara" />
-      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif" }}>
       
       {/* ========== STICKY HEADER ========== */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled ? 'py-3 shadow-lg' : 'py-5'
         }`}
         style={{ 
@@ -146,7 +149,7 @@ export default function CalaShowcase() {
           </div>
 
           {/* Right Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {['Catering', 'Gift Cards'].map(item => (
               <a 
                 key={item}
@@ -157,13 +160,16 @@ export default function CalaShowcase() {
                 {item.toUpperCase()}
               </a>
             ))}
-            <a 
-              href="#order"
+            <div style={{ color: colors.darkBrown }}>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/mediterranean/order"
               className="px-5 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
               style={{ background: colors.terracotta, color: colors.white }}
             >
-              ORDER NOW
-            </a>
+              {t('orderOnline').toUpperCase()}
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -741,5 +747,14 @@ export default function CalaShowcase() {
       </footer>
     </div>
     </>
+  );
+}
+
+// Wrap with LanguageProvider
+export default function CalaShowcase() {
+  return (
+    <LanguageProvider>
+      <CalaShowcaseContent />
+    </LanguageProvider>
   );
 }

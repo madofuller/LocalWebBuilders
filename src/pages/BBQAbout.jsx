@@ -104,8 +104,8 @@ export default function BBQAbout() {
                   Two award-winning chefs unite.
                 </h2>
                 <p className="mb-4" style={{ color: colors.teal, opacity: 0.8 }}>
-                  In 2018, James Beard Award winners Aaron Franklin of Franklin 
-                  Barbecue and Tyson Cole of Uchi came together to create 
+                  In 2018, award-winning pitmasters Jake Thornton and 
+                  acclaimed chef Marcus Reed came together to create 
                   something new.
                 </p>
                 <p style={{ color: colors.teal, opacity: 0.8 }}>

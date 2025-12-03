@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Instagram, Facebook, ArrowRight, Menu, X, MapPin, ChevronRight
 } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
+import { LanguageProvider, useLanguage } from '../context/LanguageContext';
+import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
    BLOOM KITCHEN - Plant-Based Spreads & Sauces
@@ -40,8 +43,9 @@ const BlobShape = ({ color, className = "" }) => (
   </svg>
 );
 
-export default function PlantBasedShowcase() {
+function PlantBasedShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -52,11 +56,11 @@ export default function PlantBasedShowcase() {
   return (
     <>
       <TemplateFloatingCTA templateName="Bloom Kitchen" templateSlug="bloom" />
-      <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
+      <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
       
       {/* ========== HEADER ========== */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-3 shadow-sm' : 'py-5'}`}
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'py-3 shadow-sm' : 'py-5'}`}
         style={{ background: colors.cream }}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -67,21 +71,24 @@ export default function PlantBasedShowcase() {
             bloom
           </span>
 
-          <nav className="hidden md:flex items-center gap-8">
-            {['Our Mission', 'Our Products', 'Find a Better Palate', 'Contact'].map(item => (
+          <nav className="hidden md:flex items-center gap-6">
+            {['Our Mission', 'Our Products', 'Contact'].map(item => (
               <a key={item} href="#" className="text-sm hover:opacity-70" style={{ color: colors.darkText }}>
                 {item}
               </a>
             ))}
+            <div style={{ color: colors.darkText }}>
+              <LanguageToggle style="buttons" />
+            </div>
           </nav>
 
-          <a 
-            href="#"
+          <Link 
+            to="/plant-based/order"
             className="px-5 py-2.5 rounded-full text-sm font-medium"
             style={{ background: colors.sage, color: colors.cream }}
           >
-            STORE LOCATOR
-          </a>
+            {t('orderOnline').toUpperCase()}
+          </Link>
         </div>
       </header>
 
@@ -406,3 +413,10 @@ export default function PlantBasedShowcase() {
   );
 }
 
+export default function PlantBasedShowcase() {
+  return (
+    <LanguageProvider>
+      <PlantBasedShowcaseContent />
+    </LanguageProvider>
+  );
+}

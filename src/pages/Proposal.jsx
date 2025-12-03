@@ -39,8 +39,8 @@ const plans = {
     priceYearly: 18,
     features: ['7 pages', 'Mobile responsive', 'Contact form', 'Advanced SEO', 'Menu integration', 'Social links', '3 revisions']
   },
-  'enterprise': {
-    name: 'Enterprise',
+  'advanced': {
+    name: 'Advanced',
     priceMonthly: 49,
     priceYearly: 33,
     features: ['10 pages', 'Mobile responsive', 'Contact form', 'Advanced SEO', 'Online ordering page', 'Menu integration', 'Multi-language', '5 revisions']

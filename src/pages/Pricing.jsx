@@ -62,8 +62,8 @@ const plans = [
     excluded: ['Monthly content updates']
   },
   {
-    id: 'enterprise',
-    name: 'Enterprise',
+    id: 'advanced',
+    name: 'Advanced',
     tagline: 'Complete solution',
     monthlyPrice: 49,
     yearlyPrice: 33,

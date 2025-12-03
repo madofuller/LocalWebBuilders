@@ -30,7 +30,7 @@ const templates = [
 const plans = [
   { value: 'starter', label: 'Starter - $12/mo yearly ($19 monthly)' },
   { value: 'professional', label: 'Professional - $18/mo yearly ($29 monthly) ⭐ Popular' },
-  { value: 'enterprise', label: 'Enterprise - $33/mo yearly ($49 monthly)' },
+  { value: 'advanced', label: 'Advanced - $33/mo yearly ($49 monthly)' },
   { value: 'not-sure', label: 'Not sure yet - help me choose' }
 ];
 

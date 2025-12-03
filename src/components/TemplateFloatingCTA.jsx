@@ -46,7 +46,7 @@ export default function TemplateFloatingCTA({ templateName, templateSlug }) {
             Pricing
           </Link>
           <Link 
-            to={`/contact?template=${templateSlug}`}
+            to={`/proposal?template=${templateSlug}&plan=business`}
             className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
             style={{ background: '#ff6b35', color: 'white' }}
           >
@@ -72,11 +72,11 @@ export default function TemplateFloatingCTA({ templateName, templateSlug }) {
           >
             <div className="hidden sm:block">
               <p className="text-white font-medium">Love this design?</p>
-              <p className="text-white/50 text-sm">Starting at $12/mo</p>
+              <p className="text-white/50 text-sm">Starting at $16/mo</p>
             </div>
             
             <Link 
-              to={`/contact?template=${templateSlug}`}
+              to={`/proposal?template=${templateSlug}&plan=business`}
               className="px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 flex items-center gap-2"
               style={{ background: '#ff6b35', color: 'white' }}
             >

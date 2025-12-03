@@ -46,6 +46,8 @@ import SmashBurgerMenu from './pages/SmashBurgerMenu';
 // Business Pages
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
+import Proposal from './pages/Proposal';
+import Onboard from './pages/Onboard';
 
 // Portfolio Landing Page
 function PortfolioHome() {
@@ -130,8 +132,8 @@ function PortfolioHome() {
             >
               Pricing
             </Link>
-            <Link 
-              to="/contact" 
+            <Link
+              to="/proposal?plan=professional"
               className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
               style={{ background: '#ff6b35', color: 'white' }}
             >
@@ -264,7 +266,7 @@ function PortfolioHome() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link
-              to="/contact"
+              to="/proposal?plan=professional"
               className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-base md:text-lg transition-all hover:scale-105"
               style={{ background: 'white', color: '#0a0a0f' }}
             >
@@ -299,6 +301,8 @@ export default function App() {
         {/* Business Pages */}
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/proposal" element={<Proposal />} />
+        <Route path="/onboard" element={<Onboard />} />
         
         {/* Showcase Templates */}
         <Route path="/mediterranean" element={<CalaShowcase />} />

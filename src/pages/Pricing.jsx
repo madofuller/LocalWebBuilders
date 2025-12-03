@@ -22,9 +22,9 @@ const colors = {
 
 const plans = [
   {
-    id: 'personal',
-    name: 'Personal',
-    tagline: 'For simple sites',
+    id: 'starter',
+    name: 'Starter',
+    tagline: 'Essential web presence',
     monthlyPrice: 19,
     yearlyPrice: 12,
     sqspMonthly: 25,
@@ -41,9 +41,9 @@ const plans = [
     excluded: ['Online ordering', 'Priority support', 'Monthly content updates']
   },
   {
-    id: 'business',
-    name: 'Business',
-    tagline: 'For growing restaurants',
+    id: 'professional',
+    name: 'Professional',
+    tagline: 'For growing businesses',
     monthlyPrice: 29,
     yearlyPrice: 18,
     sqspMonthly: 36,
@@ -51,7 +51,7 @@ const plans = [
     color: colors.accent,
     popular: true,
     features: [
-      'Everything in Personal',
+      'Everything in Starter',
       'Online ordering integration',
       'Google Maps & reviews',
       'Social media integration',
@@ -62,16 +62,16 @@ const plans = [
     excluded: ['Monthly content updates']
   },
   {
-    id: 'commerce',
-    name: 'Commerce',
-    tagline: 'Full-service solution',
+    id: 'enterprise',
+    name: 'Enterprise',
+    tagline: 'Complete solution',
     monthlyPrice: 49,
     yearlyPrice: 33,
     sqspMonthly: 59,
     sqspYearly: 39,
     color: colors.accent,
     features: [
-      'Everything in Business',
+      'Everything in Professional',
       'Full e-commerce/ordering',
       'Reservation system',
       'Newsletter integration',
@@ -125,8 +125,8 @@ export default function Pricing() {
             >
               Templates
             </Link>
-            <Link 
-              to="/contact" 
+            <Link
+              to="/proposal?plan=professional"
               className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
               style={{ background: colors.accent, color: 'white' }}
             >
@@ -248,7 +248,7 @@ export default function Pricing() {
 
                   {/* CTA */}
                   <Link
-                    to={`/contact?plan=${plan.id}`}
+                    to={`/proposal?plan=${plan.id}&billing=${isYearly ? 'yearly' : 'monthly'}`}
                     className={`w-full py-4 rounded-xl font-semibold text-center block mb-8 transition-all hover:scale-[1.02] ${
                       plan.popular ? 'text-white' : 'text-white/90 hover:text-white'
                     }`}
@@ -464,7 +464,7 @@ export default function Pricing() {
               Browse Templates
             </Link>
             <Link
-              to="/contact"
+              to={`/proposal?plan=starter&billing=${isYearly ? 'yearly' : 'monthly'}`}
               className="px-8 py-4 rounded-xl font-semibold text-white transition-all hover:scale-105 flex items-center justify-center gap-2"
               style={{ background: '#ff6b35' }}
             >

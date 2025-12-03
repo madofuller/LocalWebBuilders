@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, Send, CheckCircle, Mail, Phone, Loader2, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Send, CheckCircle, Mail, Phone, Loader2, AlertCircle, Check, X as XIcon } from 'lucide-react';
 
 const colors = {
   bg: '#0a0a0f',
@@ -28,10 +28,23 @@ const templates = [
 ];
 
 const plans = [
-  { value: 'personal', label: 'Personal - $12/mo yearly ($19 monthly)' },
-  { value: 'business', label: 'Business - $18/mo yearly ($29 monthly) - Popular' },
-  { value: 'commerce', label: 'Commerce - $33/mo yearly ($49 monthly)' },
+  { value: 'starter', label: 'Starter - $12/mo yearly ($19 monthly)' },
+  { value: 'professional', label: 'Professional - $18/mo yearly ($29 monthly) ⭐ Popular' },
+  { value: 'enterprise', label: 'Enterprise - $33/mo yearly ($49 monthly)' },
   { value: 'not-sure', label: 'Not sure yet - help me choose' }
+];
+
+const businessTypes = [
+  { value: 'restaurant', label: 'Restaurant / Dine-in' },
+  { value: 'cafe', label: 'Cafe / Coffee Shop' },
+  { value: 'foodtruck', label: 'Food Truck' },
+  { value: 'catering', label: 'Catering Company' },
+  { value: 'bakery', label: 'Bakery / Desserts' },
+  { value: 'bar', label: 'Bar / Lounge' },
+  { value: 'fastcasual', label: 'Fast Casual' },
+  { value: 'finedining', label: 'Fine Dining' },
+  { value: 'ghost', label: 'Ghost Kitchen / Delivery Only' },
+  { value: 'other', label: 'Other' }
 ];
 
 // ============================================
@@ -50,10 +63,15 @@ export default function Contact() {
     email: '',
     phone: '',
     businessName: '',
+    businessType: '',
     template: '',
     plan: searchParams.get('plan') || '',
     message: '',
-    timeline: ''
+    timeline: '',
+    hasLogo: '',
+    hasPhotos: '',
+    hasMenu: '',
+    currentWebsite: ''
   });
 
   // Pre-fill template from URL param
@@ -72,12 +90,22 @@ export default function Contact() {
     // Get the template and plan labels for the email
     const templateLabel = templates.find(t => t.value === formData.template)?.label || formData.template;
     const planLabel = plans.find(p => p.value === formData.plan)?.label || formData.plan || 'Not selected';
+    const businessTypeLabel = businessTypes.find(b => b.value === formData.businessType)?.label || formData.businessType || 'Not specified';
     const timelineLabel = {
       'asap': 'ASAP - As soon as possible',
       '2-weeks': 'Within 2 weeks',
       '1-month': 'Within 1 month',
       'flexible': 'Flexible / Just exploring'
     }[formData.timeline] || 'Not specified';
+
+    // Readiness score calculation
+    const readinessItems = [
+      { label: 'Has Logo', value: formData.hasLogo === 'yes' },
+      { label: 'Has Photos', value: formData.hasPhotos === 'yes' },
+      { label: 'Has Menu/Content', value: formData.hasMenu === 'yes' }
+    ];
+    const readinessScore = readinessItems.filter(i => i.value).length;
+    const readinessEmoji = readinessScore === 3 ? 'READY TO GO' : readinessScore >= 1 ? 'PARTIALLY READY' : 'NEEDS PREP';
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -88,7 +116,7 @@ export default function Contact() {
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New Website Inquiry from ${formData.businessName}`,
+          subject: `[${readinessEmoji}] New Inquiry from ${formData.businessName}`,
           from_name: 'LocalWebBuilders Contact Form',
           to: CONTACT_EMAIL,
           // Form fields
@@ -96,23 +124,44 @@ export default function Contact() {
           email: formData.email,
           phone: formData.phone || 'Not provided',
           business_name: formData.businessName,
+          business_type: businessTypeLabel,
           template: templateLabel,
           plan: planLabel,
           timeline: timelineLabel,
+          has_logo: formData.hasLogo || 'Not answered',
+          has_photos: formData.hasPhotos || 'Not answered',
+          has_menu: formData.hasMenu || 'Not answered',
+          current_website: formData.currentWebsite || 'None',
           message: formData.message || 'No additional message',
           // Formatted message for email body
           message_html: `
-            <h2>New Website Inquiry</h2>
+            <h2>New Website Inquiry - ${readinessEmoji}</h2>
+            <h3>Contact Info</h3>
             <table style="border-collapse: collapse; width: 100%;">
               <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Name:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${formData.name}</td></tr>
               <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Email:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;"><a href="mailto:${formData.email}">${formData.email}</a></td></tr>
               <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Phone:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${formData.phone || 'Not provided'}</td></tr>
-              <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Business:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${formData.businessName}</td></tr>
+            </table>
+            <h3>Business Info</h3>
+            <table style="border-collapse: collapse; width: 100%;">
+              <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Business Name:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${formData.businessName}</td></tr>
+              <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Business Type:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${businessTypeLabel}</td></tr>
+              <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Current Website:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${formData.currentWebsite || 'None'}</td></tr>
+            </table>
+            <h3>Project Details</h3>
+            <table style="border-collapse: collapse; width: 100%;">
               <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Template:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${templateLabel}</td></tr>
               <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Plan:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${planLabel}</td></tr>
               <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Timeline:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${timelineLabel}</td></tr>
-              <tr><td style="padding: 8px; vertical-align: top;"><strong>Message:</strong></td><td style="padding: 8px;">${formData.message || 'No additional message'}</td></tr>
             </table>
+            <h3>Readiness Check (${readinessScore}/3)</h3>
+            <table style="border-collapse: collapse; width: 100%;">
+              <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Has Logo:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${formData.hasLogo === 'yes' ? 'Yes' : formData.hasLogo === 'no' ? 'No - needs design' : 'Not answered'}</td></tr>
+              <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Has Photos:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${formData.hasPhotos === 'yes' ? 'Yes' : formData.hasPhotos === 'stock' ? 'Will use stock photos' : 'Not answered'}</td></tr>
+              <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Has Menu/Content:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${formData.hasMenu === 'yes' ? 'Yes' : formData.hasMenu === 'no' ? 'Needs help' : 'Not answered'}</td></tr>
+            </table>
+            <h3>Message</h3>
+            <p>${formData.message || 'No additional message'}</p>
           `
         })
       });
@@ -404,6 +453,54 @@ export default function Contact() {
                 </div>
               </div>
 
+              {/* Business Type & Current Website */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>
+                    Type of Business *
+                  </label>
+                  <select
+                    name="businessType"
+                    required
+                    value={formData.businessType}
+                    onChange={handleChange}
+                    disabled={status === 'loading'}
+                    className="w-full px-4 py-3 rounded-xl outline-none transition-all focus:ring-2 disabled:opacity-50"
+                    style={{ 
+                      background: colors.surface, 
+                      color: colors.text,
+                      border: `1px solid ${colors.border}`,
+                      '--tw-ring-color': colors.accent
+                    }}
+                  >
+                    <option value="">Select type...</option>
+                    {businessTypes.map(t => (
+                      <option key={t.value} value={t.value}>{t.label}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>
+                    Current Website (if any)
+                  </label>
+                  <input
+                    type="url"
+                    name="currentWebsite"
+                    value={formData.currentWebsite}
+                    onChange={handleChange}
+                    disabled={status === 'loading'}
+                    className="w-full px-4 py-3 rounded-xl outline-none transition-all focus:ring-2 disabled:opacity-50"
+                    style={{ 
+                      background: colors.surface, 
+                      color: colors.text,
+                      border: `1px solid ${colors.border}`,
+                      '--tw-ring-color': colors.accent
+                    }}
+                    placeholder="https://myrestaurant.com"
+                  />
+                </div>
+              </div>
+
               {/* Template Selection */}
               <div>
                 <label className="block text-sm font-medium mb-2" style={{ color: colors.text }}>
@@ -479,6 +576,114 @@ export default function Contact() {
                   <option value="1-month">Within 1 month</option>
                   <option value="flexible">Flexible / Just exploring</option>
                 </select>
+              </div>
+
+              {/* Readiness Check */}
+              <div 
+                className="p-5 rounded-xl space-y-4"
+                style={{ background: colors.surface, border: `1px solid ${colors.border}` }}
+              >
+                <p className="text-sm font-medium" style={{ color: colors.text }}>
+                  Help us understand your readiness:
+                </p>
+                
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-xs font-medium mb-2" style={{ color: colors.textMuted }}>
+                      Do you have a logo?
+                    </label>
+                    <div className="flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, hasLogo: 'yes' }))}
+                        disabled={status === 'loading'}
+                        className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-1 ${formData.hasLogo === 'yes' ? '' : 'opacity-60 hover:opacity-80'}`}
+                        style={{ 
+                          background: formData.hasLogo === 'yes' ? colors.green : colors.surfaceHover,
+                          color: colors.text
+                        }}
+                      >
+                        <Check size={14} /> Yes
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, hasLogo: 'no' }))}
+                        disabled={status === 'loading'}
+                        className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-1 ${formData.hasLogo === 'no' ? '' : 'opacity-60 hover:opacity-80'}`}
+                        style={{ 
+                          background: formData.hasLogo === 'no' ? colors.accent : colors.surfaceHover,
+                          color: colors.text
+                        }}
+                      >
+                        <XIcon size={14} /> No
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium mb-2" style={{ color: colors.textMuted }}>
+                      Do you have food photos?
+                    </label>
+                    <div className="flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, hasPhotos: 'yes' }))}
+                        disabled={status === 'loading'}
+                        className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${formData.hasPhotos === 'yes' ? '' : 'opacity-60 hover:opacity-80'}`}
+                        style={{ 
+                          background: formData.hasPhotos === 'yes' ? colors.green : colors.surfaceHover,
+                          color: colors.text
+                        }}
+                      >
+                        Yes
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, hasPhotos: 'stock' }))}
+                        disabled={status === 'loading'}
+                        className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${formData.hasPhotos === 'stock' ? '' : 'opacity-60 hover:opacity-80'}`}
+                        style={{ 
+                          background: formData.hasPhotos === 'stock' ? colors.accent : colors.surfaceHover,
+                          color: colors.text
+                        }}
+                      >
+                        Use Stock
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium mb-2" style={{ color: colors.textMuted }}>
+                      Menu/content ready?
+                    </label>
+                    <div className="flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, hasMenu: 'yes' }))}
+                        disabled={status === 'loading'}
+                        className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${formData.hasMenu === 'yes' ? '' : 'opacity-60 hover:opacity-80'}`}
+                        style={{ 
+                          background: formData.hasMenu === 'yes' ? colors.green : colors.surfaceHover,
+                          color: colors.text
+                        }}
+                      >
+                        Yes
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, hasMenu: 'no' }))}
+                        disabled={status === 'loading'}
+                        className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${formData.hasMenu === 'no' ? '' : 'opacity-60 hover:opacity-80'}`}
+                        style={{ 
+                          background: formData.hasMenu === 'no' ? colors.accent : colors.surfaceHover,
+                          color: colors.text
+                        }}
+                      >
+                        Need Help
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Message */}

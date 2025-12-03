@@ -52,50 +52,50 @@ function PortfolioHome() {
   const templates = [
     { 
       path: '/mediterranean', 
-      name: 'Solara', 
-      type: 'Mediterranean Restaurant',
+      name: 'Coastline Kitchen', 
+      type: 'California Coastal Cuisine',
       colors: ['#F5E6D3', '#E85D3B', '#F4B942']
     },
     { 
       path: '/catering', 
-      name: 'Joyful Table', 
-      type: 'Catering & Events',
+      name: 'Gathered', 
+      type: 'Farm to Table Catering',
       colors: ['#FFEEE4', '#FF6B4A', '#FFB299']
     },
     { 
       path: '/bbq', 
-      name: 'Oakfire', 
-      type: 'Smokehouse & Bar',
+      name: 'Smoke & Ember', 
+      type: 'Hill Country BBQ',
       colors: ['#F5E6D3', '#1B4D5C', '#E8805C']
     },
     { 
       path: '/african', 
-      name: 'Safari Spice', 
-      type: 'African Flavors Brand',
+      name: 'Harlem Heat', 
+      type: 'Bold African Spices',
       colors: ['#2D9E4F', '#E63946', '#FFD23F']
     },
     { 
       path: '/vegan', 
-      name: 'Golden Yeast', 
-      type: 'Vegan Food Brand',
+      name: 'Sprout & Co', 
+      type: 'Modern Plant-Based Foods',
       colors: ['#2D8B4E', '#FFE03D', '#E94E8C']
     },
     { 
       path: '/plant-based', 
-      name: 'Bloom Kitchen', 
-      type: 'Plant-Based Spreads',
+      name: 'Wild Greens', 
+      type: 'Plant-Forward Comfort Food',
       colors: ['#A8C5A8', '#F4A460', '#E8B4B8']
     },
     { 
       path: '/smash-burger', 
-      name: 'TopStack', 
-      type: 'Smash Burger Joint',
+      name: 'Griddle House', 
+      type: 'Classic Smash Burgers',
       colors: ['#FFE135', '#1A1A1A', '#E63946']
     },
     { 
       path: '/gourmet-meats', 
-      name: "Phil's Prime", 
-      type: 'Gourmet Meats & Sausages',
+      name: "Butcher & Bloom", 
+      type: 'Artisan Meats & Provisions',
       colors: ['#B8E4D8', '#FFCBA4', '#C5B9E8']
     }
   ];

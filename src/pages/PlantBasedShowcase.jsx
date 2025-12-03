@@ -8,8 +8,8 @@ import { LanguageProvider, useLanguage } from '../context/LanguageContext';
 import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
-   BLOOM KITCHEN - Plant-Based Spreads & Sauces
-   Soft pastels, organic shapes, botanical
+   WILD GREENS - Plant-Forward Comfort Food
+   Earthy, wholesome, nourishing vibes
    ============================================ */
 
 const colors = {
@@ -46,29 +46,29 @@ const BlobShape = ({ color, className = "" }) => (
 // Translated content
 const content = {
   heroTitle: {
-    en: 'Pure.\nPlant.\nPerfect.',
-    es: 'Puro.\nVegetal.\nPerfecto.',
-    fr: 'Pur.\nVégétal.\nParfait.',
+    en: 'Comfort food,\nreimagined.',
+    es: 'Comida reconfortante,\nreinventada.',
+    fr: 'Cuisine réconfortante,\nréinventée.',
   },
   heroDesc: {
-    en: 'Artisanal plant-based spreads and sauces that bring joy to every meal. Made with love, made with plants.',
-    es: 'Untables y salsas vegetales artesanales que aportan alegría a cada comida. Hecho con amor, hecho con plantas.',
-    fr: 'Tartinades et sauces végétales artisanales qui apportent de la joie à chaque repas. Fait avec amour, fait avec des plantes.',
+    en: 'The dishes you grew up loving, made entirely from plants. No sacrifice, just soul-warming goodness in every bite.',
+    es: 'Los platos que creciste amando, hechos completamente de plantas. Sin sacrificio, solo bondad reconfortante en cada bocado.',
+    fr: 'Les plats que vous avez toujours aimés, entièrement à base de plantes. Pas de sacrifice, juste du bonheur réconfortant.',
   },
   productsTitle: {
-    en: 'Our Products',
-    es: 'Nuestros Productos',
-    fr: 'Nos Produits',
+    en: 'The Menu',
+    es: 'El Menú',
+    fr: 'Le Menu',
   },
   missionTitle: {
-    en: 'Our Mission',
-    es: 'Nuestra Misión',
-    fr: 'Notre Mission',
+    en: 'Why We Cook',
+    es: 'Por Qué Cocinamos',
+    fr: 'Pourquoi Nous Cuisinons',
   },
   missionDesc: {
-    en: 'We believe that plant-based eating should be delicious, accessible, and joyful. Every jar is crafted with intention.',
-    es: 'Creemos que comer a base de plantas debe ser delicioso, accesible y alegre. Cada frasco está hecho con intención.',
-    fr: 'Nous croyons que manger végétal doit être délicieux, accessible et joyeux. Chaque pot est fait avec intention.',
+    en: 'Food should make you feel good - body and soul. We prove that plant-based can be hearty, satisfying, and absolutely craveable.',
+    es: 'La comida debe hacerte sentir bien, cuerpo y alma. Demostramos que lo vegetal puede ser abundante, satisfactorio y absolutamente deseable.',
+    fr: 'La nourriture doit vous faire du bien - corps et âme. Nous prouvons que le végétal peut être copieux, satisfaisant et absolument désirable.',
   },
 };
 
@@ -85,7 +85,7 @@ function PlantBasedShowcaseContent() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Bloom Kitchen" templateSlug="bloom" />
+      <TemplateFloatingCTA templateName="Wild Greens Kitchen" templateSlug="bloom" />
       <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
       
       {/* ========== HEADER ========== */}
@@ -98,15 +98,19 @@ function PlantBasedShowcaseContent() {
             className="text-2xl font-light tracking-wider"
             style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
           >
-            bloom
+            wild greens
           </span>
 
           <nav className="hidden md:flex items-center gap-6">
-            {['Our Mission', 'Our Products', 'Contact'].map(item => (
-              <a key={item} href="#" className="text-sm hover:opacity-70" style={{ color: colors.darkText }}>
-                {item}
-              </a>
-            ))}
+            <a href="#mission" className="text-sm hover:opacity-70" style={{ color: colors.darkText }}>
+              Our Mission
+            </a>
+            <a href="#products" className="text-sm hover:opacity-70" style={{ color: colors.darkText }}>
+              Our Products
+            </a>
+            <a href="#contact" className="text-sm hover:opacity-70" style={{ color: colors.darkText }}>
+              Contact
+            </a>
             <div style={{ color: colors.darkText }}>
               <LanguageToggle style="buttons" />
             </div>
@@ -135,15 +139,19 @@ function PlantBasedShowcaseContent() {
             className="md:hidden absolute top-full left-0 right-0 py-6 px-6 shadow-lg z-50"
             style={{ background: colors.cream }}
           >
-            {['Our Mission', 'Our Products', 'Contact'].map(item => (
+            {[
+              { label: 'Our Mission', href: '#mission' },
+              { label: 'Our Products', href: '#products' },
+              { label: 'Contact', href: '#contact' }
+            ].map(item => (
               <a 
-                key={item}
-                href="#"
+                key={item.label}
+                href={item.href}
                 className="block py-3 text-lg font-medium border-b"
                 style={{ color: colors.darkText, borderColor: colors.sage + '30' }}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {item}
+                {item.label}
               </a>
             ))}
             <div className="flex items-center justify-between py-3" style={{ color: colors.darkText }}>
@@ -199,21 +207,23 @@ function PlantBasedShowcaseContent() {
         </div>
       </section>
 
-      {/* ========== ABOUT ========== */}
-      <section className="py-20">
+      {/* ========== MISSION ========== */}
+      <section id="mission" className="py-20 scroll-mt-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-lg md:text-xl leading-relaxed mb-8" style={{ color: colors.darkText }}>
-            Bloom exists because we felt there needed to be 
+          <h2 
+            className="text-3xl md:text-4xl font-light mb-6"
+            style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
+          >
+            {tCustom(content.missionTitle)}
+          </h2>
+          <p className="text-lg md:text-xl leading-relaxed mb-4" style={{ color: colors.darkText }}>
+            {tCustom(content.missionDesc)}
+          </p>
+          <p className="text-lg leading-relaxed mb-8" style={{ color: colors.lightText }}>
+            Wild Greens exists because we felt there needed to be 
             more yummy and planet-friendly food. So we made 
             our creamy spreads and sauces entirely out of plants.
           </p>
-          <a 
-            href="#"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium border"
-            style={{ borderColor: colors.darkText, color: colors.darkText }}
-          >
-            ABOUT US
-          </a>
         </div>
       </section>
 
@@ -262,8 +272,8 @@ function PlantBasedShowcaseContent() {
         </div>
       </section>
 
-      {/* ========== SPREADY SAUCY ========== */}
-      <section className="py-20">
+      {/* ========== PRODUCTS ========== */}
+      <section id="products" className="py-20 scroll-mt-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 
             className="text-4xl md:text-5xl font-light mb-2"
@@ -278,7 +288,7 @@ function PlantBasedShowcaseContent() {
             — and non-dairy!
           </p>
           <p className="text-sm max-w-xl mx-auto" style={{ color: colors.lightText }}>
-            To make Bloom, first we take some organic, Fair-trade 
+            To make Wild Greens, first we take some organic, Fair-trade 
             coconuts. Then, we turn them into rich and lush cultured, 
             tangy, all-work-with-you-on-this guilt-easy, cultured 
             cream cheese. Yum!
@@ -300,7 +310,7 @@ function PlantBasedShowcaseContent() {
                   className="text-3xl font-bold mb-4"
                   style={{ fontFamily: "'Playfair Display', serif", color: colors.cream }}
                 >
-                  BLOOM<br/>SPREADS
+                  WILD GREENS<br/>SPREADS
                 </h3>
                 <p className="mb-6" style={{ color: colors.cream, opacity: 0.9 }}>
                   Creamy plant-based spreads that'll make 
@@ -327,7 +337,7 @@ function PlantBasedShowcaseContent() {
                   className="text-3xl font-bold mb-4"
                   style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
                 >
-                  BLOOM<br/>SAUCES
+                  WILD GREENS<br/>SAUCES
                 </h3>
                 <p className="mb-6" style={{ color: colors.darkText, opacity: 0.8 }}>
                   Drizzle-worthy goodness. Our plant 
@@ -359,7 +369,7 @@ function PlantBasedShowcaseContent() {
                 style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
               >
                 YOU ARE<br/>
-                <span className="font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Bloom</span>
+                <span className="font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Wild Greens</span>
               </h2>
               <p className="text-sm mb-8" style={{ color: colors.lightText }}>
                 There's plenty of room in our Plant Kitchen, come and cook 
@@ -389,7 +399,7 @@ function PlantBasedShowcaseContent() {
             <div className="rounded-3xl p-8 text-center" style={{ background: colors.cream, border: `2px solid ${colors.sage}` }}>
               <MapPin size={32} className="mx-auto mb-4" style={{ color: colors.sage }} />
               <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}>
-                BLOOM FINDER
+                STORE FINDER
               </h3>
               <p className="text-sm mb-6" style={{ color: colors.lightText }}>
                 We'd love to bring out to retailer shops. Our way 
@@ -397,7 +407,7 @@ function PlantBasedShowcaseContent() {
                 our distribution is not there just yet.
               </p>
               <a href="#" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium border" style={{ borderColor: colors.darkText, color: colors.darkText }}>
-                FIND BLOOM
+                FIND A STORE
               </a>
             </div>
 
@@ -447,18 +457,18 @@ function PlantBasedShowcaseContent() {
       </section>
 
       {/* ========== FOOTER ========== */}
-      <footer className="py-12" style={{ background: colors.cream }}>
+      <footer id="contact" className="py-12 scroll-mt-20" style={{ background: colors.cream }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <span className="text-2xl font-light" style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}>
-                bloom
+                wild greens
               </span>
             </div>
             {[
               { title: 'Menu', links: ['Our Mission', 'Our Products', 'For a Better World', 'Careers', 'Blog'] },
-              { title: 'Store Locator', links: ['Find Bloom in your', 'favorite grocery store'] },
-              { title: 'Contact Bloom', links: ['Do you have a question?', 'Send it here.'] }
+              { title: 'Store Locator', links: ['Find Wild Greens in your', 'favorite grocery store'] },
+              { title: 'Contact Wild Greens', links: ['Do you have a question?', 'Send it here.'] }
             ].map((col, i) => (
               <div key={i}>
                 <h4 className="font-bold mb-4" style={{ color: colors.darkText }}>{col.title}</h4>

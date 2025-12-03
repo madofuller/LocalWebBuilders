@@ -87,7 +87,7 @@ export default function BBQCatering() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Oakfire BBQ" templateSlug="oakfire" />
+      <TemplateFloatingCTA templateName="Smoke & Ember BBQ" templateSlug="oakfire" />
       <div className="min-h-screen pt-12" style={{ background: colors.cream, fontFamily: "'Lato', sans-serif" }}>
         
         {/* Header */}
@@ -98,7 +98,7 @@ export default function BBQCatering() {
               <span className="text-sm font-medium">Back</span>
             </Link>
             <Link to="/bbq" className="text-2xl font-black tracking-wider" style={{ fontFamily: "'Oswald', sans-serif", color: colors.teal }}>
-              OAKFIRE
+              SMOKE & EMBER
             </Link>
             <Link to="/bbq/menu" className="text-sm font-medium" style={{ color: colors.teal }}>Menu</Link>
           </div>
@@ -343,7 +343,7 @@ export default function BBQCatering() {
         <footer className="py-12 px-6" style={{ background: colors.darkText }}>
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl font-black tracking-wider mb-4" style={{ fontFamily: "'Oswald', sans-serif", color: colors.cream }}>
-              OAKFIRE
+              SMOKE & EMBER
             </h2>
             <p className="mb-6" style={{ color: colors.cream, opacity: 0.5 }}>smokehouse & bar</p>
             <div className="flex justify-center gap-8 text-sm" style={{ color: colors.cream, opacity: 0.7 }}>

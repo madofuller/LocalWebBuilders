@@ -10,15 +10,19 @@ import {
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   JOYFUL TABLE - Catering Online Ordering
+   GATHERED - Catering Online Ordering
    ============================================ */
 
+// Matches CateringShowcase colors
 const colors = {
-  cream: '#FDF8F3',
-  sage: '#7D8471',
-  gold: '#C9A227',
-  charcoal: '#2D2D2D',
-  blush: '#E8D5D5',
+  peach: '#FFEEE4',
+  coral: '#FF6B4A',
+  cream: '#FFF9F5',
+  warmWhite: '#FFFBF8',
+  orange: '#FF8564',
+  darkText: '#2D2A26',
+  mutedText: '#6B6560',
+  accent: '#FFB299'
 };
 
 const menuData = {
@@ -137,34 +141,34 @@ const menuData = {
 function CateringOrderContent() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Joyful Table Catering" templateSlug="joyful-table" />
+      <TemplateFloatingCTA templateName="Gathered Catering" templateSlug="joyful-table" />
       
-      <div className="min-h-screen" style={{ background: colors.cream }}>
+      <div className="min-h-screen" style={{ background: colors.peach }}>
         {/* Header */}
-        <header className="sticky top-0 z-40 py-4 px-6 border-b bg-white/90 backdrop-blur" style={{ borderColor: `${colors.sage}30` }}>
+        <header className="sticky top-0 z-40 py-4 px-6 border-b" style={{ background: colors.peach, borderColor: `${colors.coral}20` }}>
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link 
                 to="/catering"
                 className="p-2 rounded-lg hover:bg-black/5 transition-colors"
-                style={{ color: colors.charcoal }}
+                style={{ color: colors.coral }}
               >
                 <ArrowLeft size={24} />
               </Link>
               <div>
                 <h1 
-                  className="text-2xl font-bold"
-                  style={{ fontFamily: "'Playfair Display', serif", color: colors.charcoal }}
+                  className="text-2xl font-black tracking-tight"
+                  style={{ fontFamily: "'Playfair Display', serif", color: colors.coral }}
                 >
-                  Joyful Table
+                  GATHERED
                 </h1>
-                <p className="text-sm" style={{ color: colors.charcoal, opacity: 0.7 }}>
+                <p className="text-sm" style={{ color: colors.darkText, opacity: 0.7 }}>
                   Catering Menu
                 </p>
               </div>
             </div>
             
-            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.charcoal }}>
+            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.darkText }}>
               <div className="flex items-center gap-2">
                 <Calendar size={16} />
                 <span>48hr Notice</span>
@@ -183,11 +187,11 @@ function CateringOrderContent() {
           <div className="text-center mb-12">
             <h2 
               className="text-4xl md:text-5xl font-bold mb-4"
-              style={{ fontFamily: "'Playfair Display', serif", color: colors.charcoal }}
+              style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
             >
               Catering Menu
             </h2>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.charcoal, opacity: 0.7 }}>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.darkText, opacity: 0.7 }}>
               Elegant catering for your special occasions.
               Minimum 48 hours notice required. Delivery available.
             </p>
@@ -196,9 +200,9 @@ function CateringOrderContent() {
           {/* Notice */}
           <div 
             className="mb-12 p-6 rounded-xl text-center"
-            style={{ background: colors.blush }}
+            style={{ background: colors.cream }}
           >
-            <p className="font-medium" style={{ color: colors.charcoal }}>
+            <p className="font-medium" style={{ color: colors.darkText }}>
               For events within 48 hours, please call us directly at (555) 123-4567
             </p>
           </div>
@@ -208,7 +212,7 @@ function CateringOrderContent() {
             title="Appetizer Platters"
             description="Perfect for mingling"
             items={menuData.platters}
-            accentColor={colors.gold}
+            accentColor={colors.coral}
             columns={2}
           />
 
@@ -216,7 +220,7 @@ function CateringOrderContent() {
             title="Main Courses"
             description="Centerpiece dishes"
             items={menuData.mains}
-            accentColor={colors.gold}
+            accentColor={colors.coral}
             columns={3}
           />
 
@@ -224,7 +228,7 @@ function CateringOrderContent() {
             title="Sides"
             description="Complement your mains"
             items={menuData.sides}
-            accentColor={colors.gold}
+            accentColor={colors.coral}
             columns={4}
           />
 
@@ -232,30 +236,30 @@ function CateringOrderContent() {
             title="Desserts"
             description="Sweet endings"
             items={menuData.desserts}
-            accentColor={colors.gold}
+            accentColor={colors.coral}
             columns={4}
           />
 
           {/* Checkout Section */}
-          <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.sage}30` }}>
+          <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.coral}30` }}>
             <CheckoutForm 
-              restaurantName="Joyful Table Catering"
-              accentColor={colors.gold}
+              restaurantName="Gathered Catering"
+              accentColor={colors.coral}
             />
           </div>
         </main>
 
         {/* Footer */}
         <footer className="py-8 px-6 text-center bg-white">
-          <p className="text-sm" style={{ color: colors.charcoal, opacity: 0.6 }}>
-            © 2025 Joyful Table Catering. All rights reserved.
+          <p className="text-sm" style={{ color: colors.darkText, opacity: 0.6 }}>
+            © 2025 Gathered Catering. All rights reserved.
           </p>
         </footer>
       </div>
 
       {/* Cart Components */}
-      <CartSidebar accentColor={colors.gold} />
-      <FloatingCartButton accentColor={colors.gold} />
+      <CartSidebar accentColor={colors.coral} />
+      <FloatingCartButton accentColor={colors.coral} />
     </>
   );
 }

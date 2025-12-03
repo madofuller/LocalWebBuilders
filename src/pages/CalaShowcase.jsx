@@ -9,20 +9,21 @@ import { LanguageProvider, useLanguage } from '../context/LanguageContext';
 import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
-   SOLARA - Mediterranean Restaurant Showcase
-   A perfect demo website for client presentations
+   COASTLINE KITCHEN - California Coastal Cuisine
+   Fresh, seasonal, sun-drenched flavors
    ============================================ */
 
 const colors = {
-  cream: '#F5E6D3',
+  cream: '#FDF6E9',
   lightCream: '#FFF8E7',
-  terracotta: '#E85D3B',
-  golden: '#F4B942',
-  warmBrown: '#8B4513',
-  darkBrown: '#4A2C1C',
-  mediumBrown: '#6B4423',
+  terracotta: '#D4622B',
+  golden: '#E9A23B',
+  warmBrown: '#8B5A3C',
+  darkText: '#5C3D2E',
+  lightText: '#8B6B5A',
   white: '#FFFFFF',
-  olive: '#6B7B3C'
+  olive: '#7A8B4A',
+  sand: '#E8DBC9'
 };
 
 // Stock image URLs from Unsplash
@@ -84,29 +85,29 @@ const SunburstDeco = ({ size = 120, color = colors.golden }) => (
 // Translated content
 const content = {
   heroTitle: {
-    en: 'Fresh, vibrant\nMediterranean\ncuisine',
-    es: 'Cocina\nmediterránea\nfresca y vibrante',
-    fr: 'Cuisine\nméditerranéenne\nfraîche et vibrante',
+    en: 'California\ncoastal\ncuisine',
+    es: 'Cocina\ncostera de\nCalifornia',
+    fr: 'Cuisine\ncôtière de\nCalifornie',
   },
   heroDesc: {
-    en: 'Experience the sun-soaked flavors of the Mediterranean. Our kitchen celebrates the traditions of coastal cuisine with locally-sourced ingredients.',
-    es: 'Experimenta los sabores soleados del Mediterráneo. Nuestra cocina celebra las tradiciones de la cocina costera con ingredientes locales.',
-    fr: 'Découvrez les saveurs ensoleillées de la Méditerranée. Notre cuisine célèbre les traditions culinaires côtières avec des ingrédients locaux.',
+    en: 'Where the ocean meets the table. Fresh catches, local farms, and the golden California sun inspire every dish we create.',
+    es: 'Donde el océano se encuentra con la mesa. Capturas frescas, granjas locales y el sol dorado de California inspiran cada plato.',
+    fr: 'Où l\'océan rencontre la table. Prises fraîches, fermes locales et le soleil doré de Californie inspirent chaque plat.',
   },
   aboutTitle: {
-    en: 'Where tradition\nmeets innovation',
-    es: 'Donde la tradición\nse encuentra con la innovación',
-    fr: 'Où la tradition\nrencontre l\'innovation',
+    en: 'Farm to table,\nsea to soul',
+    es: 'De la granja a la mesa,\ndel mar al alma',
+    fr: 'De la ferme à la table,\nde la mer à l\'âme',
   },
   aboutDesc: {
-    en: 'At Solara, we believe in the power of simple, beautiful ingredients prepared with care and served with love. Our menu changes with the seasons.',
-    es: 'En Solara, creemos en el poder de ingredientes simples y hermosos preparados con cuidado y servidos con amor. Nuestro menú cambia con las estaciones.',
-    fr: 'Chez Solara, nous croyons au pouvoir des ingrédients simples et beaux préparés avec soin et servis avec amour. Notre menu change avec les saisons.',
+    en: 'At Coastline, we let the ingredients shine. Our chefs work directly with local fishermen and farmers to bring you the freshest flavors of the Pacific Coast.',
+    es: 'En Coastline, dejamos que los ingredientes brillen. Nuestros chefs trabajan con pescadores y agricultores locales para traerte los sabores más frescos.',
+    fr: 'Chez Coastline, nous laissons les ingrédients briller. Nos chefs travaillent avec les pêcheurs et agriculteurs locaux.',
   },
   ctaTitle: {
-    en: 'Arrive hungry,\nleave smiling!',
-    es: '¡Llega con hambre,\nvete sonriendo!',
-    fr: 'Arrivez affamé,\nrepartez souriant!',
+    en: 'Come for the view,\nstay for the flavor!',
+    es: '¡Ven por la vista,\nquédate por el sabor!',
+    fr: 'Venez pour la vue,\nrestez pour la saveur!',
   },
   reserveTable: {
     en: 'Reserve a Table',
@@ -128,7 +129,7 @@ function CalaShowcaseContent() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Solara Mediterranean" templateSlug="solara" />
+      <TemplateFloatingCTA templateName="Coastline Kitchen" templateSlug="solara" />
       <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif" }}>
       
       {/* ========== STICKY HEADER ========== */}
@@ -146,21 +147,21 @@ function CalaShowcaseContent() {
             <Link 
               to="/mediterranean/menu"
               className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
-              style={{ color: colors.darkBrown }}
+              style={{ color: colors.darkText }}
             >
               MENU
             </Link>
             <a 
               href="#locations"
               className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
-              style={{ color: colors.darkBrown }}
+              style={{ color: colors.darkText }}
             >
               LOCATIONS
             </a>
             <a 
               href="#about"
               className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
-              style={{ color: colors.darkBrown }}
+              style={{ color: colors.darkText }}
             >
               ABOUT
             </a>
@@ -176,9 +177,9 @@ function CalaShowcaseContent() {
             </div>
             <span 
               className="text-3xl font-bold tracking-tight"
-              style={{ fontFamily: "'Playfair Display', serif", color: colors.darkBrown }}
+              style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
             >
-              Solara
+              Coastline
             </span>
           </div>
 
@@ -189,12 +190,12 @@ function CalaShowcaseContent() {
                 key={item}
                 href="#"
                 className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity"
-                style={{ color: colors.darkBrown }}
+                style={{ color: colors.darkText }}
               >
                 {item.toUpperCase()}
               </a>
             ))}
-            <div style={{ color: colors.darkBrown }}>
+            <div style={{ color: colors.darkText }}>
               <LanguageToggle style="buttons" />
             </div>
             <Link 
@@ -210,7 +211,7 @@ function CalaShowcaseContent() {
           <button 
             className="md:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            style={{ color: colors.darkBrown }}
+            style={{ color: colors.darkText }}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -225,7 +226,7 @@ function CalaShowcaseContent() {
             <Link 
               to="/mediterranean/menu"
               className="block py-3 text-lg font-medium border-b"
-              style={{ color: colors.darkBrown, borderColor: colors.warmBrown + '20' }}
+              style={{ color: colors.darkText, borderColor: colors.warmBrown + '20' }}
               onClick={() => setMobileMenuOpen(false)}
             >
               {t('menu')}
@@ -233,7 +234,7 @@ function CalaShowcaseContent() {
             <Link 
               to="/mediterranean/locations"
               className="block py-3 text-lg font-medium border-b"
-              style={{ color: colors.darkBrown, borderColor: colors.warmBrown + '20' }}
+              style={{ color: colors.darkText, borderColor: colors.warmBrown + '20' }}
               onClick={() => setMobileMenuOpen(false)}
             >
               {t('locations')}
@@ -241,12 +242,12 @@ function CalaShowcaseContent() {
             <Link 
               to="/mediterranean/about"
               className="block py-3 text-lg font-medium border-b"
-              style={{ color: colors.darkBrown, borderColor: colors.warmBrown + '20' }}
+              style={{ color: colors.darkText, borderColor: colors.warmBrown + '20' }}
               onClick={() => setMobileMenuOpen(false)}
             >
               {t('about')}
             </Link>
-            <div className="flex items-center justify-between py-3" style={{ color: colors.darkBrown }}>
+            <div className="flex items-center justify-between py-3" style={{ color: colors.darkText }}>
               <span>Language:</span>
               <LanguageToggle style="buttons" />
             </div>
@@ -281,7 +282,7 @@ function CalaShowcaseContent() {
               
               <h1 
                 className="text-6xl md:text-7xl lg:text-8xl font-bold mt-8 mb-6 leading-none"
-                style={{ fontFamily: "'Playfair Display', serif", color: colors.darkBrown }}
+                style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
               >
                 {tCustom(content.heroTitle).split('\n').map((line, i) => (
                   <span key={i}>
@@ -293,7 +294,7 @@ function CalaShowcaseContent() {
               
               <p 
                 className="text-xl md:text-2xl mb-10 max-w-lg mx-auto lg:mx-0"
-                style={{ color: colors.mediumBrown, fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}
+                style={{ color: colors.lightText, fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}
               >
                 {tCustom(content.heroDesc)}
               </p>
@@ -358,7 +359,7 @@ function CalaShowcaseContent() {
         <div className="max-w-4xl mx-auto px-6">
           <h2 
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
-            style={{ fontFamily: "'Playfair Display', serif", color: colors.darkBrown }}
+            style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
           >
             Mediterranean Food.<br/>Universal Comfort.
           </h2>
@@ -412,7 +413,7 @@ function CalaShowcaseContent() {
           </div>
           <p 
             className="text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide"
-            style={{ color: colors.darkBrown, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.1em' }}
+            style={{ color: colors.darkText, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.1em' }}
           >
             FRESH INGREDIENTS TO MAKE YOUR MOUTH WATER,<br/>
             A SMILE ON YOUR FACE AND<br/>
@@ -436,17 +437,17 @@ function CalaShowcaseContent() {
             <div>
               <h2 
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-                style={{ fontFamily: "'Playfair Display', serif", color: colors.darkBrown }}
+                style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
               >
                 Our Mobile App
               </h2>
               <div 
                 className="space-y-4 text-lg"
-                style={{ color: colors.darkBrown }}
+                style={{ color: colors.darkText }}
               >
                 <p>
                   Short on time during your lunch break? 
-                  Order directly from the Solara mobile app 15 minutes 
+                  Order directly from the Coastline mobile app 15 minutes 
                   before your meal and pick up your order 
                   without waiting.
                 </p>
@@ -459,7 +460,7 @@ function CalaShowcaseContent() {
               <a 
                 href="#"
                 className="inline-flex items-center gap-3 mt-8 px-8 py-4 rounded-full font-semibold transition-transform hover:scale-105"
-                style={{ background: colors.darkBrown, color: colors.cream }}
+                style={{ background: colors.darkText, color: colors.cream }}
               >
                 <Smartphone size={20} />
                 Download the App
@@ -470,7 +471,7 @@ function CalaShowcaseContent() {
             <div className="flex justify-center">
               <div 
                 className="w-64 h-[500px] rounded-[3rem] p-3 shadow-2xl"
-                style={{ background: colors.darkBrown }}
+                style={{ background: colors.darkText }}
               >
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden">
                   <img 
@@ -496,7 +497,7 @@ function CalaShowcaseContent() {
             <SunburstDeco color={colors.terracotta} />
             <h2 
               className="text-4xl md:text-5xl lg:text-6xl font-bold mt-6"
-              style={{ fontFamily: "'Playfair Display', serif", color: colors.darkBrown }}
+              style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
             >
               Featured Dishes
             </h2>
@@ -519,11 +520,11 @@ function CalaShowcaseContent() {
                 </div>
                 <h3 
                   className="text-2xl font-bold mb-2"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif", color: colors.darkBrown }}
+                  style={{ fontFamily: "'Bebas Neue', sans-serif", color: colors.darkText }}
                 >
                   {item.name}
                 </h3>
-                <p className="text-sm mb-3" style={{ color: colors.mediumBrown }}>
+                <p className="text-sm mb-3" style={{ color: colors.lightText }}>
                   {item.desc}
                 </p>
                 <p 
@@ -540,7 +541,7 @@ function CalaShowcaseContent() {
             <Link 
               to="/mediterranean/menu"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold transition-transform hover:scale-105 border-2"
-              style={{ borderColor: colors.darkBrown, color: colors.darkBrown }}
+              style={{ borderColor: colors.darkText, color: colors.darkText }}
             >
               View Full Menu
               <ArrowRight size={18} />
@@ -572,18 +573,18 @@ function CalaShowcaseContent() {
               <div className="p-8 md:p-10">
                 <h3 
                   className="text-2xl font-bold mb-2 flex items-center gap-2"
-                  style={{ fontFamily: "'Playfair Display', serif", color: colors.darkBrown }}
+                  style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
                 >
                   Our Locations
                 </h3>
-                <p className="mb-6" style={{ color: colors.mediumBrown }}>
+                <p className="mb-6" style={{ color: colors.lightText }}>
                   We currently have 4 locations across the city. We hope 
-                  to see you soon at one of our Solara restaurants.
+                  to see you soon at one of our Coastline restaurants.
                 </p>
                 <a 
                   href="#"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-transform hover:scale-105"
-                  style={{ background: colors.darkBrown, color: colors.cream }}
+                  style={{ background: colors.darkText, color: colors.cream }}
                 >
                   Find a Location
                 </a>
@@ -597,18 +598,18 @@ function CalaShowcaseContent() {
             >
               <h3 
                 className="text-2xl font-bold mb-2 flex items-center gap-2"
-                style={{ fontFamily: "'Playfair Display', serif", color: colors.darkBrown }}
+                style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
               >
                 Get It Delivered
               </h3>
-              <p className="mb-6" style={{ color: colors.darkBrown }}>
+              <p className="mb-6" style={{ color: colors.darkText }}>
                 Want to stay home? Our meals are 
                 available on delivery platforms (Uber Eats, DoorDash).
               </p>
               <a 
                 href="#"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-transform hover:scale-105 self-start"
-                style={{ background: colors.darkBrown, color: colors.cream }}
+                style={{ background: colors.darkText, color: colors.cream }}
               >
                 Order Delivery
               </a>
@@ -633,8 +634,8 @@ function CalaShowcaseContent() {
                 <Sun size={22} className="text-white" />
               </div>
               <div>
-                <p className="font-bold" style={{ color: colors.darkBrown }}>Solara</p>
-                <p className="text-sm" style={{ color: colors.mediumBrown }}>@eatsolara</p>
+                <p className="font-bold" style={{ color: colors.darkText }}>Coastline</p>
+                <p className="text-sm" style={{ color: colors.lightText }}>@coastlinekitchen</p>
               </div>
             </div>
             <a 
@@ -679,7 +680,7 @@ function CalaShowcaseContent() {
             className="text-xl mb-4 tracking-widest"
             style={{ color: colors.cream, opacity: 0.8 }}
           >
-            SOLARA
+            COASTLINE
           </p>
           <h2 
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
@@ -711,7 +712,7 @@ function CalaShowcaseContent() {
       {/* ========== FOOTER ========== */}
       <footer 
         className="py-16"
-        style={{ background: colors.darkBrown }}
+        style={{ background: colors.darkText }}
       >
         <div className="max-w-7xl mx-auto px-6">
           {/* Top Section */}
@@ -729,7 +730,7 @@ function CalaShowcaseContent() {
                   className="text-2xl font-bold"
                   style={{ fontFamily: "'Playfair Display', serif", color: colors.cream }}
                 >
-                  Solara
+                  Coastline
                 </span>
               </div>
               <p className="text-sm mb-6" style={{ color: colors.cream, opacity: 0.7 }}>
@@ -785,7 +786,7 @@ function CalaShowcaseContent() {
             style={{ borderTop: `1px solid ${colors.cream}20` }}
           >
             <p className="text-sm" style={{ color: colors.cream, opacity: 0.5 }}>
-              © 2025 Solara Mediterranean Kitchen. All rights reserved.
+              © 2025 Coastline Mediterranean Kitchen. All rights reserved.
             </p>
             <div className="flex gap-6">
               {['Privacy', 'Terms', 'Cookies'].map(link => (

@@ -16,14 +16,14 @@ const colors = {
 };
 
 const templates = [
-  { value: 'solara', label: 'Solara - Mediterranean' },
-  { value: 'joyful-table', label: 'Joyful Table - Catering' },
-  { value: 'oakfire', label: 'Oakfire - BBQ Smokehouse' },
-  { value: 'safari-spice', label: 'Safari Spice - African' },
-  { value: 'golden-yeast', label: 'Golden Yeast - Vegan' },
-  { value: 'bloom', label: 'Bloom Kitchen - Plant-Based' },
-  { value: 'topstack', label: 'TopStack - Smash Burgers' },
-  { value: 'phils-prime', label: "Phil's Prime - Gourmet Meats" },
+  { value: 'coastline', label: 'Coastline Kitchen - Coastal Cuisine' },
+  { value: 'gathered', label: 'Gathered - Farm to Table Catering' },
+  { value: 'smoke-ember', label: 'Smoke & Ember - BBQ' },
+  { value: 'harlem-heat', label: 'Harlem Heat - African Spices' },
+  { value: 'sprout', label: 'Sprout & Co - Plant-Based' },
+  { value: 'wild-greens', label: 'Wild Greens - Comfort Food' },
+  { value: 'griddle-house', label: 'Griddle House - Smash Burgers' },
+  { value: 'butcher-bloom', label: "Butcher & Bloom - Artisan Meats" },
   { value: 'not-sure', label: "Not sure yet - help me choose" }
 ];
 

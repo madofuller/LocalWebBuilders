@@ -4,18 +4,20 @@ import { ArrowLeft, ShoppingBag, Leaf, Instagram, Facebook, Twitter } from 'luci
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   SOLARA - Mediterranean Menu Page (Cala-inspired)
+   COASTLINE - Mediterranean Menu Page
    Sunny yellow background, bowl-focused menu
    ============================================ */
 
 const colors = {
-  yellow: '#FFD93D',
-  lightYellow: '#FFF4B8',
-  cream: '#FFF9E6',
-  brown: '#5C4033',
-  orange: '#E85D3B',
-  green: '#4A7C59',
-  white: '#FFFFFF'
+  cream: '#FDF6E9',
+  lightCream: '#FFF8E7',
+  terracotta: '#D4622B',
+  golden: '#E9A23B',
+  darkText: '#5C3D2E',
+  lightText: '#8B6B5A',
+  white: '#FFFFFF',
+  olive: '#7A8B4A',
+  sand: '#E8DBC9'
 };
 
 const images = {
@@ -101,13 +103,13 @@ export default function MediterraneanMenu() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Solara Mediterranean" templateSlug="solara" />
-      <div className="min-h-screen pt-12" style={{ background: colors.yellow, fontFamily: "'Inter', sans-serif" }}>
+      <TemplateFloatingCTA templateName="Coastline Mediterranean" templateSlug="solara" />
+      <div className="min-h-screen pt-12" style={{ background: colors.cream, fontFamily: "'Inter', sans-serif" }}>
         
         {/* Header */}
-        <header className="py-4 px-6" style={{ background: colors.yellow }}>
+        <header className="py-4 px-6" style={{ background: colors.cream }}>
           <div className="max-w-6xl mx-auto flex items-center justify-between">
-            <Link to="/mediterranean" className="flex items-center gap-2 hover:opacity-70" style={{ color: colors.brown }}>
+            <Link to="/mediterranean" className="flex items-center gap-2 hover:opacity-70" style={{ color: colors.darkText }}>
               <ArrowLeft size={20} />
               <span className="text-sm font-medium">Back</span>
             </Link>
@@ -118,29 +120,29 @@ export default function MediterraneanMenu() {
             >
               <span 
                 className="text-xl font-bold"
-                style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+                style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
               >
-                Solara
+                Coastline
               </span>
             </Link>
 
-            <button className="p-2 rounded-full" style={{ background: colors.brown }}>
-              <ShoppingBag size={18} style={{ color: colors.yellow }} />
+            <button className="p-2 rounded-full" style={{ background: colors.darkText }}>
+              <ShoppingBag size={18} style={{ color: colors.cream }} />
             </button>
           </div>
         </header>
 
         {/* Hero */}
-        <section className="py-12 px-6 text-center" style={{ background: colors.yellow }}>
+        <section className="py-12 px-6 text-center" style={{ background: colors.cream }}>
           <h1 
             className="text-4xl md:text-5xl font-bold mb-2"
-            style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+            style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
           >
             Sunny Food.
           </h1>
           <h1 
             className="text-4xl md:text-5xl font-bold"
-            style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+            style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
           >
             Golden Mood.
           </h1>
@@ -156,7 +158,7 @@ export default function MediterraneanMenu() {
                 <div className="flex items-center justify-between mb-2">
                   <h2 
                     className="text-2xl font-bold"
-                    style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+                    style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
                   >
                     {section.name}
                   </h2>
@@ -164,14 +166,14 @@ export default function MediterraneanMenu() {
                     <div className="flex gap-2">
                       <button 
                         className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filter === 'vegan' ? 'opacity-100' : 'opacity-50'}`}
-                        style={{ background: colors.green, color: colors.white }}
+                        style={{ background: colors.olive, color: colors.white }}
                         onClick={() => setFilter(filter === 'vegan' ? 'all' : 'vegan')}
                       >
                         Vegetarian
                       </button>
                       <button 
                         className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filter === 'popular' ? 'opacity-100' : 'opacity-50'}`}
-                        style={{ background: colors.orange, color: colors.white }}
+                        style={{ background: colors.terracotta, color: colors.white }}
                         onClick={() => setFilter(filter === 'popular' ? 'all' : 'popular')}
                       >
                         Most Popular
@@ -179,7 +181,7 @@ export default function MediterraneanMenu() {
                     </div>
                   )}
                 </div>
-                <p className="text-sm mb-8" style={{ color: colors.brown, opacity: 0.6 }}>
+                <p className="text-sm mb-8" style={{ color: colors.darkText, opacity: 0.6 }}>
                   {section.subtitle}
                 </p>
 
@@ -203,7 +205,7 @@ export default function MediterraneanMenu() {
                           {item.popular && (
                             <span 
                               className="absolute top-2 left-2 px-2 py-1 rounded-full text-xs font-bold"
-                              style={{ background: colors.orange, color: colors.white }}
+                              style={{ background: colors.terracotta, color: colors.white }}
                             >
                               POPULAIRE
                             </span>
@@ -211,7 +213,7 @@ export default function MediterraneanMenu() {
                           {item.vegan && (
                             <span 
                               className="absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1"
-                              style={{ background: colors.green, color: colors.white }}
+                              style={{ background: colors.olive, color: colors.white }}
                             >
                               <Leaf size={12} /> VEGAN
                             </span>
@@ -220,15 +222,15 @@ export default function MediterraneanMenu() {
                       )}
                       <div className="flex justify-between items-start gap-2">
                         <div>
-                          <h3 className="font-semibold text-sm" style={{ color: colors.brown }}>
+                          <h3 className="font-semibold text-sm" style={{ color: colors.darkText }}>
                             {item.name}
-                            {item.vegan && !item.img && <Leaf size={14} className="inline ml-1" style={{ color: colors.green }} />}
+                            {item.vegan && !item.img && <Leaf size={14} className="inline ml-1" style={{ color: colors.olive }} />}
                           </h3>
-                          <p className="text-xs mt-1" style={{ color: colors.brown, opacity: 0.6 }}>
+                          <p className="text-xs mt-1" style={{ color: colors.darkText, opacity: 0.6 }}>
                             {item.desc}
                           </p>
                         </div>
-                        <span className="font-bold text-sm whitespace-nowrap" style={{ color: colors.orange }}>
+                        <span className="font-bold text-sm whitespace-nowrap" style={{ color: colors.terracotta }}>
                           ${item.price}
                         </span>
                       </div>
@@ -241,26 +243,26 @@ export default function MediterraneanMenu() {
         </main>
 
         {/* Footer */}
-        <footer className="py-12 px-6" style={{ background: colors.yellow }}>
+        <footer className="py-12 px-6" style={{ background: colors.cream }}>
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="flex items-center gap-2">
                 <span 
                   className="text-2xl font-bold"
-                  style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+                  style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
                 >
-                  Solara
+                  Coastline
                 </span>
               </div>
               
-              <div className="flex gap-8 text-sm" style={{ color: colors.brown }}>
+              <div className="flex gap-8 text-sm" style={{ color: colors.darkText }}>
                 <Link to="/mediterranean" className="hover:opacity-70">Home</Link>
                 <a href="#" className="hover:opacity-70">Locations</a>
                 <a href="#" className="hover:opacity-70">Catering</a>
                 <a href="#" className="hover:opacity-70">Careers</a>
               </div>
 
-              <div className="flex gap-4" style={{ color: colors.brown }}>
+              <div className="flex gap-4" style={{ color: colors.darkText }}>
                 {[Instagram, Facebook, Twitter].map((Icon, i) => (
                   <a key={i} href="#" className="hover:opacity-70 transition-opacity">
                     <Icon size={20} />

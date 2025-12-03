@@ -10,15 +10,19 @@ import {
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   SAFARI SPICE - African Online Ordering
+   HARLEM HEAT - African Online Ordering
+   Matches AfricanShowcase vibrant colors
    ============================================ */
 
 const colors = {
-  cream: '#FDF8F3',
-  rust: '#B7472A',
-  gold: '#D4A84B',
-  brown: '#3D2914',
-  terracotta: '#C47D5E',
+  red: '#E63946',
+  green: '#2D9E4F',
+  yellow: '#FFD23F',
+  blue: '#1D3557',
+  orange: '#F77F00',
+  cream: '#FFF8E8',
+  white: '#FFFFFF',
+  darkText: '#1A1A1A'
 };
 
 const menuData = {
@@ -143,34 +147,42 @@ const menuData = {
 function AfricanOrderContent() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Safari Spice" templateSlug="safari-spice" />
+      <TemplateFloatingCTA templateName="Harlem Heat" templateSlug="safari-spice" />
       
       <div className="min-h-screen" style={{ background: colors.cream }}>
         {/* Header */}
-        <header className="sticky top-0 z-40 py-4 px-6 border-b bg-white/90 backdrop-blur" style={{ borderColor: `${colors.brown}15` }}>
+        <header className="sticky top-0 z-40 py-4 px-6 border-b backdrop-blur" style={{ background: `${colors.green}f0`, borderColor: `${colors.yellow}30` }}>
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link 
                 to="/african"
-                className="p-2 rounded-lg hover:bg-black/5 transition-colors"
-                style={{ color: colors.brown }}
+                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                style={{ color: colors.yellow }}
               >
                 <ArrowLeft size={24} />
               </Link>
               <div>
-                <h1 
-                  className="text-2xl font-bold tracking-wide"
-                  style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
-                >
-                  SAFARI SPICE
-                </h1>
-                <p className="text-sm" style={{ color: colors.brown, opacity: 0.7 }}>
+                <div className="flex items-center gap-2">
+                  <span 
+                    className="text-2xl font-black"
+                    style={{ fontFamily: "'Fredoka', sans-serif", color: colors.yellow }}
+                  >
+                    HARLEM
+                  </span>
+                  <span 
+                    className="text-2xl font-black"
+                    style={{ fontFamily: "'Fredoka', sans-serif", color: colors.white }}
+                  >
+                    HEAT
+                  </span>
+                </div>
+                <p className="text-sm" style={{ color: colors.white, opacity: 0.8 }}>
                   Online Ordering
                 </p>
               </div>
             </div>
             
-            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.brown }}>
+            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.white }}>
               <div className="flex items-center gap-2">
                 <Clock size={16} />
                 <span>40-55 min</span>
@@ -188,12 +200,12 @@ function AfricanOrderContent() {
           {/* Hero */}
           <div className="text-center mb-12">
             <h2 
-              className="text-4xl md:text-5xl font-bold mb-4"
-              style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+              className="text-4xl md:text-5xl font-black mb-4"
+              style={{ color: colors.green }}
             >
               Order Online
             </h2>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.brown, opacity: 0.7 }}>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.darkText, opacity: 0.7 }}>
               Authentic African flavors from across the continent.
               Available for pickup and delivery.
             </p>
@@ -204,7 +216,7 @@ function AfricanOrderContent() {
             title="Starters"
             description="Begin your journey"
             items={menuData.starters}
-            accentColor={colors.rust}
+            accentColor={colors.red}
             columns={4}
           />
 
@@ -212,7 +224,7 @@ function AfricanOrderContent() {
             title="Main Courses"
             description="Signature dishes from across Africa"
             items={menuData.mains}
-            accentColor={colors.rust}
+            accentColor={colors.orange}
             columns={3}
           />
 
@@ -220,7 +232,7 @@ function AfricanOrderContent() {
             title="Sides"
             description="Perfect accompaniments"
             items={menuData.sides}
-            accentColor={colors.rust}
+            accentColor={colors.green}
             columns={4}
           />
 
@@ -228,30 +240,30 @@ function AfricanOrderContent() {
             title="Drinks"
             description="Refresh and enjoy"
             items={menuData.drinks}
-            accentColor={colors.rust}
+            accentColor={colors.yellow}
             columns={4}
           />
 
           {/* Checkout Section */}
-          <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.brown}15` }}>
+          <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.green}30` }}>
             <CheckoutForm 
-              restaurantName="Safari Spice"
-              accentColor={colors.rust}
+              restaurantName="Harlem Heat"
+              accentColor={colors.green}
             />
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="py-8 px-6 text-center bg-white">
-          <p className="text-sm" style={{ color: colors.brown, opacity: 0.6 }}>
-            © 2025 Safari Spice African Kitchen. All rights reserved.
+        <footer className="py-8 px-6 text-center" style={{ background: colors.green }}>
+          <p className="text-sm" style={{ color: colors.yellow }}>
+            © 2025 Harlem Heat African Kitchen. All rights reserved.
           </p>
         </footer>
       </div>
 
       {/* Cart Components */}
-      <CartSidebar accentColor={colors.rust} />
-      <FloatingCartButton accentColor={colors.rust} />
+      <CartSidebar accentColor={colors.green} />
+      <FloatingCartButton accentColor={colors.red} />
     </>
   );
 }

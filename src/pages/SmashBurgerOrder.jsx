@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Clock, MapPin } from 'lucide-react';
+import { ArrowLeft, Clock, MapPin, Flame } from 'lucide-react';
 import { CartProvider } from '../context/CartContext';
 import { 
   MenuSection, 
@@ -10,15 +10,16 @@ import {
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   TOPSTACK - Smash Burger Online Ordering
+   GRIDDLE HOUSE - Smash Burger Online Ordering
    ============================================ */
 
+// Matches SmashBurgerShowcase colors
 const colors = {
-  black: '#0a0a0a',
-  yellow: '#FFD93D',
-  red: '#E63946',
-  cream: '#FFF8E7',
-  gray: '#1a1a1a',
+  yellow: '#FFE135',
+  black: '#1A1A1A',
+  white: '#FFFFFF',
+  cream: '#FFF9E8',
+  red: '#E63946'
 };
 
 const menuData = {
@@ -131,34 +132,39 @@ const menuData = {
 function SmashBurgerOrderContent() {
   return (
     <>
-      <TemplateFloatingCTA templateName="TopStack Burgers" templateSlug="topstack" />
+      <TemplateFloatingCTA templateName="Griddle House Burgers" templateSlug="topstack" />
       
       <div className="min-h-screen" style={{ background: colors.cream }}>
         {/* Header */}
-        <header className="sticky top-0 z-40 py-4 px-6 border-b" style={{ background: colors.black, borderColor: colors.yellow }}>
+        <header className="sticky top-0 z-40 py-4 px-6 border-b" style={{ background: colors.cream, borderColor: `${colors.black}20` }}>
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link 
                 to="/smash-burger"
-                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
-                style={{ color: colors.yellow }}
+                className="p-2 rounded-lg hover:bg-black/5 transition-colors"
+                style={{ color: colors.black }}
               >
                 <ArrowLeft size={24} />
               </Link>
-              <div>
-                <h1 
-                  className="text-2xl font-black tracking-wider"
-                  style={{ fontFamily: "'Anton', sans-serif", color: colors.yellow }}
+              <div className="flex items-center gap-2">
+                <div 
+                  className="w-9 h-9 rounded-lg flex items-center justify-center"
+                  style={{ background: colors.yellow }}
                 >
-                  TOPSTACK
-                </h1>
-                <p className="text-sm text-white/70">
-                  Online Ordering
-                </p>
+                  <Flame size={18} style={{ color: colors.black }} />
+                </div>
+                <div className="flex flex-col leading-none">
+                  <span className="text-lg font-black tracking-tight" style={{ color: colors.black }}>
+                    GRIDDLE
+                  </span>
+                  <span className="text-xs font-bold tracking-widest" style={{ color: colors.red }}>
+                    HOUSE
+                  </span>
+                </div>
               </div>
             </div>
             
-            <div className="hidden sm:flex items-center gap-6 text-sm text-white/70">
+            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.black, opacity: 0.7 }}>
               <div className="flex items-center gap-2">
                 <Clock size={16} />
                 <span>15-25 min</span>
@@ -223,7 +229,7 @@ function SmashBurgerOrderContent() {
           {/* Checkout Section */}
           <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.black}15` }}>
             <CheckoutForm 
-              restaurantName="TopStack Smash Burgers"
+              restaurantName="Griddle House Smash Burgers"
               accentColor={colors.red}
             />
           </div>
@@ -232,7 +238,7 @@ function SmashBurgerOrderContent() {
         {/* Footer */}
         <footer className="py-8 px-6 text-center" style={{ background: colors.black }}>
           <p className="text-sm" style={{ color: colors.yellow, opacity: 0.6 }}>
-            © 2025 TopStack Smash Burgers. All rights reserved.
+            © 2025 Griddle House Smash Burgers. All rights reserved.
           </p>
         </footer>
       </div>

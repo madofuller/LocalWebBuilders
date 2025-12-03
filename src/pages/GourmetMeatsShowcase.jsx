@@ -8,7 +8,7 @@ import { LanguageProvider, useLanguage } from '../context/LanguageContext';
 import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
-   PHIL'S PRIME - Gourmet Meats & Sausages
+   BUTCHER & BLOOM - Artisan Meats & Provisions
    Retro pastel blocks, playful typography, fun
    ============================================ */
 
@@ -40,29 +40,29 @@ const images = {
 // Translated content
 const content = {
   heroTitle: {
-    en: 'CALLING ALL\nOMNIVORES.',
-    es: 'LLAMANDO A TODOS\nLOS OMNÍVOROS.',
-    fr: 'APPEL À TOUS\nLES OMNIVORES.',
+    en: 'FLAVOR FIRST.\nALWAYS.',
+    es: 'SABOR PRIMERO.\nSIEMPRE.',
+    fr: 'SAVEUR D\'ABORD.\nTOUJOURS.',
   },
   heroDesc: {
-    en: 'Premium gourmet sausages and meats crafted with passion. Bold flavors, quality ingredients, unforgettable taste.',
-    es: 'Salchichas y carnes gourmet premium elaboradas con pasión. Sabores atrevidos, ingredientes de calidad, sabor inolvidable.',
-    fr: 'Saucisses et viandes gastronomiques premium fabriquées avec passion. Saveurs audacieuses, ingrédients de qualité.',
+    en: 'Small-batch artisan meats crafted with heritage recipes. Honest ingredients, bold flavors, unforgettable meals.',
+    es: 'Carnes artesanales en pequeños lotes elaboradas con recetas tradicionales. Ingredientes honestos, sabores audaces.',
+    fr: 'Viandes artisanales en petits lots élaborées avec des recettes traditionnelles. Ingrédients honnêtes, saveurs audacieuses.',
   },
   productsTitle: {
-    en: 'Our Products',
-    es: 'Nuestros Productos',
-    fr: 'Nos Produits',
+    en: 'Our Craft',
+    es: 'Nuestro Arte',
+    fr: 'Notre Art',
   },
   storyTitle: {
-    en: 'Our Story',
-    es: 'Nuestra Historia',
-    fr: 'Notre Histoire',
+    en: 'Our Roots',
+    es: 'Nuestras Raíces',
+    fr: 'Nos Racines',
   },
   storyDesc: {
-    en: 'Phil started making sausages in his backyard with a simple goal: create the best damn sausage you\'ve ever tasted.',
-    es: 'Phil empezó a hacer salchichas en su patio con un objetivo simple: crear la mejor salchicha que hayas probado.',
-    fr: 'Phil a commencé à faire des saucisses dans son jardin avec un objectif simple: créer la meilleure saucisse que vous ayez jamais goûtée.',
+    en: 'We started in a small shop with one mission: bring back the art of real butchery and honest food.',
+    es: 'Empezamos en una pequeña tienda con una misión: traer de vuelta el arte de la carnicería real.',
+    fr: 'Nous avons commencé dans une petite boutique avec une mission: ramener l\'art de la vraie boucherie.',
   },
 };
 
@@ -79,7 +79,7 @@ function GourmetMeatsShowcaseContent() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Phil's Prime" templateSlug="phils-prime" />
+      <TemplateFloatingCTA templateName="Butcher & Bloom" templateSlug="butcher-bloom" />
       <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
       
       {/* ========== HEADER ========== */}
@@ -89,7 +89,7 @@ function GourmetMeatsShowcaseContent() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <nav className="hidden md:flex items-center gap-6">
-            {['Products', 'Our Story'].map(item => (
+            {['Shop', 'Our Story'].map(item => (
               <a key={item} href="#" className="text-sm hover:opacity-70" style={{ color: colors.black }}>
                 {item}
               </a>
@@ -100,7 +100,7 @@ function GourmetMeatsShowcaseContent() {
             className="text-3xl"
             style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: colors.black }}
           >
-            Phil's <span className="font-bold not-italic">PRIME</span>
+            Butcher <span className="font-bold not-italic">&</span> BLOOM
           </span>
 
           <div className="hidden md:flex items-center gap-4">
@@ -139,7 +139,7 @@ function GourmetMeatsShowcaseContent() {
               style={{ color: colors.black, borderColor: colors.coral + '30' }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Products
+              Shop
             </a>
             <a 
               href="#"
@@ -193,32 +193,31 @@ function GourmetMeatsShowcaseContent() {
               </h1>
             </div>
             <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-              <img src={images.hero} alt="Gourmet sausage" className="w-full h-full object-cover" />
+              <img src={images.hero} alt="Artisan meats" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ========== UNITED WE GRILL ========== */}
+      {/* ========== MISSION STATEMENT ========== */}
       <section className="py-20" style={{ background: colors.mint }}>
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 
             className="text-5xl md:text-7xl font-black mb-6"
             style={{ fontFamily: "'Fredoka', sans-serif", color: colors.black }}
           >
-            UNITED<br/>WE GRILL!
+            REAL FOOD.<br/>REAL GOOD.
           </h2>
           <p className="text-lg mb-8" style={{ color: colors.black, opacity: 0.8 }}>
-            We believe there's room for both meat and 
-            vegetables on our plates—and when you unite them 
-            with mouthwatering spices, delicious things happen! 
-            You might have known us as MeatCraft Foods, but now 
-            you can call us Phil's Prime. Welcome!
+            We believe in food that tells a story. Every cut, every 
+            link, every bite comes from farms we know and recipes 
+            passed down through generations. No shortcuts, no 
+            compromises—just honest food made the right way.
           </p>
         </div>
       </section>
 
-      {/* ========== ALL IN ONE ========== */}
+      {/* ========== FEATURED PRODUCTS ========== */}
       <section className="py-20" style={{ background: colors.cream }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -226,15 +225,15 @@ function GourmetMeatsShowcaseContent() {
               className="text-4xl md:text-5xl mb-4"
               style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: colors.black }}
             >
-              All-in-One Tasty Fun
+              Crafted With Care
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: 'KOREAN BBQ', sub: 'Grass-Fed Beef', img: images.sausage1, color: colors.lavender },
-              { name: 'LAO CURRY', sub: 'Grass-Fed Beef', img: images.bbq, color: colors.yellow },
-              { name: 'SMOKED CAULI BRAT', sub: 'Chicken Sausage', img: images.sausage2, color: colors.mint }
+              { name: 'HICKORY MAPLE', sub: 'Heritage Pork Sausage', img: images.sausage1, color: colors.lavender },
+              { name: 'CHIMICHURRI', sub: 'Grass-Fed Beef Link', img: images.bbq, color: colors.yellow },
+              { name: 'GARDEN HERB', sub: 'Free-Range Chicken', img: images.sausage2, color: colors.mint }
             ].map((item, i) => (
               <div key={i} className="rounded-3xl overflow-hidden group cursor-pointer" style={{ background: item.color }}>
                 <div className="aspect-square overflow-hidden">
@@ -254,21 +253,21 @@ function GourmetMeatsShowcaseContent() {
 
           <div className="text-center mt-12">
             <p className="text-lg mb-6" style={{ color: colors.black, opacity: 0.7 }}>
-              All in one tasty fun, great alone or on a bun.<br/>
-              Try a bite and you'll delight!
+              From breakfast to dinner, we've got you covered.<br/>
+              Taste the difference quality makes.
             </p>
             <a 
               href="#"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold"
               style={{ background: colors.coral, color: colors.white }}
             >
-              Our Products
+              Shop All Products
             </a>
           </div>
         </div>
       </section>
 
-      {/* ========== FIND PHIL'S ========== */}
+      {/* ========== WHERE TO FIND US ========== */}
       <section className="py-8" style={{ background: colors.lavender }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -276,10 +275,10 @@ function GourmetMeatsShowcaseContent() {
               className="text-2xl"
               style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: colors.black }}
             >
-              Get Your Phil
+              Find Us Near You
             </span>
             <div className="flex items-center gap-8">
-              {['good eggs', 'Misfits Market', 'IMPERFECT FOODS', 'WHOLE FOODS'].map((store, i) => (
+              {['Farmers Markets', 'Local Grocers', 'Online Shop', 'Restaurants'].map((store, i) => (
                 <span key={i} className="text-sm font-bold" style={{ color: colors.black, opacity: 0.6 }}>
                   {store}
                 </span>
@@ -289,7 +288,7 @@ function GourmetMeatsShowcaseContent() {
         </div>
       </section>
 
-      {/* ========== MORE IS MORE ========== */}
+      {/* ========== OUR PROMISE ========== */}
       <section className="py-20" style={{ background: colors.blue }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -297,15 +296,15 @@ function GourmetMeatsShowcaseContent() {
               className="text-6xl md:text-8xl font-black mb-8"
               style={{ fontFamily: "'Fredoka', sans-serif", color: colors.white }}
             >
-              MORE IS MORE
+              OUR PROMISE
             </h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: 'More Veggies', desc: 'Veggies as a full third—yup! Eat local.', Icon: Leaf },
-              { title: 'More Flavor', desc: 'Spices/herbs that make you say "OH WOW!"', Icon: Flame },
-              { title: 'More Fun', desc: 'More fuel—good for you AND the planet.', Icon: Sparkles }
+              { title: 'Local First', desc: 'We source from farms within 100 miles whenever possible.', Icon: Leaf },
+              { title: 'No Fillers', desc: 'Just meat, spices, and love. Nothing you can\'t pronounce.', Icon: Flame },
+              { title: 'Sustainable', desc: 'Good for you, good for farmers, good for the planet.', Icon: Sparkles }
             ].map((item, i) => (
               <div key={i} className="p-8 rounded-3xl text-center" style={{ background: 'rgba(255,255,255,0.15)' }}>
                 <item.Icon size={48} className="mb-4 mx-auto" style={{ color: colors.white }} />
@@ -330,7 +329,7 @@ function GourmetMeatsShowcaseContent() {
               className="text-3xl md:text-4xl"
               style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: colors.black }}
             >
-              Get cookin' with our recipes
+              Cook something amazing
             </h2>
             <a href="#" className="px-6 py-2 rounded-full text-sm font-bold" style={{ background: colors.coral, color: colors.white }}>
               All Recipes
@@ -339,9 +338,9 @@ function GourmetMeatsShowcaseContent() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: 'Weeknight Pasta', img: images.recipe1 },
-              { title: 'Grill Berry Burger', img: images.recipe2 },
-              { title: 'Sheet-Pan Roast', img: images.recipe3 }
+              { title: 'Sunday Brunch Hash', img: images.recipe1 },
+              { title: 'Backyard Cookout', img: images.recipe2 },
+              { title: 'One-Pan Wonder', img: images.recipe3 }
             ].map((recipe, i) => (
               <div key={i} className="group cursor-pointer">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
@@ -370,7 +369,7 @@ function GourmetMeatsShowcaseContent() {
             className="text-3xl mb-8"
             style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: colors.black }}
           >
-            What our customers say
+            What folks are saying
           </h3>
           
           <div className="rounded-3xl p-8" style={{ background: colors.white }}>
@@ -380,19 +379,20 @@ function GourmetMeatsShowcaseContent() {
               ))}
             </div>
             <p className="text-xl mb-4" style={{ color: colors.black }}>
-              "I tried each one of the sausages you sent me, smothered in 
-              sautéed pepper and onions and I love them."
+              "Finally, sausages that taste like they should. My kids actually 
+              ask for seconds now. This is what real food is supposed to be."
             </p>
-            <p className="text-sm" style={{ color: colors.black, opacity: 0.6 }}>— Mike L.</p>
+            <p className="text-sm" style={{ color: colors.black, opacity: 0.6 }}>— Sarah M., Austin TX</p>
           </div>
         </div>
       </section>
 
-      {/* ========== PRESS ========== */}
+      {/* ========== FEATURED IN ========== */}
       <section className="py-12" style={{ background: colors.cream }}>
         <div className="max-w-7xl mx-auto px-6">
+          <p className="text-center text-sm mb-6" style={{ color: colors.black, opacity: 0.5 }}>AS FEATURED IN</p>
           <div className="flex flex-wrap items-center justify-center gap-12 opacity-40">
-            {['Inc.', 'NOSH', 'Forbes', 'SHARK TANK', 'Inc.'].map((pub, i) => (
+            {['Food & Wine', 'Bon Appetit', 'Eater', 'Local News', 'Texas Monthly'].map((pub, i) => (
               <span 
                 key={i}
                 className="text-2xl font-bold"
@@ -408,7 +408,7 @@ function GourmetMeatsShowcaseContent() {
       {/* ========== INSTAGRAM ========== */}
       <section className="py-20" style={{ background: colors.mint }}>
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-lg mb-4" style={{ color: colors.black }}>@eatphilsprime</p>
+          <p className="text-lg mb-4" style={{ color: colors.black }}>@butcherandbloom</p>
           <div className="grid grid-cols-4 md:grid-cols-8 gap-2">
             {[images.sausage1, images.bbq, images.recipe1, images.sausage2, images.recipe2, images.recipe3, images.grill, images.hero].map((img, i) => (
               <div key={i} className="aspect-square rounded-lg overflow-hidden">
@@ -432,13 +432,13 @@ function GourmetMeatsShowcaseContent() {
                 className="text-2xl"
                 style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: colors.white }}
               >
-                Phil's <span className="font-bold not-italic">PRIME</span>
+                Butcher <span className="font-bold not-italic">&</span> BLOOM
               </span>
             </div>
             {[
-              { title: 'PRODUCTS', links: ['All Products', 'Best Sellers', 'New Arrivals'] },
-              { title: 'RECIPES', links: ['Quick Meals', 'Grilling', 'Party Food'] },
-              { title: "JOIN PHIL'S WORLD!", links: ['Get our biggest deals', 'on small-batch goodies.'] }
+              { title: 'SHOP', links: ['All Products', 'Best Sellers', 'Gift Boxes'] },
+              { title: 'RECIPES', links: ['Quick Meals', 'Grilling', 'Brunch Ideas'] },
+              { title: 'STAY IN TOUCH', links: ['Get weekly recipes', 'and exclusive offers.'] }
             ].map((col, i) => (
               <div key={i}>
                 <h4 className="font-bold mb-4" style={{ color: colors.white }}>{col.title}</h4>
@@ -459,6 +459,9 @@ function GourmetMeatsShowcaseContent() {
               </a>
             ))}
           </div>
+          <p className="text-center text-sm mt-8" style={{ color: colors.white, opacity: 0.5 }}>
+            © 2025 Butcher & Bloom. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>

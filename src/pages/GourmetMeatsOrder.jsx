@@ -13,129 +13,134 @@ import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
    PHIL'S PRIME - Gourmet Meats Order Page
    ============================================ */
 
+// Matches GourmetMeatsShowcase colors - playful pastels
 const colors = {
-  black: '#0D0D0D',
-  gold: '#C9A962',
-  cream: '#F5F1EB',
-  maroon: '#722F37',
-  charcoal: '#1A1A1A',
+  mint: '#B8E4D8',
+  peach: '#FFCBA4',
+  lavender: '#C5B9E8',
+  yellow: '#FFE66D',
+  coral: '#FF6B6B',
+  blue: '#4ECDC4',
+  cream: '#FFF9F0',
+  black: '#1A1A1A',
+  white: '#FFFFFF'
 };
 
 const menuData = {
-  steaks: [
+  sausages: [
     { 
-      name: 'Filet Mignon', 
-      desc: '8oz center-cut, butter-basted, choice of sauce',
-      price: 52,
-      image: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400&q=80'
+      name: 'Hickory Maple', 
+      desc: 'Heritage pork, maple syrup, black pepper. Pack of 4.',
+      price: 16,
+      image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&q=80'
     },
     { 
-      name: 'Ribeye', 
-      desc: '14oz bone-in, perfectly marbled, aged 28 days',
-      price: 58,
-      image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80'
+      name: 'Chimichurri Beef', 
+      desc: 'Grass-fed beef, fresh herbs, garlic. Pack of 4.',
+      price: 18,
+      image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80'
     },
     { 
-      name: 'NY Strip', 
-      desc: '12oz prime cut, classic steakhouse flavor',
-      price: 48,
-      image: 'https://images.unsplash.com/photo-1558030006-450675393462?w=400&q=80'
-    },
-    { 
-      name: 'Porterhouse for Two', 
-      desc: '32oz T-bone, filet + strip, carved tableside',
-      price: 125,
+      name: 'Garden Herb Chicken', 
+      desc: 'Free-range chicken, rosemary, sage. Pack of 4.',
+      price: 14,
       image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&q=80'
     },
     { 
-      name: 'Wagyu A5', 
-      desc: '6oz Japanese import, melt-in-your-mouth',
-      price: 185,
-      image: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=400&q=80'
-    },
-  ],
-  starters: [
-    { 
-      name: 'Jumbo Shrimp Cocktail', 
-      desc: '6 colossal shrimp, house cocktail sauce',
-      price: 24,
-      image: 'https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&q=80'
-    },
-    { 
-      name: 'Oysters Rockefeller', 
-      desc: 'Half dozen, spinach, parmesan, herb butter',
-      price: 22,
-      image: 'https://images.unsplash.com/photo-1606731219412-87b1e444844f?w=400&q=80'
-    },
-    { 
-      name: 'Bacon Wrapped Scallops', 
-      desc: 'Seared diver scallops, applewood bacon',
-      price: 26,
-      image: 'https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=400&q=80'
-    },
-    { 
-      name: 'Wedge Salad', 
-      desc: 'Iceberg, blue cheese, bacon, tomatoes',
-      price: 14,
-      image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=80'
-    },
-  ],
-  sides: [
-    { 
-      name: 'Lobster Mac & Cheese', 
-      desc: 'Maine lobster, three-cheese blend',
-      price: 22,
-      image: 'https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?w=400&q=80'
-    },
-    { 
-      name: 'Truffle Fries', 
-      desc: 'Parmesan, truffle oil, herbs',
-      price: 14,
-      image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400&q=80'
-    },
-    { 
-      name: 'Creamed Spinach', 
-      desc: 'Classic steakhouse style',
-      price: 12,
-      image: 'https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?w=400&q=80'
-    },
-    { 
-      name: 'Loaded Baked Potato', 
-      desc: 'Bacon, cheddar, sour cream, chives',
-      price: 14,
-      image: 'https://images.unsplash.com/photo-1600628421060-939639517883?w=400&q=80'
-    },
-    { 
-      name: 'Grilled Asparagus', 
-      desc: 'Lemon, parmesan, olive oil',
-      price: 12,
-      image: 'https://images.unsplash.com/photo-1515471209610-dae1c92d8777?w=400&q=80'
-    },
-  ],
-  drinks: [
-    { 
-      name: 'Old Fashioned', 
-      desc: 'Woodford Reserve, bitters, orange',
+      name: 'Spicy Italian', 
+      desc: 'Pork, fennel, calabrian chili. Pack of 4.',
       price: 16,
-      image: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=80'
+      image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80'
     },
     { 
-      name: 'Manhattan', 
-      desc: 'Rye whiskey, sweet vermouth, cherry',
-      price: 16,
-      image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&q=80'
-    },
-    { 
-      name: 'House Red Wine', 
-      desc: 'Cabernet Sauvignon, by the glass',
+      name: 'Breakfast Links', 
+      desc: 'Classic recipe, sage, brown sugar. Pack of 8.',
       price: 14,
-      image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&q=80'
+      image: 'https://images.unsplash.com/photo-1558030006-450675393462?w=400&q=80'
+    },
+  ],
+  bundles: [
+    { 
+      name: 'Grill Master Box', 
+      desc: '8 sausages, 4 burgers, spice rub, buns',
+      price: 65,
+      image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&q=80'
     },
     { 
-      name: 'Espresso Martini', 
-      desc: 'Vodka, coffee liqueur, fresh espresso',
-      price: 15,
-      image: 'https://images.unsplash.com/photo-1545438102-799c3991a7b4?w=400&q=80'
+      name: 'Brunch Bundle', 
+      desc: 'Breakfast links, bacon, country ham',
+      price: 48,
+      image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&q=80'
+    },
+    { 
+      name: 'Sampler Pack', 
+      desc: 'Try all 5 sausage flavors, 2 of each',
+      price: 55,
+      image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80'
+    },
+    { 
+      name: 'Gift Box', 
+      desc: 'Sausages, bacon, rubs, mustard, gift wrapped',
+      price: 85,
+      image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80'
+    },
+  ],
+  extras: [
+    { 
+      name: 'Artisan Bacon', 
+      desc: 'Thick-cut, applewood smoked. 1 lb.',
+      price: 16,
+      image: 'https://images.unsplash.com/photo-1558030006-450675393462?w=400&q=80'
+    },
+    { 
+      name: 'Grass-Fed Burgers', 
+      desc: 'Quarter pound patties. Pack of 4.',
+      price: 18,
+      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80'
+    },
+    { 
+      name: 'Signature Spice Rub', 
+      desc: 'Our secret blend, 4oz jar',
+      price: 12,
+      image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80'
+    },
+    { 
+      name: 'Stone Ground Mustard', 
+      desc: 'House-made, honey touch. 8oz jar.',
+      price: 8,
+      image: 'https://images.unsplash.com/photo-1528750717929-32abb73d3bd9?w=400&q=80'
+    },
+    { 
+      name: 'Country Ham', 
+      desc: 'Dry-cured, sliced. 1 lb.',
+      price: 22,
+      image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&q=80'
+    },
+  ],
+  merch: [
+    { 
+      name: 'Canvas Apron', 
+      desc: 'Heavy-duty, adjustable, logo embroidered',
+      price: 38,
+      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80'
+    },
+    { 
+      name: 'Recipe Book', 
+      desc: '50+ recipes from our kitchen to yours',
+      price: 25,
+      image: 'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&q=80'
+    },
+    { 
+      name: 'Branded Cap', 
+      desc: 'Snapback, one size fits all',
+      price: 28,
+      image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&q=80'
+    },
+    { 
+      name: 'Grill Tongs', 
+      desc: 'Stainless steel, 16 inch, logo engraved',
+      price: 22,
+      image: 'https://images.unsplash.com/photo-1558030006-450675393462?w=400&q=80'
     },
   ],
 };
@@ -143,41 +148,41 @@ const menuData = {
 function GourmetMeatsOrderContent() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Phil's Prime" templateSlug="phils-prime" />
+      <TemplateFloatingCTA templateName="Butcher & Bloom" templateSlug="butcher-bloom" />
       
-      <div className="min-h-screen" style={{ background: colors.charcoal }}>
+      <div className="min-h-screen" style={{ background: colors.cream }}>
         {/* Header */}
-        <header className="sticky top-0 z-40 py-4 px-6 border-b" style={{ background: colors.black, borderColor: `${colors.gold}30` }}>
+        <header className="sticky top-0 z-40 py-4 px-6 border-b" style={{ background: colors.cream, borderColor: `${colors.black}10` }}>
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link 
                 to="/gourmet-meats"
-                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
-                style={{ color: colors.gold }}
+                className="p-2 rounded-lg hover:bg-black/5 transition-colors"
+                style={{ color: colors.black }}
               >
                 <ArrowLeft size={24} />
               </Link>
               <div>
                 <h1 
-                  className="text-2xl font-bold tracking-wider"
-                  style={{ fontFamily: "'Playfair Display', serif", color: colors.gold }}
+                  className="text-2xl"
+                  style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: colors.black }}
                 >
-                  PHIL'S PRIME
+                  Butcher <span className="font-bold not-italic">&</span> BLOOM
                 </h1>
-                <p className="text-sm" style={{ color: colors.cream, opacity: 0.7 }}>
-                  Online Ordering
+                <p className="text-sm" style={{ color: colors.black, opacity: 0.7 }}>
+                  Online Shop
                 </p>
               </div>
             </div>
             
-            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.cream }}>
+            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.black }}>
               <div className="flex items-center gap-2">
                 <Clock size={16} />
-                <span>45-60 min</span>
+                <span>Next Day Delivery</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={16} />
-                <span>Downtown</span>
+                <span>Ships Nationwide</span>
               </div>
             </div>
           </div>
@@ -189,70 +194,70 @@ function GourmetMeatsOrderContent() {
           <div className="text-center mb-12">
             <h2 
               className="text-4xl md:text-5xl font-bold mb-4"
-              style={{ fontFamily: "'Playfair Display', serif", color: colors.gold }}
+              style={{ fontFamily: "'Playfair Display', serif", color: colors.black }}
             >
-              Order Online
+              Shop Our Selection
             </h2>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.cream, opacity: 0.7 }}>
-              Prime cuts, expertly prepared. Steakhouse quality, delivered to your door.
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.black, opacity: 0.7 }}>
+              Small-batch artisan meats, crafted with care and shipped fresh to your door.
             </p>
           </div>
 
           {/* Menu Sections */}
           <MenuSection 
-            title="Prime Steaks"
-            description="Dry-aged, USDA Prime cuts"
-            items={menuData.steaks}
-            accentColor={colors.gold}
+            title="Artisan Sausages"
+            description="Small-batch, handcrafted with heritage recipes"
+            items={menuData.sausages}
+            accentColor={colors.coral}
             columns={3}
           />
 
           <MenuSection 
-            title="Starters"
-            description="Begin your experience"
-            items={menuData.starters}
-            accentColor={colors.gold}
+            title="Bundles & Gift Boxes"
+            description="Perfect for grilling season or gifting"
+            items={menuData.bundles}
+            accentColor={colors.blue}
             columns={4}
           />
 
           <MenuSection 
-            title="Sides"
-            description="Classic accompaniments"
-            items={menuData.sides}
-            accentColor={colors.gold}
+            title="Bacon, Burgers & More"
+            description="Pantry essentials for every kitchen"
+            items={menuData.extras}
+            accentColor={colors.peach}
             columns={3}
           />
 
           <MenuSection 
-            title="Cocktails & Wine"
-            description="Pair with your meal"
-            items={menuData.drinks}
-            accentColor={colors.gold}
+            title="Gear & Merch"
+            description="Rep the brand you love"
+            items={menuData.merch}
+            accentColor={colors.lavender}
             columns={4}
           />
 
           {/* Checkout Section */}
-          <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.gold}30` }}>
+          <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.black}15` }}>
             <div className="bg-white rounded-2xl p-8">
               <CheckoutForm 
-                restaurantName="Phil's Prime Steakhouse"
-                accentColor={colors.maroon}
+                restaurantName="Butcher & Bloom"
+                accentColor={colors.coral}
               />
             </div>
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="py-8 px-6 text-center" style={{ background: colors.black }}>
-          <p className="text-sm" style={{ color: colors.cream, opacity: 0.6 }}>
-            © 2025 Phil's Prime Steakhouse. All rights reserved.
+        <footer className="py-8 px-6 text-center" style={{ background: colors.mint }}>
+          <p className="text-sm" style={{ color: colors.black, opacity: 0.6 }}>
+            © 2025 Butcher & Bloom. All rights reserved.
           </p>
         </footer>
       </div>
 
       {/* Cart Components */}
-      <CartSidebar accentColor={colors.maroon} />
-      <FloatingCartButton accentColor={colors.maroon} />
+      <CartSidebar accentColor={colors.coral} />
+      <FloatingCartButton accentColor={colors.coral} />
     </>
   );
 }

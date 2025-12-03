@@ -9,8 +9,8 @@ import { LanguageProvider, useLanguage } from '../context/LanguageContext';
 import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
-   SAFARI SPICE - African Flavors Brand
-   Bold, vibrant, primary colors, energetic
+   HARLEM HEAT - Bold African Spices
+   Vibrant, soulful, heritage-inspired flavors
    ============================================ */
 
 const colors = {
@@ -61,29 +61,29 @@ const WavyDivider = ({ color, flip = false }) => (
 // Translated content
 const content = {
   heroTitle: {
-    en: 'Taste the\nSpirit of\nAfrica',
-    es: 'Prueba el\nEspíritu de\nÁfrica',
-    fr: 'Goûtez\nl\'Esprit de\nl\'Afrique',
+    en: 'Bold flavors.\nDeep roots.\nPure fire.',
+    es: 'Sabores audaces.\nRaíces profundas.\nFuego puro.',
+    fr: 'Saveurs audacieuses.\nRacines profondes.\nFeu pur.',
   },
   heroDesc: {
-    en: 'Authentic African spices and flavors, bringing the taste of the motherland to your kitchen. Each blend tells a story of tradition and heritage.',
-    es: 'Especias y sabores africanos auténticos, trayendo el sabor de la madre patria a tu cocina. Cada mezcla cuenta una historia de tradición y herencia.',
-    fr: 'Épices et saveurs africaines authentiques, apportant le goût de la terre mère à votre cuisine. Chaque mélange raconte une histoire de tradition.',
+    en: 'Harlem Heat brings the soul of African cuisine to your table. Crafted from family recipes, our spice blends transform ordinary meals into extraordinary experiences.',
+    es: 'Harlem Heat trae el alma de la cocina africana a tu mesa. Elaborados con recetas familiares, nuestras mezclas de especias transforman comidas ordinarias en experiencias extraordinarias.',
+    fr: 'Harlem Heat apporte l\'âme de la cuisine africaine à votre table. Élaborés à partir de recettes familiales, nos mélanges d\'épices transforment les repas.',
   },
   productsTitle: {
-    en: 'Our Signature Blends',
-    es: 'Nuestras Mezclas Exclusivas',
-    fr: 'Nos Mélanges Signature',
+    en: 'Our Fire Blends',
+    es: 'Nuestras Mezclas de Fuego',
+    fr: 'Nos Mélanges de Feu',
   },
   aboutTitle: {
-    en: 'From Africa,\nWith Love',
-    es: 'Desde África,\nCon Amor',
+    en: 'Heritage in\nEvery Jar',
+    es: 'Herencia en\nCada Frasco',
     fr: 'D\'Afrique,\nAvec Amour',
   },
   aboutDesc: {
-    en: 'Safari Spice was born from a passion for authentic African cuisine. We source directly from small farms across the continent.',
-    es: 'Safari Spice nació de una pasión por la cocina africana auténtica. Obtenemos directamente de pequeñas granjas de todo el continente.',
-    fr: 'Safari Spice est né d\'une passion pour la cuisine africaine authentique. Nous nous approvisionnons directement auprès de petites fermes du continent.',
+    en: 'Harlem Heat was born from a passion for authentic African cuisine. We source directly from small farms across the continent.',
+    es: 'Harlem Heat nació de una pasión por la cocina africana auténtica. Obtenemos directamente de pequeñas granjas de todo el continente.',
+    fr: 'Harlem Heat est né d\'une passion pour la cuisine africaine authentique. Nous nous approvisionnons directement auprès de petites fermes du continent.',
   },
 };
 
@@ -100,7 +100,7 @@ function AfricanShowcaseContent() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Safari Spice" templateSlug="safari-spice" />
+      <TemplateFloatingCTA templateName="Harlem Heat" templateSlug="safari-spice" />
       <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif" }}>
       
       {/* ========== HEADER ========== */}
@@ -140,13 +140,13 @@ function AfricanShowcaseContent() {
               className="text-3xl md:text-4xl font-black"
               style={{ fontFamily: "'Fredoka', sans-serif", color: colors.yellow }}
             >
-              SAFARI
+              HARLEM
             </span>
             <span 
               className="text-3xl md:text-4xl font-black"
               style={{ fontFamily: "'Fredoka', sans-serif", color: colors.white }}
             >
-              SPICE
+              HEAT
             </span>
           </div>
 
@@ -360,7 +360,7 @@ function AfricanShowcaseContent() {
                 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4"
                 style={{ fontFamily: "'Fredoka', sans-serif", color: colors.white }}
               >
-                SAFARI SPICE BRINGS<br/>
+                HARLEM HEAT BRINGS<br/>
                 <span style={{ color: colors.yellow }}>AFRICAN FLAVORS</span><br/>
                 EVERYWHERE
               </h2>
@@ -508,7 +508,7 @@ function AfricanShowcaseContent() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { name: 'Keisha Okafor', quote: "This is Nigerian grandma-approved. In taste test with my mum, she couldn't tell the difference. I call that a win!", img: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=80' },
-              { name: 'DiLara', quote: "Safari Spice hit me with a flavor bomb like I've never experienced before. I was blown away at the convenience of joy in a jar.", img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80' },
+              { name: 'DiLara', quote: "Harlem Heat hit me with a flavor bomb like I've never experienced before. I was blown away at the convenience of joy in a jar.", img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80' },
               { name: 'Chris', quote: "Let's just say that once my friends tried this, I now trust no one around this product at my house!", img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80' }
             ].map((testimonial, i) => (
               <div 
@@ -599,13 +599,13 @@ function AfricanShowcaseContent() {
                   className="text-2xl font-black"
                   style={{ fontFamily: "'Fredoka', sans-serif", color: colors.yellow }}
                 >
-                  SAFARI
+                  HARLEM
                 </span>
                 <span 
                   className="text-2xl font-black"
                   style={{ fontFamily: "'Fredoka', sans-serif", color: colors.white }}
                 >
-                  SPICE
+                  HEAT
                 </span>
               </div>
               <p className="text-sm mb-6" style={{ color: colors.white, opacity: 0.6 }}>
@@ -656,7 +656,7 @@ function AfricanShowcaseContent() {
             style={{ borderTop: `1px solid ${colors.white}20` }}
           >
             <p className="text-sm" style={{ color: colors.white, opacity: 0.5 }}>
-              © 2025 Safari Spice Co. All rights reserved.
+              © 2025 Harlem Heat Co. All rights reserved.
             </p>
             <div className="flex gap-6">
               {['Privacy', 'Terms'].map(link => (

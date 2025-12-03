@@ -43,7 +43,7 @@ export default function AfricanShop() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Safari Spice" templateSlug="safari-spice" />
+      <TemplateFloatingCTA templateName="Harlem Heat" templateSlug="safari-spice" />
       <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif" }}>
         
         {/* Header */}
@@ -52,12 +52,19 @@ export default function AfricanShop() {
             <Link to="/african" className="flex items-center gap-2 hover:opacity-70" style={{ color: colors.darkText }}>
               <ArrowLeft size={20} />
             </Link>
-            <Link 
-              to="/african"
-              className="text-2xl font-black"
-              style={{ fontFamily: "'Alfa Slab One', serif", color: colors.green }}
-            >
-              Safari Spice
+            <Link to="/african" className="flex items-center gap-1">
+              <span 
+                className="text-2xl font-black"
+                style={{ fontFamily: "'Fredoka', sans-serif", color: colors.yellow }}
+              >
+                HARLEM
+              </span>
+              <span 
+                className="text-2xl font-black"
+                style={{ fontFamily: "'Fredoka', sans-serif", color: colors.green }}
+              >
+                HEAT
+              </span>
             </Link>
             <button className="relative p-2">
               <ShoppingCart size={22} style={{ color: colors.darkText }} />
@@ -76,7 +83,7 @@ export default function AfricanShop() {
           <div className="max-w-6xl mx-auto text-center">
             <h1 
               className="text-4xl md:text-6xl font-black mb-4"
-              style={{ fontFamily: "'Alfa Slab One', serif", color: colors.white }}
+              style={{ fontFamily: "'Fredoka', sans-serif", color: colors.white }}
             >
               SHOP ALL
             </h1>
@@ -206,7 +213,7 @@ export default function AfricanShop() {
               className="text-3xl font-black mb-4"
               style={{ fontFamily: "'Alfa Slab One', serif", color: colors.yellow }}
             >
-              Safari Spice
+              Harlem Heat
             </h2>
             <div className="flex justify-center gap-8 text-sm" style={{ color: colors.white, opacity: 0.7 }}>
               <Link to="/african" className="hover:opacity-100">Home</Link>

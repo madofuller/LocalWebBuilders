@@ -4,12 +4,15 @@ import { ArrowLeft, Heart, Leaf, Sun, Users } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 const colors = {
-  yellow: '#FFD93D',
-  cream: '#FFF9E6',
-  brown: '#5C4033',
-  orange: '#E85D3B',
-  green: '#4A7C59',
-  white: '#FFFFFF'
+  cream: '#FDF6E9',
+  lightCream: '#FFF8E7',
+  terracotta: '#D4622B',
+  golden: '#E9A23B',
+  darkText: '#5C3D2E',
+  lightText: '#8B6B5A',
+  white: '#FFFFFF',
+  olive: '#7A8B4A',
+  sand: '#E8DBC9'
 };
 
 const values = [
@@ -28,34 +31,34 @@ const team = [
 export default function MediterraneanAbout() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Solara Mediterranean" templateSlug="solara" />
-      <div className="min-h-screen pt-12" style={{ background: colors.yellow, fontFamily: "'Inter', sans-serif" }}>
+      <TemplateFloatingCTA templateName="Coastline Mediterranean" templateSlug="solara" />
+      <div className="min-h-screen pt-12" style={{ background: colors.cream, fontFamily: "'Inter', sans-serif" }}>
         
         {/* Header */}
         <header className="py-4 px-6">
           <div className="max-w-6xl mx-auto flex items-center justify-between">
-            <Link to="/mediterranean" className="flex items-center gap-2 hover:opacity-70" style={{ color: colors.brown }}>
+            <Link to="/mediterranean" className="flex items-center gap-2 hover:opacity-70" style={{ color: colors.darkText }}>
               <ArrowLeft size={20} />
               <span className="text-sm font-medium">Back</span>
             </Link>
             <Link to="/mediterranean" className="flex items-center gap-2">
-              <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}>
-                Solara
+              <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}>
+                Coastline
               </span>
             </Link>
-            <Link to="/mediterranean/menu" className="text-sm font-medium" style={{ color: colors.brown }}>Menu</Link>
+            <Link to="/mediterranean/menu" className="text-sm font-medium" style={{ color: colors.darkText }}>Menu</Link>
           </div>
         </header>
 
         {/* Hero */}
-        <section className="py-20 px-6 text-center" style={{ background: colors.yellow }}>
+        <section className="py-20 px-6 text-center" style={{ background: colors.cream }}>
           <h1 
             className="text-5xl md:text-7xl font-bold mb-6"
-            style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+            style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
           >
             Our Story
           </h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.brown, opacity: 0.8 }}>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.darkText, opacity: 0.8 }}>
             Born from a love of Mediterranean sunshine and the simple joy of sharing good food with good people.
           </p>
         </section>
@@ -67,22 +70,22 @@ export default function MediterraneanAbout() {
               <div>
                 <h2 
                   className="text-3xl md:text-4xl font-bold mb-6"
-                  style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+                  style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
                 >
                   From Our Kitchen<br/>To Your Table
                 </h2>
-                <p className="mb-4" style={{ color: colors.brown, opacity: 0.8 }}>
-                  Solara started with a simple dream: to bring the warmth and vibrant flavors 
+                <p className="mb-4" style={{ color: colors.darkText, opacity: 0.8 }}>
+                  Coastline started with a simple dream: to bring the warmth and vibrant flavors 
                   of the Mediterranean coast to our community. Founded in 2019 by Maria Santos, 
                   a first-generation immigrant from Portugal, we set out to create a space where 
                   every meal feels like a celebration.
                 </p>
-                <p className="mb-4" style={{ color: colors.brown, opacity: 0.8 }}>
+                <p className="mb-4" style={{ color: colors.darkText, opacity: 0.8 }}>
                   Our recipes draw from the rich culinary traditions of Greece, Lebanon, Turkey, 
                   and North Africa. We believe food is meant to be shared, savored, and enjoyed 
                   without pretense.
                 </p>
-                <p style={{ color: colors.brown, opacity: 0.8 }}>
+                <p style={{ color: colors.darkText, opacity: 0.8 }}>
                   Every bowl we serve is made with fresh ingredients, prepared with care, and 
                   served with a smile. Welcome to our table.
                 </p>
@@ -99,11 +102,11 @@ export default function MediterraneanAbout() {
         </section>
 
         {/* Values */}
-        <section className="py-20 px-6" style={{ background: colors.yellow }}>
+        <section className="py-20 px-6" style={{ background: colors.cream }}>
           <div className="max-w-6xl mx-auto">
             <h2 
               className="text-3xl font-bold text-center mb-12"
-              style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+              style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
             >
               What We Believe
             </h2>
@@ -116,12 +119,12 @@ export default function MediterraneanAbout() {
                 >
                   <div 
                     className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                    style={{ background: colors.yellow }}
+                    style={{ background: colors.cream }}
                   >
-                    <value.icon size={24} style={{ color: colors.orange }} />
+                    <value.icon size={24} style={{ color: colors.terracotta }} />
                   </div>
-                  <h3 className="font-bold mb-2" style={{ color: colors.brown }}>{value.title}</h3>
-                  <p className="text-sm" style={{ color: colors.brown, opacity: 0.7 }}>{value.desc}</p>
+                  <h3 className="font-bold mb-2" style={{ color: colors.darkText }}>{value.title}</h3>
+                  <p className="text-sm" style={{ color: colors.darkText, opacity: 0.7 }}>{value.desc}</p>
                 </div>
               ))}
             </div>
@@ -133,11 +136,11 @@ export default function MediterraneanAbout() {
           <div className="max-w-5xl mx-auto">
             <h2 
               className="text-3xl font-bold text-center mb-4"
-              style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+              style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
             >
               Meet The Team
             </h2>
-            <p className="text-center mb-12" style={{ color: colors.brown, opacity: 0.7 }}>
+            <p className="text-center mb-12" style={{ color: colors.darkText, opacity: 0.7 }}>
               The passionate people behind every dish
             </p>
             <div className="grid md:grid-cols-3 gap-8">
@@ -146,8 +149,8 @@ export default function MediterraneanAbout() {
                   <div className="aspect-square rounded-3xl overflow-hidden mb-4">
                     <img src={person.img} alt={person.name} className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="font-bold text-lg" style={{ color: colors.brown }}>{person.name}</h3>
-                  <p className="text-sm" style={{ color: colors.orange }}>{person.role}</p>
+                  <h3 className="font-bold text-lg" style={{ color: colors.darkText }}>{person.name}</h3>
+                  <p className="text-sm" style={{ color: colors.terracotta }}>{person.role}</p>
                 </div>
               ))}
             </div>
@@ -155,7 +158,7 @@ export default function MediterraneanAbout() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 px-6 text-center" style={{ background: colors.orange }}>
+        <section className="py-20 px-6 text-center" style={{ background: colors.terracotta }}>
           <h2 
             className="text-3xl font-bold mb-4"
             style={{ fontFamily: "'Playfair Display', serif", color: colors.white }}
@@ -169,7 +172,7 @@ export default function MediterraneanAbout() {
             <Link 
               to="/mediterranean/menu"
               className="px-8 py-4 rounded-full font-bold"
-              style={{ background: colors.white, color: colors.orange }}
+              style={{ background: colors.white, color: colors.terracotta }}
             >
               View Menu
             </Link>
@@ -184,14 +187,14 @@ export default function MediterraneanAbout() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 px-6" style={{ background: colors.yellow }}>
+        <footer className="py-12 px-6" style={{ background: colors.cream }}>
           <div className="max-w-6xl mx-auto text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}>
-                Solara
+              <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}>
+                Coastline
               </span>
             </div>
-            <div className="flex justify-center gap-8 text-sm" style={{ color: colors.brown, opacity: 0.7 }}>
+            <div className="flex justify-center gap-8 text-sm" style={{ color: colors.darkText, opacity: 0.7 }}>
               <Link to="/mediterranean" className="hover:opacity-100">Home</Link>
               <Link to="/mediterranean/menu" className="hover:opacity-100">Menu</Link>
               <Link to="/mediterranean/locations" className="hover:opacity-100">Locations</Link>

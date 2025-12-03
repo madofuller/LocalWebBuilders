@@ -10,14 +10,19 @@ import {
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   OAKFIRE BBQ - Online Ordering Page
+   SMOKE & EMBER BBQ - Online Ordering Page
    ============================================ */
 
+// Matches BBQShowcase colors
 const colors = {
   cream: '#F5E6D3',
   teal: '#1B4D5C',
+  darkTeal: '#0F3A47',
   coral: '#E8805C',
+  mustard: '#D4A84B',
   warmWhite: '#FAF6F1',
+  darkText: '#1A1A1A',
+  lightText: '#F5E6D3'
 };
 
 // Menu data with images
@@ -112,7 +117,7 @@ const menuData = {
       image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&q=80'
     },
     { 
-      name: 'Oakfire Club', 
+      name: 'Smoke & Ember Club', 
       desc: 'Turkey, bacon, avocado, chipotle mayo',
       price: 15,
       image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&q=80'
@@ -149,7 +154,7 @@ const menuData = {
 function BBQOrderContent() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Oakfire BBQ" templateSlug="oakfire" />
+      <TemplateFloatingCTA templateName="Smoke & Ember BBQ" templateSlug="oakfire" />
       
       <div className="min-h-screen" style={{ background: colors.warmWhite }}>
         {/* Header */}
@@ -168,7 +173,7 @@ function BBQOrderContent() {
                   className="text-2xl font-black tracking-wider"
                   style={{ fontFamily: "'Alfa Slab One', serif", color: colors.teal }}
                 >
-                  OAKFIRE
+                  SMOKE & EMBER
                 </h1>
                 <p className="text-sm" style={{ color: colors.teal, opacity: 0.7 }}>
                   Online Ordering
@@ -241,7 +246,7 @@ function BBQOrderContent() {
           {/* Checkout Section */}
           <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.teal}20` }}>
             <CheckoutForm 
-              restaurantName="Oakfire BBQ"
+              restaurantName="Smoke & Ember BBQ"
               accentColor={colors.coral}
             />
           </div>
@@ -250,7 +255,7 @@ function BBQOrderContent() {
         {/* Footer */}
         <footer className="py-8 px-6 text-center" style={{ background: colors.cream }}>
           <p className="text-sm" style={{ color: colors.teal, opacity: 0.6 }}>
-            © 2025 Oakfire Smokehouse. All rights reserved.
+            © 2025 Smoke & Ember Smokehouse. All rights reserved.
           </p>
         </footer>
       </div>

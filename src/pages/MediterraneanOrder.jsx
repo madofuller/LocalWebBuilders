@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Clock, MapPin } from 'lucide-react';
+import { ArrowLeft, Clock, MapPin, Sun } from 'lucide-react';
 import { CartProvider } from '../context/CartContext';
 import { 
   MenuSection, 
@@ -10,15 +10,21 @@ import {
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   SOLARA - Mediterranean Online Ordering
+   COASTLINE - Mediterranean Online Ordering
    ============================================ */
 
+// Matches CalaShowcase/Coastline colors
 const colors = {
-  cream: '#F5F1EB',
-  terracotta: '#C17F59',
-  olive: '#5C6B4D',
-  navy: '#2C3E50',
-  gold: '#D4AF37',
+  cream: '#FDF6E9',
+  lightCream: '#FFF8E7',
+  terracotta: '#D4622B',
+  golden: '#E9A23B',
+  warmBrown: '#8B5A3C',
+  darkText: '#5C3D2E',
+  lightText: '#8B6B5A',
+  white: '#FFFFFF',
+  olive: '#7A8B4A',
+  sand: '#E8DBC9'
 };
 
 const menuData = {
@@ -149,34 +155,37 @@ const menuData = {
 function MediterraneanOrderContent() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Solara Mediterranean" templateSlug="solara" />
+      <TemplateFloatingCTA templateName="Coastline Mediterranean" templateSlug="solara" />
       
       <div className="min-h-screen" style={{ background: colors.cream }}>
         {/* Header */}
-        <header className="sticky top-0 z-40 py-4 px-6 border-b bg-white/90 backdrop-blur" style={{ borderColor: `${colors.navy}15` }}>
+        <header className="sticky top-0 z-40 py-4 px-6 border-b" style={{ background: colors.cream, borderColor: colors.sand }}>
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link 
                 to="/mediterranean"
                 className="p-2 rounded-lg hover:bg-black/5 transition-colors"
-                style={{ color: colors.navy }}
+                style={{ color: colors.darkText }}
               >
                 <ArrowLeft size={24} />
               </Link>
-              <div>
-                <h1 
-                  className="text-2xl font-bold tracking-wide"
-                  style={{ fontFamily: "'Playfair Display', serif", color: colors.navy }}
+              <div className="flex items-center gap-2">
+                <div 
+                  className="w-9 h-9 rounded-full flex items-center justify-center"
+                  style={{ background: colors.terracotta }}
                 >
-                  SOLARA
-                </h1>
-                <p className="text-sm" style={{ color: colors.navy, opacity: 0.7 }}>
-                  Online Ordering
-                </p>
+                  <Sun size={16} className="text-white" />
+                </div>
+                <span 
+                  className="text-2xl font-bold tracking-tight"
+                  style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
+                >
+                  Coastline
+                </span>
               </div>
             </div>
             
-            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.navy }}>
+            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.lightText }}>
               <div className="flex items-center gap-2">
                 <Clock size={16} />
                 <span>35-50 min</span>
@@ -195,11 +204,11 @@ function MediterraneanOrderContent() {
           <div className="text-center mb-12">
             <h2 
               className="text-4xl md:text-5xl font-bold mb-4"
-              style={{ fontFamily: "'Playfair Display', serif", color: colors.navy }}
+              style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
             >
               Order Online
             </h2>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.navy, opacity: 0.7 }}>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.darkText, opacity: 0.7 }}>
               Fresh Mediterranean flavors, from our kitchen to your table.
               Available for pickup and delivery.
             </p>
@@ -239,9 +248,9 @@ function MediterraneanOrderContent() {
           />
 
           {/* Checkout Section */}
-          <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.navy}15` }}>
+          <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.darkText}15` }}>
             <CheckoutForm 
-              restaurantName="Solara Mediterranean"
+              restaurantName="Coastline Mediterranean"
               accentColor={colors.terracotta}
             />
           </div>
@@ -249,8 +258,8 @@ function MediterraneanOrderContent() {
 
         {/* Footer */}
         <footer className="py-8 px-6 text-center bg-white">
-          <p className="text-sm" style={{ color: colors.navy, opacity: 0.6 }}>
-            © 2025 Solara Mediterranean Kitchen. All rights reserved.
+          <p className="text-sm" style={{ color: colors.darkText, opacity: 0.6 }}>
+            © 2025 Coastline Mediterranean Kitchen. All rights reserved.
           </p>
         </footer>
       </div>

@@ -4,12 +4,15 @@ import { ArrowLeft, MapPin, Clock, Phone, Navigation } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 const colors = {
-  yellow: '#FFD93D',
-  cream: '#FFF9E6',
-  brown: '#5C4033',
-  orange: '#E85D3B',
-  green: '#4A7C59',
-  white: '#FFFFFF'
+  cream: '#FDF6E9',
+  lightCream: '#FFF8E7',
+  terracotta: '#D4622B',
+  golden: '#E9A23B',
+  darkText: '#5C3D2E',
+  lightText: '#8B6B5A',
+  white: '#FFFFFF',
+  olive: '#7A8B4A',
+  sand: '#E8DBC9'
 };
 
 const locations = [
@@ -42,34 +45,34 @@ const locations = [
 export default function MediterraneanLocations() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Solara Mediterranean" templateSlug="solara" />
+      <TemplateFloatingCTA templateName="Coastline Mediterranean" templateSlug="solara" />
       <div className="min-h-screen pt-12" style={{ background: colors.cream, fontFamily: "'Inter', sans-serif" }}>
         
         {/* Header */}
-        <header className="py-4 px-6" style={{ background: colors.yellow }}>
+        <header className="py-4 px-6" style={{ background: colors.cream }}>
           <div className="max-w-6xl mx-auto flex items-center justify-between">
-            <Link to="/mediterranean" className="flex items-center gap-2 hover:opacity-70" style={{ color: colors.brown }}>
+            <Link to="/mediterranean" className="flex items-center gap-2 hover:opacity-70" style={{ color: colors.darkText }}>
               <ArrowLeft size={20} />
               <span className="text-sm font-medium">Back</span>
             </Link>
             <Link to="/mediterranean" className="flex items-center gap-2">
-              <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}>
-                Solara
+              <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}>
+                Coastline
               </span>
             </Link>
-            <Link to="/mediterranean/menu" className="text-sm font-medium" style={{ color: colors.brown }}>Menu</Link>
+            <Link to="/mediterranean/menu" className="text-sm font-medium" style={{ color: colors.darkText }}>Menu</Link>
           </div>
         </header>
 
         {/* Hero */}
-        <section className="py-16 px-6 text-center" style={{ background: colors.yellow }}>
+        <section className="py-16 px-6 text-center" style={{ background: colors.cream }}>
           <h1 
             className="text-5xl md:text-6xl font-bold mb-4"
-            style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+            style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
           >
             Find Your Sunshine
           </h1>
-          <p style={{ color: colors.brown, opacity: 0.8 }}>
+          <p style={{ color: colors.darkText, opacity: 0.8 }}>
             Three locations to serve you better
           </p>
         </section>
@@ -90,23 +93,23 @@ export default function MediterraneanLocations() {
                 <div className={`p-8 ${i % 2 === 1 ? 'md:order-1' : ''}`}>
                   <h2 
                     className="text-3xl font-bold mb-6"
-                    style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
+                    style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
                   >
                     {loc.name}
                   </h2>
                   
                   <div className="space-y-4 mb-6">
                     <div className="flex items-start gap-3">
-                      <MapPin size={20} style={{ color: colors.orange }} className="mt-1 flex-shrink-0" />
-                      <span style={{ color: colors.brown }}>{loc.address}</span>
+                      <MapPin size={20} style={{ color: colors.terracotta }} className="mt-1 flex-shrink-0" />
+                      <span style={{ color: colors.darkText }}>{loc.address}</span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <Clock size={20} style={{ color: colors.orange }} className="mt-1 flex-shrink-0" />
-                      <span style={{ color: colors.brown }}>{loc.hours}</span>
+                      <Clock size={20} style={{ color: colors.terracotta }} className="mt-1 flex-shrink-0" />
+                      <span style={{ color: colors.darkText }}>{loc.hours}</span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <Phone size={20} style={{ color: colors.orange }} className="mt-1 flex-shrink-0" />
-                      <a href={`tel:${loc.phone}`} className="hover:underline" style={{ color: colors.brown }}>{loc.phone}</a>
+                      <Phone size={20} style={{ color: colors.terracotta }} className="mt-1 flex-shrink-0" />
+                      <a href={`tel:${loc.phone}`} className="hover:underline" style={{ color: colors.darkText }}>{loc.phone}</a>
                     </div>
                   </div>
 
@@ -115,7 +118,7 @@ export default function MediterraneanLocations() {
                       <span 
                         key={j}
                         className="px-3 py-1 rounded-full text-sm"
-                        style={{ background: colors.yellow, color: colors.brown }}
+                        style={{ background: colors.cream, color: colors.darkText }}
                       >
                         {feature}
                       </span>
@@ -126,7 +129,7 @@ export default function MediterraneanLocations() {
                     <a 
                       href="#"
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold"
-                      style={{ background: colors.orange, color: colors.white }}
+                      style={{ background: colors.terracotta, color: colors.white }}
                     >
                       <Navigation size={18} />
                       Directions
@@ -134,7 +137,7 @@ export default function MediterraneanLocations() {
                     <a 
                       href="#"
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold"
-                      style={{ background: colors.yellow, color: colors.brown }}
+                      style={{ background: colors.cream, color: colors.darkText }}
                     >
                       Order Online
                     </a>
@@ -146,14 +149,14 @@ export default function MediterraneanLocations() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 px-6" style={{ background: colors.yellow }}>
+        <footer className="py-12 px-6" style={{ background: colors.cream }}>
           <div className="max-w-6xl mx-auto text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}>
-                Solara
+              <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}>
+                Coastline
               </span>
             </div>
-            <div className="flex justify-center gap-8 text-sm" style={{ color: colors.brown, opacity: 0.7 }}>
+            <div className="flex justify-center gap-8 text-sm" style={{ color: colors.darkText, opacity: 0.7 }}>
               <Link to="/mediterranean" className="hover:opacity-100">Home</Link>
               <Link to="/mediterranean/menu" className="hover:opacity-100">Menu</Link>
               <Link to="/mediterranean/about" className="hover:opacity-100">About</Link>

@@ -9,8 +9,8 @@ import { LanguageProvider, useLanguage } from '../context/LanguageContext';
 import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
-   JOYFUL TABLE - Catering & Events Agency
-   Elegant, peachy, illustrated style
+   GATHERED - Farm to Table Catering
+   Rustic elegance, seasonal celebrations
    ============================================ */
 
 const colors = {
@@ -48,29 +48,29 @@ const images = {
 // Translated content
 const content = {
   heroTitle: {
-    en: 'Elevate Your\nSpecial Moments',
-    es: 'Eleva Tus\nMomentos Especiales',
-    fr: 'Sublimez Vos\nMoments Spéciaux',
+    en: 'Bring people\ntogether.',
+    es: 'Reúne a\nla gente.',
+    fr: 'Rassemblez\nles gens.',
   },
   heroDesc: {
-    en: 'From intimate gatherings to grand celebrations, we create unforgettable culinary experiences tailored to your vision.',
-    es: 'Desde reuniones íntimas hasta grandes celebraciones, creamos experiencias culinarias inolvidables adaptadas a tu visión.',
-    fr: 'Des réunions intimes aux grandes célébrations, nous créons des expériences culinaires inoubliables adaptées à votre vision.',
+    en: 'Farm-fresh ingredients, thoughtfully prepared, beautifully served. We create gatherings that nourish both body and soul.',
+    es: 'Ingredientes frescos de granja, preparados con cuidado, bellamente servidos. Creamos reuniones que nutren el cuerpo y el alma.',
+    fr: 'Ingrédients frais de la ferme, préparés avec soin, magnifiquement servis. Nous créons des rassemblements qui nourrissent le corps et l\'âme.',
   },
   servicesTitle: {
-    en: 'Our Services',
-    es: 'Nuestros Servicios',
-    fr: 'Nos Services',
+    en: 'What We Do',
+    es: 'Lo Que Hacemos',
+    fr: 'Ce Que Nous Faisons',
   },
   aboutTitle: {
-    en: 'Crafted with Care,\nServed with Love',
-    es: 'Hecho con Cuidado,\nServido con Amor',
-    fr: 'Fait avec Soin,\nServi avec Amour',
+    en: 'From our farms\nto your table',
+    es: 'De nuestras granjas\na tu mesa',
+    fr: 'De nos fermes\nà votre table',
   },
   getQuote: {
-    en: 'Get a Quote',
-    es: 'Obtener Cotización',
-    fr: 'Obtenir un Devis',
+    en: 'Plan Your Event',
+    es: 'Planifica Tu Evento',
+    fr: 'Planifiez Votre Événement',
   },
 };
 
@@ -87,7 +87,7 @@ function CateringShowcaseContent() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Joyful Table Catering" templateSlug="joyful-table" />
+      <TemplateFloatingCTA templateName="Gathered Catering" templateSlug="joyful-table" />
       <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.peach }}>
       
       {/* ========== HEADER ========== */}
@@ -102,7 +102,7 @@ function CateringShowcaseContent() {
             className="text-3xl md:text-4xl font-black tracking-tight"
             style={{ fontFamily: "'Playfair Display', serif", color: colors.coral }}
           >
-            JOYFUL TABLE
+            GATHERED
           </span>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -228,7 +228,7 @@ function CateringShowcaseContent() {
             style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
           >
             HERE WE ORGANIZE YOUR<br/>
-            JOYFUL EVENTS, AT THE<br/>
+            PERFECT EVENTS, AT YOUR<br/>
             TABLE ESSENTIALLY.
           </h2>
         </div>
@@ -384,7 +384,7 @@ function CateringShowcaseContent() {
               </h2>
               <div className="space-y-4 text-lg" style={{ color: colors.mutedText }}>
                 <p>
-                  Founded in 2018, Joyful Table was born from a simple belief: 
+                  Founded in 2018, Gathered was born from a simple belief: 
                   that exceptional food brings people together in extraordinary ways.
                 </p>
                 <p>
@@ -460,7 +460,7 @@ function CateringShowcaseContent() {
               className="text-2xl font-black"
               style={{ fontFamily: "'Playfair Display', serif", color: colors.cream }}
             >
-              JOYFUL TABLE
+              GATHERED
             </span>
             
             <nav className="flex flex-wrap justify-center gap-8">
@@ -492,7 +492,7 @@ function CateringShowcaseContent() {
           
           <div className="mt-12 pt-8 text-center" style={{ borderTop: `1px solid ${colors.cream}20` }}>
             <p className="text-sm" style={{ color: colors.cream, opacity: 0.5 }}>
-              © 2025 Joyful Table Catering. All rights reserved.
+              © 2025 Gathered Catering. All rights reserved.
             </p>
           </div>
         </div>

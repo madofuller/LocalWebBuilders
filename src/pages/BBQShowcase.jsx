@@ -11,8 +11,8 @@ import { OrderButtons } from '../components/OnlineOrdering';
 import { MapEmbed, LocationCard } from '../components/MapEmbed';
 
 /* ============================================
-   OAKFIRE - Smokehouse & Bar
-   Texas BBQ vibes, vintage, hand-drawn feel
+   SMOKE & EMBER - Hill Country BBQ
+   Authentic Texas smokehouse, craft cocktails
    ============================================ */
 
 const colors = {
@@ -68,7 +68,7 @@ const orderingLinks = [
 // Location data for maps
 const locationData = [
   {
-    name: 'Oakfire Austin',
+    name: 'Smoke & Ember Austin',
     address: '1234 South Congress Ave, Austin, TX 78704',
     phone: '(512) 555-0123',
     hours: [
@@ -79,7 +79,7 @@ const locationData = [
     image: 'https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=600&q=80',
   },
   {
-    name: 'Oakfire Dallas',
+    name: 'Smoke & Ember Dallas',
     address: '5678 Main Street, Dallas, TX 75201',
     phone: '(214) 555-0456',
     hours: [
@@ -98,14 +98,14 @@ const content = {
   
   // Hero Section
   heroTitle: {
-    en: 'Smoked meats,\nboozy slushees,\nrad veggies,\nchill vibes.',
-    es: 'Carnes ahumadas,\nslushees con licor,\nverduras increíbles,\nvibraciones relajadas.',
-    fr: 'Viandes fumées,\nslushees alcoolisés,\nlégumes savoureux,\nambiance décontractée.',
+    en: 'Real smoke,\nreal fire,\nreal flavor,\nreal good.',
+    es: 'Humo real,\nfuego real,\nsabor real,\nmuy bueno.',
+    fr: 'Vraie fumée,\nvrai feu,\nvraie saveur,\nvraiment bon.',
   },
   heroDesc: {
-    en: 'Oakfire is Texas-style barbecue meets Asian smokehouse. Come for the brisket, stay for the frozen cocktails and the best damn sides you\'ve ever had.',
-    es: 'Oakfire es barbacoa texana con toques de ahumado asiático. Ven por el brisket, quédate por los cócteles helados y las mejores guarniciones que hayas probado.',
-    fr: 'Oakfire est un barbecue texan qui rencontre le fumoir asiatique. Venez pour le brisket, restez pour les cocktails glacés et les meilleurs accompagnements que vous ayez jamais goûtés.',
+    en: 'Smoke & Ember is Hill Country barbecue at its finest. Oak-fired pits, cold craft beer, and meats smoked low and slow the way your grandpa taught us.',
+    es: 'Smoke & Ember es barbacoa de Hill Country en su máxima expresión. Fogones de roble, cerveza artesanal fría y carnes ahumadas lenta y pausadamente.',
+    fr: 'Smoke & Ember est le meilleur du barbecue Hill Country. Fosses au chêne, bière artisanale froide et viandes fumées lentement.',
   },
   viewMenu: {
     en: 'VIEW FULL MENU',
@@ -159,9 +159,9 @@ const content = {
     fr: 'JAKE\nTHORNTON\n×\nMARCUS\nREED',
   },
   foundersDesc: {
-    en: 'What happens when a legendary pitmaster teams up with an award-winning chef? Magic. Pure, smoky, delicious magic. Oakfire was born from their shared obsession with fire, flavor, and good times.',
-    es: '¿Qué pasa cuando un legendario maestro del ahumado se une con un chef galardonado? Magia. Pura magia ahumada y deliciosa. Oakfire nació de su obsesión compartida por el fuego, el sabor y los buenos momentos.',
-    fr: 'Que se passe-t-il quand un légendaire maître du fumoir fait équipe avec un chef primé? De la magie. Pure, fumée, délicieuse magie. Oakfire est né de leur obsession commune pour le feu, la saveur et les bons moments.',
+    en: 'What happens when a legendary pitmaster teams up with an award-winning chef? Magic. Pure, smoky, delicious magic. Smoke & Ember was born from their shared obsession with fire, flavor, and good times.',
+    es: '¿Qué pasa cuando un legendario maestro del ahumado se une con un chef galardonado? Magia. Pura magia ahumada y deliciosa. Smoke & Ember nació de su obsesión compartida por el fuego, el sabor y los buenos momentos.',
+    fr: 'Que se passe-t-il quand un légendaire maître du fumoir fait équipe avec un chef primé? De la magie. Pure, fumée, délicieuse magie. Smoke & Ember est né de leur obsession commune pour le feu, la saveur et les bons moments.',
   },
   
   // Drinks Section
@@ -184,9 +184,9 @@ const content = {
   // Footer
   followUs: { en: 'Follow us for the latest', es: 'Síguenos para lo último', fr: 'Suivez-nous' },
   copyright: { 
-    en: '© 2025 Oakfire Smokehouse. All rights reserved.', 
-    es: '© 2025 Oakfire Smokehouse. Todos los derechos reservados.',
-    fr: '© 2025 Oakfire Smokehouse. Tous droits réservés.'
+    en: '© 2025 Smoke & Ember Smokehouse. All rights reserved.', 
+    es: '© 2025 Smoke & Ember Smokehouse. Todos los derechos reservados.',
+    fr: '© 2025 Smoke & Ember Smokehouse. Tous droits réservés.'
   },
   privacy: { en: 'Privacy', es: 'Privacidad', fr: 'Confidentialité' },
   terms: { en: 'Terms', es: 'Términos', fr: 'Conditions' },
@@ -205,7 +205,7 @@ function BBQShowcaseContent() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Oakfire BBQ" templateSlug="oakfire" />
+      <TemplateFloatingCTA templateName="Smoke & Ember BBQ" templateSlug="oakfire" />
       <div className="min-h-screen" style={{ fontFamily: "'Lato', sans-serif" }}>
       
       {/* ========== HEADER ========== */}
@@ -240,7 +240,7 @@ function BBQShowcaseContent() {
             className="text-2xl md:text-3xl font-black tracking-widest"
             style={{ fontFamily: "'Alfa Slab One', serif", color: colors.teal }}
           >
-            OAKFIRE
+            SMOKE & EMBER
           </div>
 
           <div className="flex items-center gap-4">
@@ -688,7 +688,7 @@ function BBQShowcaseContent() {
                 className="text-2xl font-black tracking-widest"
                 style={{ fontFamily: "'Alfa Slab One', serif", color: colors.cream }}
               >
-                OAKFIRE
+                SMOKE & EMBER
               </span>
               <p className="mt-4 text-sm" style={{ color: colors.cream, opacity: 0.6 }}>
                 A smokehouse & bar

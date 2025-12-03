@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Instagram, ArrowRight, Menu, X, ShoppingBag
+  Instagram, ArrowRight, Menu, X, ShoppingBag, Flame
 } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 import { LanguageProvider, useLanguage } from '../context/LanguageContext';
 import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
-   TOPSTACK - Smash Burger Joint
-   Bold yellow, edgy, comic-style, meme aesthetic
+   GRIDDLE HOUSE - Classic American Smash Burgers
+   Bold, punchy, no-nonsense burger joint
    ============================================ */
 
 const colors = {
@@ -48,9 +48,9 @@ const JaggedEdge = ({ color }) => (
 // Translated content
 const content = {
   heroTitle: {
-    en: 'THE HOTTEST\nORGANIC SMASH\nBURGERS IN\nYOUR REGION',
-    es: 'LAS HAMBURGUESAS\nSMASH ORGÁNICAS\nMÁS CALIENTES\nDE TU REGIÓN',
-    fr: 'LES MEILLEURS\nSMASH BURGERS\nBIO DE\nVOTRE RÉGION',
+    en: 'SMASHED FLAT.\nSEARED CRISPY.\nSTACKED HIGH.',
+    es: 'APLASTADA.\nDORADA CRUJIENTE.\nAPLILADA ALTO.',
+    fr: 'ÉCRASÉ À PLAT.\nGRILLÉ CROUSTILLANT.\nEMPILÉ HAUT.',
   },
   pickup: {
     en: 'PICKUP',
@@ -63,19 +63,19 @@ const content = {
     fr: 'LIVRAISON',
   },
   menuTitle: {
-    en: 'THE GOODS',
-    es: 'LO BUENO',
-    fr: 'NOS PRODUITS',
+    en: 'THE MENU',
+    es: 'EL MENÚ',
+    fr: 'LE MENU',
   },
   aboutTitle: {
-    en: 'WHY WE SMASH',
-    es: 'POR QUÉ SMASH',
-    fr: 'POURQUOI SMASH',
+    en: 'THE GRIDDLE WAY',
+    es: 'EL ESTILO GRIDDLE',
+    fr: 'LA MÉTHODE GRIDDLE',
   },
   aboutDesc: {
-    en: 'We believe in simple, honest food. Quality beef, smashed thin on a hot griddle for maximum crust. No frills, just flavor.',
-    es: 'Creemos en la comida simple y honesta. Carne de calidad, aplastada fina en una plancha caliente para máxima costra.',
-    fr: 'Nous croyons en une nourriture simple et honnête. Du bœuf de qualité, écrasé finement sur une plancha chaude.',
+    en: 'Fresh beef balls meet hot steel. The sizzle, the crust, the drip. This is how a burger should be. No freezers, no microwaves, no shortcuts.',
+    es: 'Bolas de carne fresca sobre acero caliente. El chisporroteo, la costra, el goteo. Así debería ser una hamburguesa.',
+    fr: 'Des boules de bœuf frais sur l\'acier chaud. Le grésillement, la croûte, le jus. C\'est ainsi qu\'un burger devrait être.',
   },
 };
 
@@ -92,7 +92,7 @@ function SmashBurgerShowcaseContent() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="TopStack Burgers" templateSlug="topstack" />
+      <TemplateFloatingCTA templateName="Griddle House Burgers" templateSlug="griddle house" />
       <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: colors.cream }}>
       
       {/* ========== HEADER ========== */}
@@ -101,12 +101,28 @@ function SmashBurgerShowcaseContent() {
         style={{ background: colors.cream }}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <span 
-            className="text-2xl md:text-3xl font-black italic"
-            style={{ fontFamily: "'Arial Black', sans-serif", color: colors.black }}
-          >
-            topstack
-          </span>
+          <div className="flex items-center gap-2">
+            <div 
+              className="w-10 h-10 rounded-lg flex items-center justify-center"
+              style={{ background: colors.yellow }}
+            >
+              <Flame size={22} style={{ color: colors.black }} />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span 
+                className="text-xl md:text-2xl font-black tracking-tight"
+                style={{ color: colors.black }}
+              >
+                GRIDDLE
+              </span>
+              <span 
+                className="text-xs md:text-sm font-bold tracking-widest"
+                style={{ color: colors.red }}
+              >
+                HOUSE
+              </span>
+            </div>
+          </div>
 
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/smash-burger/menu" className="text-sm font-bold hover:opacity-70" style={{ color: colors.black }}>
@@ -248,7 +264,7 @@ function SmashBurgerShowcaseContent() {
                 but stays juicy on the inside. In two words: absolute madness.
               </p>
               <p className="text-sm mb-6" style={{ color: colors.black, opacity: 0.6 }}>
-                source: the smash pros at TopStack
+                source: the smash pros at Griddle House
               </p>
               <a href="#" className="font-bold text-sm underline" style={{ color: colors.black }}>
                 [LEARN MORE →]
@@ -313,7 +329,7 @@ function SmashBurgerShowcaseContent() {
             ))}
           </div>
           <div className="text-center mt-4">
-            <span className="font-bold" style={{ color: colors.black }}>[@TOPSTACK]</span>
+            <span className="font-bold" style={{ color: colors.black }}>[@GRIDDLEHOUSE]</span>
           </div>
         </div>
       </section>
@@ -365,14 +381,30 @@ function SmashBurgerShowcaseContent() {
       {/* ========== FOOTER ========== */}
       <footer className="py-20" style={{ background: colors.black }}>
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 
-            className="text-8xl md:text-[12rem] font-black leading-none"
-            style={{ fontFamily: "'Arial Black', sans-serif", color: colors.white }}
-          >
-            topstack
-          </h2>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div 
+              className="w-16 h-16 rounded-xl flex items-center justify-center"
+              style={{ background: colors.yellow }}
+            >
+              <Flame size={36} style={{ color: colors.black }} />
+            </div>
+          </div>
+          <div className="flex flex-col items-center">
+            <span 
+              className="text-6xl md:text-8xl font-black tracking-tight"
+              style={{ color: colors.white }}
+            >
+              GRIDDLE
+            </span>
+            <span 
+              className="text-2xl md:text-4xl font-bold tracking-[0.3em]"
+              style={{ color: colors.yellow }}
+            >
+              HOUSE
+            </span>
+          </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-xs" style={{ color: colors.white, opacity: 0.5 }}>
-            <span>©2025 TopStack Burgers</span>
+            <span>©2025 Griddle House Burgers</span>
             <span>•</span>
             <span>Privacy Policy</span>
             <span>•</span>

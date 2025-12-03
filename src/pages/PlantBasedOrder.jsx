@@ -10,15 +10,19 @@ import {
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   ROOTS & BLOOM - Plant-Based Order Page
+   WILD GREENS - Plant-Based Order Page
    ============================================ */
 
+// Matches PlantBasedShowcase colors
 const colors = {
-  cream: '#FBF9F4',
-  forest: '#355E3B',
-  coral: '#E07A5F',
-  sand: '#D4C4A8',
-  charcoal: '#2C2C2C',
+  cream: '#FDF8F3',
+  sage: '#A8C5A8',
+  peach: '#F4A460',
+  blue: '#6B8EC2',
+  pink: '#E8B4B8',
+  yellow: '#F5D76E',
+  darkText: '#2D3436',
+  lightText: '#636E72'
 };
 
 const menuData = {
@@ -127,34 +131,34 @@ const menuData = {
 function PlantBasedOrderContent() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Roots & Bloom" templateSlug="roots-bloom" />
+      <TemplateFloatingCTA templateName="Wild Greens" templateSlug="wild-greens" />
       
       <div className="min-h-screen" style={{ background: colors.cream }}>
         {/* Header */}
-        <header className="sticky top-0 z-40 py-4 px-6 border-b bg-white/80 backdrop-blur" style={{ borderColor: `${colors.forest}15` }}>
+        <header className="sticky top-0 z-40 py-4 px-6 border-b" style={{ background: colors.cream, borderColor: `${colors.sage}20` }}>
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link 
                 to="/plant-based"
                 className="p-2 rounded-lg hover:bg-black/5 transition-colors"
-                style={{ color: colors.forest }}
+                style={{ color: colors.darkText }}
               >
                 <ArrowLeft size={24} />
               </Link>
               <div>
                 <h1 
-                  className="text-2xl font-bold"
-                  style={{ fontFamily: "'Playfair Display', serif", color: colors.forest }}
+                  className="text-2xl font-light tracking-wider"
+                  style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
                 >
-                  ROOTS & BLOOM
+                  wild greens
                 </h1>
-                <p className="text-sm" style={{ color: colors.forest, opacity: 0.7 }}>
-                  Plant-Based Kitchen
+                <p className="text-sm" style={{ color: colors.darkText, opacity: 0.7 }}>
+                  Online Ordering
                 </p>
               </div>
             </div>
             
-            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.charcoal }}>
+            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.darkText }}>
               <div className="flex items-center gap-2">
                 <Clock size={16} />
                 <span>20-30 min</span>
@@ -173,11 +177,11 @@ function PlantBasedOrderContent() {
           <div className="text-center mb-12">
             <h2 
               className="text-4xl md:text-5xl font-bold mb-4"
-              style={{ fontFamily: "'Playfair Display', serif", color: colors.forest }}
+              style={{ fontFamily: "'Playfair Display', serif", color: colors.sage }}
             >
               Order Online
             </h2>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.charcoal, opacity: 0.7 }}>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: colors.darkText, opacity: 0.7 }}>
               Comfort food, reimagined. 100% plant-based, 100% delicious.
             </p>
           </div>
@@ -187,7 +191,7 @@ function PlantBasedOrderContent() {
             title="Signature Items"
             description="Our most popular dishes"
             items={menuData.signature}
-            accentColor={colors.coral}
+            accentColor={colors.peach}
             columns={4}
           />
 
@@ -195,7 +199,7 @@ function PlantBasedOrderContent() {
             title="Nourish Bowls"
             description="Balanced and beautiful"
             items={menuData.bowls}
-            accentColor={colors.coral}
+            accentColor={colors.peach}
             columns={3}
           />
 
@@ -203,7 +207,7 @@ function PlantBasedOrderContent() {
             title="Salads"
             description="Fresh and crisp"
             items={menuData.salads}
-            accentColor={colors.coral}
+            accentColor={colors.peach}
             columns={2}
           />
 
@@ -211,7 +215,7 @@ function PlantBasedOrderContent() {
             title="Sides"
             description="Perfect additions"
             items={menuData.sides}
-            accentColor={colors.coral}
+            accentColor={colors.peach}
             columns={3}
           />
 
@@ -219,37 +223,37 @@ function PlantBasedOrderContent() {
             title="Drinks"
             description="Refresh your day"
             items={menuData.drinks}
-            accentColor={colors.coral}
+            accentColor={colors.peach}
             columns={3}
           />
 
           {/* Checkout Section */}
-          <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.forest}15` }}>
+          <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.sage}15` }}>
             <CheckoutForm 
-              restaurantName="Roots & Bloom"
-              accentColor={colors.coral}
+              restaurantName="Wild Greens"
+              accentColor={colors.peach}
             />
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="py-8 px-6 text-center" style={{ background: colors.forest }}>
+        <footer className="py-8 px-6 text-center" style={{ background: colors.sage }}>
           <p className="text-sm" style={{ color: colors.cream, opacity: 0.6 }}>
-            © 2025 Roots & Bloom. All rights reserved.
+            © 2025 Wild Greens. All rights reserved.
           </p>
         </footer>
       </div>
 
       {/* Cart Components */}
-      <CartSidebar accentColor={colors.coral} />
-      <FloatingCartButton accentColor={colors.coral} />
+      <CartSidebar accentColor={colors.peach} />
+      <FloatingCartButton accentColor={colors.peach} />
     </>
   );
 }
 
 export default function PlantBasedOrder() {
   return (
-    <CartProvider restaurantId="roots-bloom">
+    <CartProvider restaurantId="wild-greens">
       <PlantBasedOrderContent />
     </CartProvider>
   );

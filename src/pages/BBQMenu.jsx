@@ -4,7 +4,7 @@ import { ArrowLeft, ShoppingBag } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   OAKFIRE BBQ - Menu Page (Loro-inspired)
+   SMOKE & EMBER BBQ - Menu Page
    Warm cream background, teal accents, detailed menu
    ============================================ */
 
@@ -75,7 +75,7 @@ const menuCategories = [
       { name: 'Oak-Smoked Beef Sandwich', desc: 'Sliced brisket, pickles, onion, white bread', price: 16, img: images.sandwich },
       { name: 'Chopped Brisket Sandwich', desc: 'Hand-chopped, house sauce, slaw', price: 15 },
       { name: 'Pulled Pork Sandwich', desc: 'Carolina gold, pickles, brioche bun', price: 14 },
-      { name: "Oakfire Club", desc: 'Turkey, bacon, avocado, chipotle mayo', price: 16 }
+      { name: "Smoke & Ember Club", desc: 'Turkey, bacon, avocado, chipotle mayo', price: 16 }
     ]
   },
   {
@@ -114,7 +114,7 @@ export default function BBQMenu() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Oakfire BBQ" templateSlug="oakfire" />
+      <TemplateFloatingCTA templateName="Smoke & Ember BBQ" templateSlug="oakfire" />
       <div className="min-h-screen pt-12" style={{ background: colors.cream, fontFamily: "'Lato', sans-serif" }}>
         
         {/* Header */}
@@ -126,7 +126,7 @@ export default function BBQMenu() {
             </Link>
             
             <Link to="/bbq" className="text-2xl font-black tracking-wider" style={{ fontFamily: "'Oswald', sans-serif", color: colors.teal }}>
-              OAKFIRE
+              SMOKE & EMBER
             </Link>
 
             <div className="flex items-center gap-4">
@@ -311,7 +311,7 @@ export default function BBQMenu() {
                 className="text-4xl font-black tracking-wider"
                 style={{ fontFamily: "'Oswald', sans-serif", color: colors.cream }}
               >
-                OAKFIRE
+                SMOKE & EMBER
               </h2>
               <p className="text-sm mt-2" style={{ color: colors.cream, opacity: 0.7 }}>
                 smokehouse & bar

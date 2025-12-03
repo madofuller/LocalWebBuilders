@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Clock, MapPin, Leaf } from 'lucide-react';
+import { ArrowLeft, Clock, MapPin } from 'lucide-react';
 import { CartProvider } from '../context/CartContext';
 import { 
   MenuSection, 
@@ -10,15 +10,18 @@ import {
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   VERDANT - Vegan Order Page
+   SPROUT & CO - Vegan Order Page
    ============================================ */
 
+// Matches VeganBrandShowcase colors
 const colors = {
-  cream: '#FDFDF5',
-  green: '#2D5A3D',
-  sage: '#8BA888',
-  earth: '#5C4B37',
-  gold: '#C4A35A',
+  green: '#2D8B4E',
+  yellow: '#FFE03D',
+  pink: '#E94E8C',
+  cream: '#FFF9E8',
+  darkGreen: '#1A5C32',
+  white: '#FFFFFF',
+  darkText: '#1A1A1A'
 };
 
 const menuData = {
@@ -125,37 +128,34 @@ const menuData = {
 function VeganOrderContent() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Verdant Vegan" templateSlug="verdant" />
+      <TemplateFloatingCTA templateName="Sprout & Co Vegan" templateSlug="sprout" />
       
       <div className="min-h-screen" style={{ background: colors.cream }}>
         {/* Header */}
-        <header className="sticky top-0 z-40 py-4 px-6 border-b bg-white/80 backdrop-blur" style={{ borderColor: `${colors.green}15` }}>
+        <header className="sticky top-0 z-40 py-4 px-6" style={{ background: colors.green }}>
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link 
                 to="/vegan-brand"
-                className="p-2 rounded-lg hover:bg-black/5 transition-colors"
-                style={{ color: colors.green }}
+                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                style={{ color: colors.yellow }}
               >
                 <ArrowLeft size={24} />
               </Link>
-              <div className="flex items-center gap-2">
-                <Leaf size={24} style={{ color: colors.green }} />
-                <div>
-                  <h1 
-                    className="text-2xl font-bold"
-                    style={{ fontFamily: "'Playfair Display', serif", color: colors.green }}
-                  >
-                    VERDANT
-                  </h1>
-                  <p className="text-xs" style={{ color: colors.green, opacity: 0.7 }}>
-                    100% Plant-Based
-                  </p>
-                </div>
+              <div>
+                <h1 
+                  className="text-2xl font-black"
+                  style={{ fontFamily: "'Fredoka', sans-serif", color: colors.yellow }}
+                >
+                  SPROUT & CO
+                </h1>
+                <p className="text-xs" style={{ color: colors.white, opacity: 0.8 }}>
+                  Online Ordering
+                </p>
               </div>
             </div>
             
-            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.earth }}>
+            <div className="hidden sm:flex items-center gap-6 text-sm" style={{ color: colors.white }}>
               <div className="flex items-center gap-2">
                 <Clock size={16} />
                 <span>25-35 min</span>
@@ -219,7 +219,7 @@ function VeganOrderContent() {
           {/* Checkout Section */}
           <div className="mt-20 pt-12 border-t" style={{ borderColor: `${colors.green}15` }}>
             <CheckoutForm 
-              restaurantName="Verdant"
+              restaurantName="Sprout & Co"
               accentColor={colors.green}
             />
           </div>
@@ -228,7 +228,7 @@ function VeganOrderContent() {
         {/* Footer */}
         <footer className="py-8 px-6 text-center" style={{ background: colors.green }}>
           <p className="text-sm" style={{ color: colors.cream, opacity: 0.6 }}>
-            © 2025 Verdant Plant-Based Kitchen. All rights reserved.
+            © 2025 Sprout & Co Plant-Based Kitchen. All rights reserved.
           </p>
         </footer>
       </div>
@@ -242,7 +242,7 @@ function VeganOrderContent() {
 
 export default function VeganOrder() {
   return (
-    <CartProvider restaurantId="verdant-vegan">
+    <CartProvider restaurantId="sprout-co">
       <VeganOrderContent />
     </CartProvider>
   );

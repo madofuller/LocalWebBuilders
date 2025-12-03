@@ -8,8 +8,8 @@ import { LanguageProvider, useLanguage } from '../context/LanguageContext';
 import LanguageToggle from '../components/LanguageToggle';
 
 /* ============================================
-   GOLDEN YEAST - Vegan Nutritional Yeast Brand
-   Bold green/yellow/pink, playful, cartoon style
+   SPROUT & CO - Modern Plant-Based Foods
+   Fresh, vibrant, health-forward brand
    ============================================ */
 
 const colors = {
@@ -48,14 +48,14 @@ const Marquee = ({ items, bgColor, textColor }) => (
 // Translated content
 const content = {
   heroTitle: {
-    en: 'POWER YOUR\nPLANT-BASED\nLIFESTYLE',
-    es: 'IMPULSA TU\nESTILO DE VIDA\nVEGETAL',
-    fr: 'ALIMENTEZ VOTRE\nMODE DE VIE\nVÉGÉTAL',
+    en: 'EAT PLANTS.\nFEEL AMAZING.\nREPEAT.',
+    es: 'COME PLANTAS.\nSIÉNTETE INCREÍBLE.\nREPITE.',
+    fr: 'MANGEZ DES PLANTES.\nSENTEZ-VOUS BIEN.\nRÉPÉTEZ.',
   },
   heroDesc: {
-    en: 'Nutritional yeast packed with B-vitamins and protein. The cheesy, nutty flavor your vegan dishes have been missing.',
-    es: 'Levadura nutricional repleta de vitaminas B y proteínas. El sabor a queso y nuez que faltaba en tus platos veganos.',
-    fr: 'Levure nutritionnelle riche en vitamines B et protéines. La saveur fromagère qui manquait à vos plats végétaliens.',
+    en: 'Clean ingredients, bold flavors, zero compromise. Plant-based products that make eating well actually delicious.',
+    es: 'Ingredientes limpios, sabores audaces, sin compromisos. Productos vegetales que hacen que comer bien sea delicioso.',
+    fr: 'Ingrédients propres, saveurs audacieuses, zéro compromis. Des produits végétaux qui rendent bien manger délicieux.',
   },
   shopNow: {
     en: 'Shop Now',
@@ -63,14 +63,14 @@ const content = {
     fr: 'Acheter',
   },
   whyTitle: {
-    en: 'WHY GOLDEN YEAST?',
-    es: '¿POR QUÉ GOLDEN YEAST?',
-    fr: 'POURQUOI GOLDEN YEAST?',
+    en: 'WHY SPROUT?',
+    es: '¿POR QUÉ SPROUT?',
+    fr: 'POURQUOI SPROUT?',
   },
   benefitsDesc: {
-    en: 'Complete protein, essential B-vitamins, and that umami flavor you crave. 100% vegan, non-GMO, and delicious.',
-    es: 'Proteína completa, vitaminas B esenciales y ese sabor umami que deseas. 100% vegano, sin OGM y delicioso.',
-    fr: 'Protéine complète, vitamines B essentielles et cette saveur umami que vous recherchez. 100% végétalien et délicieux.',
+    en: 'Real food, real simple. We source the best ingredients and let them shine. No weird stuff, just plants.',
+    es: 'Comida real, muy simple. Conseguimos los mejores ingredientes y los dejamos brillar. Sin cosas raras, solo plantas.',
+    fr: 'Vraie nourriture, vraiment simple. Nous trouvons les meilleurs ingrédients et les laissons briller. Juste des plantes.',
   },
 };
 
@@ -87,7 +87,7 @@ function VeganBrandShowcaseContent() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Golden Yeast Vegan" templateSlug="golden-yeast" />
+      <TemplateFloatingCTA templateName="Sprout & Co Vegan" templateSlug="sprout" />
       <div className="min-h-screen" style={{ fontFamily: "'Inter', sans-serif" }}>
       <style>{`
         @keyframes marquee {
@@ -109,7 +109,7 @@ function VeganBrandShowcaseContent() {
             className="text-2xl md:text-3xl font-black"
             style={{ fontFamily: "'Fredoka', sans-serif", color: colors.yellow }}
           >
-            GOLDEN YEAST
+            SPROUT & CO
           </span>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -233,7 +233,7 @@ function VeganBrandShowcaseContent() {
                 + CHEESY IMMATURE NOOCH +
               </h3>
               <p className="text-lg mb-8" style={{ color: colors.darkText, opacity: 0.7 }}>
-                Our OG blend. Tastes like parmesan met nutritional yeast 
+                Our OG blend. Rich, savory, cheesy goodness 
                 and they had a delicious baby.
               </p>
               <a 
@@ -316,7 +316,7 @@ function VeganBrandShowcaseContent() {
 
           <div className="text-center mt-12">
             <p className="text-lg mb-6" style={{ color: colors.darkText, opacity: 0.7 }}>
-              With Golden Yeast, there's really no recipe required. But we've worked with 
+              With Sprout & Co, there's really no recipe required. But we've worked with 
               awesome creators to give you some ideas to get going.
             </p>
             <a 
@@ -374,7 +374,7 @@ function VeganBrandShowcaseContent() {
               className="text-2xl font-black"
               style={{ fontFamily: "'Fredoka', sans-serif", color: colors.yellow }}
             >
-              GOLDEN YEAST CO
+              SPROUT & CO CO
             </span>
             <div className="flex items-center gap-4">
               <Leaf size={20} style={{ color: colors.yellow }} />

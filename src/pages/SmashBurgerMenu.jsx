@@ -66,7 +66,7 @@ const menuSections = [
 export default function SmashBurgerMenu() {
   return (
     <>
-      <TemplateFloatingCTA templateName="TopStack Burgers" templateSlug="topstack" />
+      <TemplateFloatingCTA templateName="Griddle House Burgers" templateSlug="topstack" />
       <div className="min-h-screen pt-12" style={{ background: colors.cream, fontFamily: "'Inter', sans-serif" }}>
         
         {/* Header */}
@@ -76,12 +76,21 @@ export default function SmashBurgerMenu() {
               <ArrowLeft size={20} />
               <span className="text-sm font-bold">Back</span>
             </Link>
-            <Link 
-              to="/smash-burger"
-              className="text-2xl font-black"
-              style={{ fontFamily: "'Archivo Black', sans-serif", color: colors.black }}
-            >
-              TOPSTACK
+            <Link to="/smash-burger" className="flex items-center gap-2">
+              <div 
+                className="w-9 h-9 rounded-lg flex items-center justify-center"
+                style={{ background: colors.yellow }}
+              >
+                <Flame size={18} style={{ color: colors.black }} />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="text-lg font-black tracking-tight" style={{ color: colors.black }}>
+                  GRIDDLE
+                </span>
+                <span className="text-xs font-bold tracking-widest" style={{ color: colors.red }}>
+                  HOUSE
+                </span>
+              </div>
             </Link>
             <button className="p-2 rounded-full" style={{ background: colors.black }}>
               <ShoppingBag size={18} style={{ color: colors.yellow }} />
@@ -190,9 +199,22 @@ export default function SmashBurgerMenu() {
         {/* Footer */}
         <footer className="py-12 px-6" style={{ background: colors.yellow }}>
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-2xl font-black mb-4" style={{ fontFamily: "'Archivo Black', sans-serif", color: colors.black }}>
-              TOPSTACK
-            </h2>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div 
+                className="w-10 h-10 rounded-lg flex items-center justify-center"
+                style={{ background: colors.black }}
+              >
+                <Flame size={20} style={{ color: colors.yellow }} />
+              </div>
+              <div className="flex flex-col leading-none text-left">
+                <span className="text-xl font-black tracking-tight" style={{ color: colors.black }}>
+                  GRIDDLE
+                </span>
+                <span className="text-sm font-bold tracking-widest" style={{ color: colors.red }}>
+                  HOUSE
+                </span>
+              </div>
+            </div>
             <div className="flex justify-center gap-8 text-sm font-bold" style={{ color: colors.black, opacity: 0.7 }}>
               <Link to="/smash-burger" className="hover:opacity-100">Home</Link>
               <Link to="/smash-burger/locations" className="hover:opacity-100">Locations</Link>

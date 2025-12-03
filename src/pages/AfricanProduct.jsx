@@ -4,7 +4,7 @@ import { ArrowLeft, ShoppingCart, Star, ChevronDown, ChevronLeft, ChevronRight, 
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   SAFARI SPICE - Product Detail Page (Aedan-inspired)
+   HARLEM HEAT - Product Detail Page
    Bold colors, vibrant patterns, African cuisine
    ============================================ */
 
@@ -70,7 +70,7 @@ export default function AfricanProduct() {
 
   return (
     <>
-      <TemplateFloatingCTA templateName="Safari Spice" templateSlug="safari-spice" />
+      <TemplateFloatingCTA templateName="Harlem Heat" templateSlug="safari-spice" />
       <div className="min-h-screen pt-12" style={{ fontFamily: "'Inter', sans-serif" }}>
         
         {/* Header */}
@@ -87,12 +87,19 @@ export default function AfricanProduct() {
               </nav>
             </div>
             
-            <Link 
-              to="/african"
-              className="text-2xl font-black"
-              style={{ fontFamily: "'Alfa Slab One', serif", color: colors.green }}
-            >
-              Safari Spice
+            <Link to="/african" className="flex items-center gap-1">
+              <span 
+                className="text-2xl font-black"
+                style={{ fontFamily: "'Fredoka', sans-serif", color: colors.yellow }}
+              >
+                HARLEM
+              </span>
+              <span 
+                className="text-2xl font-black"
+                style={{ fontFamily: "'Fredoka', sans-serif", color: colors.green }}
+              >
+                HEAT
+              </span>
             </Link>
 
             <div className="flex items-center gap-4">
@@ -454,7 +461,7 @@ export default function AfricanProduct() {
                 className="text-6xl font-black"
                 style={{ fontFamily: "'Alfa Slab One', serif", color: colors.green }}
               >
-                Safari Spice
+                Harlem Heat
               </h2>
             </div>
           </div>

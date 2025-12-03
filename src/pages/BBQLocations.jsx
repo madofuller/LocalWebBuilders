@@ -48,7 +48,7 @@ const locations = [
 export default function BBQLocations() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Oakfire BBQ" templateSlug="oakfire" />
+      <TemplateFloatingCTA templateName="Smoke & Ember BBQ" templateSlug="oakfire" />
       <div className="min-h-screen pt-12" style={{ background: colors.cream, fontFamily: "'Lato', sans-serif" }}>
         
         {/* Header */}
@@ -59,7 +59,7 @@ export default function BBQLocations() {
               <span className="text-sm font-medium">Back</span>
             </Link>
             <Link to="/bbq" className="text-2xl font-black tracking-wider" style={{ fontFamily: "'Oswald', sans-serif", color: colors.teal }}>
-              OAKFIRE
+              SMOKE & EMBER
             </Link>
             <Link to="/bbq/menu" className="text-sm font-medium" style={{ color: colors.teal }}>Menu</Link>
           </div>
@@ -192,7 +192,7 @@ export default function BBQLocations() {
         <footer className="py-12 px-6" style={{ background: colors.teal }}>
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl font-black tracking-wider mb-4" style={{ fontFamily: "'Oswald', sans-serif", color: colors.cream }}>
-              OAKFIRE
+              SMOKE & EMBER
             </h2>
             <div className="flex justify-center gap-8 text-sm" style={{ color: colors.cream, opacity: 0.7 }}>
               <Link to="/bbq" className="hover:opacity-100">Home</Link>

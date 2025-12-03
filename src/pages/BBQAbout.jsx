@@ -4,7 +4,7 @@ import { ArrowLeft, MapPin, Clock, Phone, Beer } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
-   OAKFIRE BBQ - About Page (Loro-inspired)
+   SMOKE & EMBER BBQ - About Page
    ============================================ */
 
 const colors = {
@@ -40,7 +40,7 @@ const featuredItems = [
 export default function BBQAbout() {
   return (
     <>
-      <TemplateFloatingCTA templateName="Oakfire BBQ" templateSlug="oakfire" />
+      <TemplateFloatingCTA templateName="Smoke & Ember BBQ" templateSlug="oakfire" />
       <div className="min-h-screen pt-12" style={{ background: colors.cream, fontFamily: "'Lato', sans-serif" }}>
         
         {/* Header */}
@@ -51,7 +51,7 @@ export default function BBQAbout() {
               <span className="text-sm font-medium">Back</span>
             </Link>
             <Link to="/bbq" className="text-2xl font-black tracking-wider" style={{ fontFamily: "'Oswald', sans-serif", color: colors.teal }}>
-              OAKFIRE
+              SMOKE & EMBER
             </Link>
             <Link to="/bbq/menu" className="text-sm font-medium" style={{ color: colors.teal }}>Menu</Link>
           </div>
@@ -129,7 +129,7 @@ export default function BBQAbout() {
                   About us
                 </h2>
                 <p className="mb-4" style={{ color: colors.teal, opacity: 0.8 }}>
-                  Oakfire is an Asian smokehouse and bar. We combine 
+                  Smoke & Ember is an Asian smokehouse and bar. We combine 
                   wood-fired BBQ traditions with the bold, vibrant flavors 
                   of Southeast Asia.
                 </p>
@@ -282,7 +282,7 @@ export default function BBQAbout() {
               Our spaces
             </h2>
             <p className="mb-8 max-w-2xl" style={{ color: colors.cream, opacity: 0.8 }}>
-              The design of Oakfire is part of the experience. Warm woods, 
+              The design of Smoke & Ember is part of the experience. Warm woods, 
               open kitchens, spacious patios—every detail creates an 
               atmosphere that's relaxed yet refined.
             </p>
@@ -325,7 +325,7 @@ export default function BBQAbout() {
               className="text-5xl font-black tracking-wider mb-4"
               style={{ fontFamily: "'Oswald', sans-serif", color: colors.cream }}
             >
-              OAKFIRE
+              SMOKE & EMBER
             </h2>
             <p style={{ color: colors.cream, opacity: 0.5 }}>smokehouse & bar</p>
             <div className="flex justify-center gap-8 mt-8 text-sm" style={{ color: colors.cream, opacity: 0.5 }}>

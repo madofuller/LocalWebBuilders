@@ -189,7 +189,7 @@ function SmashBurgerOrderContent() {
 
           {/* Menu Sections */}
           <MenuSection 
-            title="🍔 SMASH BURGERS"
+            title="SMASH BURGERS"
             description="Our signature smashed patties"
             items={menuData.burgers}
             accentColor={colors.red}
@@ -197,7 +197,7 @@ function SmashBurgerOrderContent() {
           />
 
           <MenuSection 
-            title="🍟 SIDES"
+            title="SIDES"
             description="Crispy companions"
             items={menuData.sides}
             accentColor={colors.red}
@@ -205,7 +205,7 @@ function SmashBurgerOrderContent() {
           />
 
           <MenuSection 
-            title="📦 COMBOS"
+            title="COMBOS"
             description="Best value deals"
             items={menuData.combos}
             accentColor={colors.red}
@@ -213,7 +213,7 @@ function SmashBurgerOrderContent() {
           />
 
           <MenuSection 
-            title="🥤 DRINKS"
+            title="DRINKS"
             description="Wash it down"
             items={menuData.drinks}
             accentColor={colors.red}

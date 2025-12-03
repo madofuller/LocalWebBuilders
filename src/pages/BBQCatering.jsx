@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Users, Utensils, Calendar, Phone, Mail, Check, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Users, Utensils, Calendar, Phone, Mail, Check, ArrowRight, Building2, Heart, PartyPopper, Film, Tent, Gift } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 const colors = {
@@ -67,12 +67,12 @@ const packages = [
 ];
 
 const eventTypes = [
-  { name: 'Corporate Events', icon: '🏢' },
-  { name: 'Weddings', icon: '💒' },
-  { name: 'Private Parties', icon: '🎉' },
-  { name: 'Film & Production', icon: '🎬' },
-  { name: 'Festivals', icon: '🎪' },
-  { name: 'Holiday Parties', icon: '🎄' }
+  { name: 'Corporate Events', Icon: Building2 },
+  { name: 'Weddings', Icon: Heart },
+  { name: 'Private Parties', Icon: PartyPopper },
+  { name: 'Film & Production', Icon: Film },
+  { name: 'Festivals', Icon: Tent },
+  { name: 'Holiday Parties', Icon: Gift }
 ];
 
 export default function BBQCatering() {
@@ -144,7 +144,7 @@ export default function BBQCatering() {
                   className="p-6 rounded-2xl text-center hover:scale-105 transition-transform cursor-pointer"
                   style={{ background: colors.cream }}
                 >
-                  <span className="text-4xl mb-3 block">{type.icon}</span>
+                  <type.Icon size={32} className="mb-3 mx-auto" style={{ color: colors.coral }} />
                   <span className="text-sm font-medium" style={{ color: colors.teal }}>{type.name}</span>
                 </div>
               ))}

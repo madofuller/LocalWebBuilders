@@ -53,7 +53,6 @@ export default function MediterraneanLocations() {
               <span className="text-sm font-medium">Back</span>
             </Link>
             <Link to="/mediterranean" className="flex items-center gap-2">
-              <span className="text-2xl">☀️</span>
               <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}>
                 Solara
               </span>
@@ -150,7 +149,6 @@ export default function MediterraneanLocations() {
         <footer className="py-12 px-6" style={{ background: colors.yellow }}>
           <div className="max-w-6xl mx-auto text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="text-2xl">☀️</span>
               <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}>
                 Solara
               </span>

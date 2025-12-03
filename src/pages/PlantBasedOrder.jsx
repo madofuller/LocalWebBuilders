@@ -184,7 +184,7 @@ function PlantBasedOrderContent() {
 
           {/* Menu Sections */}
           <MenuSection 
-            title="⭐ Signature Items"
+            title="Signature Items"
             description="Our most popular dishes"
             items={menuData.signature}
             accentColor={colors.coral}
@@ -192,7 +192,7 @@ function PlantBasedOrderContent() {
           />
 
           <MenuSection 
-            title="🥗 Nourish Bowls"
+            title="Nourish Bowls"
             description="Balanced and beautiful"
             items={menuData.bowls}
             accentColor={colors.coral}
@@ -200,7 +200,7 @@ function PlantBasedOrderContent() {
           />
 
           <MenuSection 
-            title="🥬 Salads"
+            title="Salads"
             description="Fresh and crisp"
             items={menuData.salads}
             accentColor={colors.coral}
@@ -208,7 +208,7 @@ function PlantBasedOrderContent() {
           />
 
           <MenuSection 
-            title="🍟 Sides"
+            title="Sides"
             description="Perfect additions"
             items={menuData.sides}
             accentColor={colors.coral}
@@ -216,7 +216,7 @@ function PlantBasedOrderContent() {
           />
 
           <MenuSection 
-            title="🥤 Drinks"
+            title="Drinks"
             description="Refresh your day"
             items={menuData.drinks}
             accentColor={colors.coral}

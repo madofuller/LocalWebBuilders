@@ -54,57 +54,49 @@ function PortfolioHome() {
       path: '/mediterranean', 
       name: 'Solara', 
       type: 'Mediterranean Restaurant',
-      colors: ['#F5E6D3', '#E85D3B', '#F4B942'],
-      emoji: '☀️'
+      colors: ['#F5E6D3', '#E85D3B', '#F4B942']
     },
     { 
       path: '/catering', 
       name: 'Joyful Table', 
       type: 'Catering & Events',
-      colors: ['#FFEEE4', '#FF6B4A', '#FFB299'],
-      emoji: '🍽️'
+      colors: ['#FFEEE4', '#FF6B4A', '#FFB299']
     },
     { 
       path: '/bbq', 
       name: 'Oakfire', 
       type: 'Smokehouse & Bar',
-      colors: ['#F5E6D3', '#1B4D5C', '#E8805C'],
-      emoji: '🔥'
+      colors: ['#F5E6D3', '#1B4D5C', '#E8805C']
     },
     { 
       path: '/african', 
       name: 'Safari Spice', 
       type: 'African Flavors Brand',
-      colors: ['#2D9E4F', '#E63946', '#FFD23F'],
-      emoji: '🌍'
+      colors: ['#2D9E4F', '#E63946', '#FFD23F']
     },
     { 
       path: '/vegan', 
       name: 'Golden Yeast', 
       type: 'Vegan Food Brand',
-      colors: ['#2D8B4E', '#FFE03D', '#E94E8C'],
-      emoji: '🌱'
+      colors: ['#2D8B4E', '#FFE03D', '#E94E8C']
     },
     { 
       path: '/plant-based', 
       name: 'Bloom Kitchen', 
       type: 'Plant-Based Spreads',
-      colors: ['#A8C5A8', '#F4A460', '#E8B4B8'],
-      emoji: '🌸'
+      colors: ['#A8C5A8', '#F4A460', '#E8B4B8']
     },
     { 
       path: '/smash-burger', 
       name: 'TopStack', 
       type: 'Smash Burger Joint',
-      colors: ['#FFE135', '#1A1A1A', '#E63946'],
-      emoji: '🍔'
+      colors: ['#FFE135', '#1A1A1A', '#E63946']
     },
     { 
       path: '/gourmet-meats', 
       name: "Phil's Prime", 
       type: 'Gourmet Meats & Sausages',
-      colors: ['#B8E4D8', '#FFCBA4', '#C5B9E8'],
-      emoji: '🥩'
+      colors: ['#B8E4D8', '#FFCBA4', '#C5B9E8']
     }
   ];
 
@@ -217,16 +209,13 @@ function PortfolioHome() {
                 
                 {/* Content */}
                 <div className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <span className="text-xs text-white/40 uppercase tracking-wider">
-                        {template.type}
-                      </span>
-                      <h2 className="text-2xl font-bold text-white mt-1">
-                        {template.name}
-                      </h2>
-                    </div>
-                    <span className="text-3xl">{template.emoji}</span>
+                  <div className="mb-4">
+                    <span className="text-xs text-white/40 uppercase tracking-wider">
+                      {template.type}
+                    </span>
+                    <h2 className="text-2xl font-bold text-white mt-1">
+                      {template.name}
+                    </h2>
                   </div>
 
                   {/* Color swatches */}

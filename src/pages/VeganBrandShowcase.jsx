@@ -45,9 +45,39 @@ const Marquee = ({ items, bgColor, textColor }) => (
   </div>
 );
 
+// Translated content
+const content = {
+  heroTitle: {
+    en: 'POWER YOUR\nPLANT-BASED\nLIFESTYLE',
+    es: 'IMPULSA TU\nESTILO DE VIDA\nVEGETAL',
+    fr: 'ALIMENTEZ VOTRE\nMODE DE VIE\nVÉGÉTAL',
+  },
+  heroDesc: {
+    en: 'Nutritional yeast packed with B-vitamins and protein. The cheesy, nutty flavor your vegan dishes have been missing.',
+    es: 'Levadura nutricional repleta de vitaminas B y proteínas. El sabor a queso y nuez que faltaba en tus platos veganos.',
+    fr: 'Levure nutritionnelle riche en vitamines B et protéines. La saveur fromagère qui manquait à vos plats végétaliens.',
+  },
+  shopNow: {
+    en: 'Shop Now',
+    es: 'Comprar Ahora',
+    fr: 'Acheter',
+  },
+  whyTitle: {
+    en: 'WHY GOLDEN YEAST?',
+    es: '¿POR QUÉ GOLDEN YEAST?',
+    fr: 'POURQUOI GOLDEN YEAST?',
+  },
+  benefitsDesc: {
+    en: 'Complete protein, essential B-vitamins, and that umami flavor you crave. 100% vegan, non-GMO, and delicious.',
+    es: 'Proteína completa, vitaminas B esenciales y ese sabor umami que deseas. 100% vegano, sin OGM y delicioso.',
+    fr: 'Protéine complète, vitamines B essentielles et cette saveur umami que vous recherchez. 100% végétalien et délicieux.',
+  },
+};
+
 function VeganBrandShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useLanguage();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, tCustom } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -95,13 +125,54 @@ function VeganBrandShowcaseContent() {
 
           <Link 
             to="/vegan-brand/order"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm"
+            className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm"
             style={{ background: colors.yellow, color: colors.darkGreen }}
           >
             <ShoppingCart size={16} />
             {t('orderOnline').toUpperCase()}
           </Link>
+
+          <button 
+            className="md:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            style={{ color: colors.white }}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div 
+            className="md:hidden absolute top-full left-0 right-0 py-6 px-6 shadow-lg z-50"
+            style={{ background: colors.green }}
+          >
+            {['Shop', 'Recipes', 'About'].map(item => (
+              <a 
+                key={item}
+                href="#"
+                className="block py-3 text-lg font-bold border-b"
+                style={{ color: colors.white, borderColor: colors.white + '20' }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+            <div className="flex items-center justify-between py-3" style={{ color: colors.white }}>
+              <span className="font-bold">Language:</span>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/vegan-brand/order"
+              className="flex items-center justify-center gap-2 mt-4 py-3 rounded-full font-bold"
+              style={{ background: colors.yellow, color: colors.darkGreen }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <ShoppingCart size={16} />
+              {t('orderOnline').toUpperCase()}
+            </Link>
+          </div>
+        )}
       </header>
 
       {/* ========== HERO ========== */}
@@ -110,22 +181,23 @@ function VeganBrandShowcaseContent() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 
-                className="text-7xl md:text-8xl lg:text-9xl font-black leading-none mb-8"
+                className="text-5xl md:text-6xl lg:text-7xl font-black leading-none mb-8"
                 style={{ fontFamily: "'Fredoka', sans-serif", color: colors.yellow }}
               >
-                NOOCH
+                {tCustom(content.heroTitle).split('\n').map((line, i) => (
+                  <span key={i}>{line}{i < 2 && <br/>}</span>
+                ))}
               </h1>
               <p className="text-xl mb-8" style={{ color: colors.white }}>
-                The cheesiest vegan seasoning that makes everything better. 
-                Sprinkle on pasta, popcorn, salads — literally anything.
+                {tCustom(content.heroDesc)}
               </p>
-              <a 
-                href="#"
+              <Link 
+                to="/vegan-brand/order"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg"
                 style={{ background: colors.yellow, color: colors.darkGreen }}
               >
-                SHOP NOW
-              </a>
+                {tCustom(content.shopNow).toUpperCase()}
+              </Link>
             </div>
             <div className="relative">
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
@@ -212,7 +284,7 @@ function VeganBrandShowcaseContent() {
       {/* ========== RECIPES MARQUEE ========== */}
       <div className="py-4" style={{ background: colors.cream }}>
         <div className="flex items-center justify-center gap-4 flex-wrap">
-          {['👀', 'RECIPES', '🍝', 'RECIPES', '👀', 'RECIPES'].map((item, i) => (
+          {['RECIPES', '•', 'RECIPES', '•', 'RECIPES'].map((item, i) => (
             <span key={i} className="text-2xl font-black" style={{ fontFamily: "'Fredoka', sans-serif", color: colors.green }}>
               {item}
             </span>

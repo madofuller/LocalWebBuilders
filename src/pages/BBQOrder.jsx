@@ -207,7 +207,7 @@ function BBQOrderContent() {
 
           {/* Menu Sections */}
           <MenuSection 
-            title="🔥 Smoked Meats"
+            title="Smoked Meats"
             description="Low and slow, the way it should be"
             items={menuData.smoked}
             accentColor={colors.coral}
@@ -215,7 +215,7 @@ function BBQOrderContent() {
           />
 
           <MenuSection 
-            title="🥗 Sides"
+            title="Sides"
             description="Every plate needs its partners"
             items={menuData.sides}
             accentColor={colors.coral}
@@ -223,7 +223,7 @@ function BBQOrderContent() {
           />
 
           <MenuSection 
-            title="🥪 Sandwiches"
+            title="Sandwiches"
             description="Handheld happiness"
             items={menuData.sandwiches}
             accentColor={colors.coral}
@@ -231,7 +231,7 @@ function BBQOrderContent() {
           />
 
           <MenuSection 
-            title="🍺 Drinks"
+            title="Drinks"
             description="Wash it all down"
             items={menuData.drinks}
             accentColor={colors.coral}

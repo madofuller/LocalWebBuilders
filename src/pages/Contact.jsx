@@ -29,7 +29,7 @@ const templates = [
 
 const plans = [
   { value: 'personal', label: 'Personal - $12/mo yearly ($19 monthly)' },
-  { value: 'business', label: 'Business - $18/mo yearly ($29 monthly) ⭐ Popular' },
+  { value: 'business', label: 'Business - $18/mo yearly ($29 monthly) - Popular' },
   { value: 'commerce', label: 'Commerce - $33/mo yearly ($49 monthly)' },
   { value: 'not-sure', label: 'Not sure yet - help me choose' }
 ];

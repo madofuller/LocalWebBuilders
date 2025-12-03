@@ -58,10 +58,39 @@ const WavyDivider = ({ color, flip = false }) => (
   </svg>
 );
 
+// Translated content
+const content = {
+  heroTitle: {
+    en: 'Taste the\nSpirit of\nAfrica',
+    es: 'Prueba el\nEspíritu de\nÁfrica',
+    fr: 'Goûtez\nl\'Esprit de\nl\'Afrique',
+  },
+  heroDesc: {
+    en: 'Authentic African spices and flavors, bringing the taste of the motherland to your kitchen. Each blend tells a story of tradition and heritage.',
+    es: 'Especias y sabores africanos auténticos, trayendo el sabor de la madre patria a tu cocina. Cada mezcla cuenta una historia de tradición y herencia.',
+    fr: 'Épices et saveurs africaines authentiques, apportant le goût de la terre mère à votre cuisine. Chaque mélange raconte une histoire de tradition.',
+  },
+  productsTitle: {
+    en: 'Our Signature Blends',
+    es: 'Nuestras Mezclas Exclusivas',
+    fr: 'Nos Mélanges Signature',
+  },
+  aboutTitle: {
+    en: 'From Africa,\nWith Love',
+    es: 'Desde África,\nCon Amor',
+    fr: 'D\'Afrique,\nAvec Amour',
+  },
+  aboutDesc: {
+    en: 'Safari Spice was born from a passion for authentic African cuisine. We source directly from small farms across the continent.',
+    es: 'Safari Spice nació de una pasión por la cocina africana auténtica. Obtenemos directamente de pequeñas granjas de todo el continente.',
+    fr: 'Safari Spice est né d\'une passion pour la cuisine africaine authentique. Nous nous approvisionnons directement auprès de petites fermes du continent.',
+  },
+};
+
 function AfricanShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, tCustom } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -150,6 +179,51 @@ function AfricanShowcaseContent() {
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div 
+            className="md:hidden absolute top-full left-0 right-0 py-6 px-6 shadow-lg z-50"
+            style={{ background: colors.green }}
+          >
+            <Link 
+              to="/african/shop"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.white, borderColor: colors.white + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Shop
+            </Link>
+            <Link 
+              to="/african/recipes"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.white, borderColor: colors.white + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Recipes
+            </Link>
+            <a 
+              href="#about"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.white, borderColor: colors.white + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('about')}
+            </a>
+            <div className="flex items-center justify-between py-3" style={{ color: colors.white }}>
+              <span>Language:</span>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/african/order"
+              className="block mt-4 py-3 text-center rounded-full font-semibold"
+              style={{ background: colors.yellow, color: colors.darkText }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('orderOnline')}
+            </Link>
+          </div>
+        )}
       </header>
 
       {/* ========== HERO ========== */}
@@ -164,17 +238,19 @@ function AfricanShowcaseContent() {
                 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-8"
                 style={{ fontFamily: "'Fredoka', sans-serif", color: colors.white }}
               >
-                AFRICAN<br/>
-                FLAVORS<br/>
-                <span style={{ color: colors.yellow }}>IN AN INSTANT.</span>
+                {tCustom(content.heroTitle).split('\n').map((line, i) => (
+                  <span key={i}>
+                    {i === 2 ? <span style={{ color: colors.yellow }}>{line}</span> : line}
+                    {i < 2 && <br/>}
+                  </span>
+                ))}
               </h1>
               
               <p 
                 className="text-xl mb-10 max-w-md"
                 style={{ color: colors.white, opacity: 0.9 }}
               >
-                Authentic West African spice blends and sauces. 
-                Bold flavors, no shortcuts.
+                {tCustom(content.heroDesc)}
               </p>
               
               <a 
@@ -433,7 +509,7 @@ function AfricanShowcaseContent() {
             {[
               { name: 'Keisha Okafor', quote: "This is Nigerian grandma-approved. In taste test with my mum, she couldn't tell the difference. I call that a win!", img: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=80' },
               { name: 'DiLara', quote: "Safari Spice hit me with a flavor bomb like I've never experienced before. I was blown away at the convenience of joy in a jar.", img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80' },
-              { name: 'Chris', quote: "Let's just say that once my friends tried this, I now trust no one around this product at my house 😂", img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80' }
+              { name: 'Chris', quote: "Let's just say that once my friends tried this, I now trust no one around this product at my house!", img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80' }
             ].map((testimonial, i) => (
               <div 
                 key={i}

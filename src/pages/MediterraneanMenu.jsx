@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ShoppingBag, Leaf } from 'lucide-react';
+import { ArrowLeft, ShoppingBag, Leaf, Instagram, Facebook, Twitter } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
@@ -116,7 +116,6 @@ export default function MediterraneanMenu() {
               to="/mediterranean"
               className="flex items-center gap-2"
             >
-              <span className="text-2xl">☀️</span>
               <span 
                 className="text-xl font-bold"
                 style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
@@ -168,14 +167,14 @@ export default function MediterraneanMenu() {
                         style={{ background: colors.green, color: colors.white }}
                         onClick={() => setFilter(filter === 'vegan' ? 'all' : 'vegan')}
                       >
-                        🌱 Végétarien
+                        Vegetarian
                       </button>
                       <button 
                         className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filter === 'popular' ? 'opacity-100' : 'opacity-50'}`}
                         style={{ background: colors.orange, color: colors.white }}
                         onClick={() => setFilter(filter === 'popular' ? 'all' : 'popular')}
                       >
-                        ⭐ Les + commandés
+                        Most Popular
                       </button>
                     </div>
                   )}
@@ -246,7 +245,6 @@ export default function MediterraneanMenu() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="flex items-center gap-2">
-                <span className="text-3xl">☀️</span>
                 <span 
                   className="text-2xl font-bold"
                   style={{ fontFamily: "'Playfair Display', serif", color: colors.brown }}
@@ -262,10 +260,10 @@ export default function MediterraneanMenu() {
                 <a href="#" className="hover:opacity-70">Careers</a>
               </div>
 
-              <div className="flex gap-4">
-                {['📸', '📘', '🐦'].map((icon, i) => (
-                  <a key={i} href="#" className="text-xl hover:scale-110 transition-transform">
-                    {icon}
+              <div className="flex gap-4" style={{ color: colors.brown }}>
+                {[Instagram, Facebook, Twitter].map((Icon, i) => (
+                  <a key={i} href="#" className="hover:opacity-70 transition-opacity">
+                    <Icon size={20} />
                   </a>
                 ))}
               </div>

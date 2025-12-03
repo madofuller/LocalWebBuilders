@@ -45,10 +45,39 @@ const images = {
   venue2: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&q=80',
 };
 
+// Translated content
+const content = {
+  heroTitle: {
+    en: 'Elevate Your\nSpecial Moments',
+    es: 'Eleva Tus\nMomentos Especiales',
+    fr: 'Sublimez Vos\nMoments Spéciaux',
+  },
+  heroDesc: {
+    en: 'From intimate gatherings to grand celebrations, we create unforgettable culinary experiences tailored to your vision.',
+    es: 'Desde reuniones íntimas hasta grandes celebraciones, creamos experiencias culinarias inolvidables adaptadas a tu visión.',
+    fr: 'Des réunions intimes aux grandes célébrations, nous créons des expériences culinaires inoubliables adaptées à votre vision.',
+  },
+  servicesTitle: {
+    en: 'Our Services',
+    es: 'Nuestros Servicios',
+    fr: 'Nos Services',
+  },
+  aboutTitle: {
+    en: 'Crafted with Care,\nServed with Love',
+    es: 'Hecho con Cuidado,\nServido con Amor',
+    fr: 'Fait avec Soin,\nServi avec Amour',
+  },
+  getQuote: {
+    en: 'Get a Quote',
+    es: 'Obtener Cotización',
+    fr: 'Obtenir un Devis',
+  },
+};
+
 function CateringShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, tCustom } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -107,6 +136,38 @@ function CateringShowcaseContent() {
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div 
+            className="md:hidden absolute top-full left-0 right-0 py-6 px-6 shadow-lg z-50"
+            style={{ background: colors.peach }}
+          >
+            {['Services', 'Portfolio', 'About', 'Contact'].map(item => (
+              <a 
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="block py-3 text-lg font-medium border-b"
+                style={{ color: colors.darkText, borderColor: colors.coral + '20' }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+            <div className="flex items-center justify-between py-3" style={{ color: colors.darkText }}>
+              <span>Language:</span>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/catering/order"
+              className="block mt-4 py-3 text-center rounded-full font-semibold"
+              style={{ background: colors.coral, color: colors.cream }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {tCustom(content.getQuote)}
+            </Link>
+          </div>
+        )}
       </header>
 
       {/* ========== HERO ========== */}
@@ -126,26 +187,29 @@ function CateringShowcaseContent() {
               className="text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-8"
               style={{ fontFamily: "'Playfair Display', serif", color: colors.coral }}
             >
-              THE CATERING AGENCY<br/>
-              SPECIALIZED IN<br/>
-              <span style={{ color: colors.darkText }}>(VERY) GOOD TASTE</span>
+              {tCustom(content.heroTitle).split('\n').map((line, i) => (
+                <span key={i}>
+                  {i === 1 ? <span style={{ color: colors.darkText }}>{line}</span> : line}
+                  {i < 1 && <br/>}
+                </span>
+              ))}
             </h1>
             
             <p 
               className="text-xl md:text-2xl mb-10 max-w-xl"
               style={{ color: colors.mutedText }}
             >
-              We create memorable culinary experiences for your most important moments.
+              {tCustom(content.heroDesc)}
             </p>
             
-            <a 
-              href="#contact"
+            <Link 
+              to="/catering/order"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg"
               style={{ background: colors.coral, color: colors.cream }}
             >
-              Contact Us
+              {tCustom(content.getQuote)}
               <ArrowRight size={20} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

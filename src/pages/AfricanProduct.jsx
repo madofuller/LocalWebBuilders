@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ShoppingCart, Star, ChevronDown, ChevronLeft, ChevronRight, Minus, Plus } from 'lucide-react';
+import { ArrowLeft, ShoppingCart, Star, ChevronDown, ChevronLeft, ChevronRight, Minus, Plus, Flame, Zap } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
@@ -167,7 +167,7 @@ export default function AfricanProduct() {
                 <div className="mb-6">
                   <span className="text-sm opacity-70">DESCRIPTION</span>
                   <p className="flex items-center gap-2 mt-1">
-                    <span className="text-lg">📦</span> {product.weight}
+                    {product.weight}
                   </p>
                 </div>
 
@@ -280,14 +280,14 @@ export default function AfricanProduct() {
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <span className="text-2xl">🍳</span>
+                    <Flame size={24} style={{ color: colors.rust }} />
                     <div>
                       <h4 className="font-bold">STOVETOP</h4>
                       <p className="text-sm opacity-70">Heat on medium for 5-7 minutes, stirring occasionally</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <span className="text-2xl">📺</span>
+                    <Zap size={24} style={{ color: colors.rust }} />
                     <div>
                       <h4 className="font-bold">MICROWAVE</h4>
                       <p className="text-sm opacity-70">Heat for 2-3 minutes, stir halfway through</p>

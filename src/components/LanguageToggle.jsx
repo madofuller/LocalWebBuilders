@@ -26,13 +26,13 @@ export function LanguageToggle({ style = 'dropdown', className = '' }) {
           <button
             key={lang.code}
             onClick={() => setLanguage(lang.code)}
-            className={`px-2 py-1 text-sm rounded transition-all ${
+            className={`px-2 py-1 text-xs rounded transition-all ${
               language === lang.code
                 ? 'bg-white/20 font-semibold'
                 : 'hover:bg-white/10 opacity-70 hover:opacity-100'
             }`}
           >
-            {lang.flag}
+            {lang.code.toUpperCase()}
           </button>
         ))}
       </div>
@@ -66,7 +66,6 @@ export function LanguageToggle({ style = 'dropdown', className = '' }) {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors"
       >
-        <span className="text-lg">{currentLang.flag}</span>
         <span className="text-sm font-medium">{currentLang.code.toUpperCase()}</span>
         <svg 
           className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
@@ -91,7 +90,6 @@ export function LanguageToggle({ style = 'dropdown', className = '' }) {
                 language === lang.code ? 'bg-gray-50 font-semibold' : ''
               }`}
             >
-              <span className="text-lg">{lang.flag}</span>
               <span className="text-gray-800">{lang.name}</span>
               {language === lang.code && (
                 <svg className="w-4 h-4 ml-auto text-green-500" fill="currentColor" viewBox="0 0 20 20">

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   MapPin, Phone, Clock, Star, ChevronRight, Instagram, 
-  Facebook, ArrowRight, Smartphone, Menu, X
+  Facebook, ArrowRight, Smartphone, Menu, X, Sun
 } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 import { LanguageProvider, useLanguage } from '../context/LanguageContext';
@@ -41,7 +41,7 @@ const images = {
   food1: 'https://images.unsplash.com/photo-1547573854-74d2a71d0826?w=400&q=80',
   food2: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80',
   food3: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&q=80',
-  food4: 'https://images.unsplash.com/photo-1482049016gy-c6a48d54d5cb?w=400&q=80',
+  food4: 'https://images.unsplash.com/photo-1482049016822-55b1f32a0a24?w=400&q=80',
   food5: 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=400&q=80',
   food6: 'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&q=80',
   food7: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&q=80',
@@ -81,10 +81,44 @@ const SunburstDeco = ({ size = 120, color = colors.golden }) => (
   </svg>
 );
 
+// Translated content
+const content = {
+  heroTitle: {
+    en: 'Fresh, vibrant\nMediterranean\ncuisine',
+    es: 'Cocina\nmediterránea\nfresca y vibrante',
+    fr: 'Cuisine\nméditerranéenne\nfraîche et vibrante',
+  },
+  heroDesc: {
+    en: 'Experience the sun-soaked flavors of the Mediterranean. Our kitchen celebrates the traditions of coastal cuisine with locally-sourced ingredients.',
+    es: 'Experimenta los sabores soleados del Mediterráneo. Nuestra cocina celebra las tradiciones de la cocina costera con ingredientes locales.',
+    fr: 'Découvrez les saveurs ensoleillées de la Méditerranée. Notre cuisine célèbre les traditions culinaires côtières avec des ingrédients locaux.',
+  },
+  aboutTitle: {
+    en: 'Where tradition\nmeets innovation',
+    es: 'Donde la tradición\nse encuentra con la innovación',
+    fr: 'Où la tradition\nrencontre l\'innovation',
+  },
+  aboutDesc: {
+    en: 'At Solara, we believe in the power of simple, beautiful ingredients prepared with care and served with love. Our menu changes with the seasons.',
+    es: 'En Solara, creemos en el poder de ingredientes simples y hermosos preparados con cuidado y servidos con amor. Nuestro menú cambia con las estaciones.',
+    fr: 'Chez Solara, nous croyons au pouvoir des ingrédients simples et beaux préparés avec soin et servis avec amour. Notre menu change avec les saisons.',
+  },
+  ctaTitle: {
+    en: 'Arrive hungry,\nleave smiling!',
+    es: '¡Llega con hambre,\nvete sonriendo!',
+    fr: 'Arrivez affamé,\nrepartez souriant!',
+  },
+  reserveTable: {
+    en: 'Reserve a Table',
+    es: 'Reservar Mesa',
+    fr: 'Réserver une Table',
+  },
+};
+
 function CalaShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, tCustom } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -138,7 +172,7 @@ function CalaShowcaseContent() {
               className="w-10 h-10 rounded-full flex items-center justify-center"
               style={{ background: colors.terracotta }}
             >
-              <span className="text-white text-lg">☀</span>
+              <Sun size={18} className="text-white" />
             </div>
             <span 
               className="text-3xl font-bold tracking-tight"
@@ -185,26 +219,45 @@ function CalaShowcaseContent() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div 
-            className="md:hidden absolute top-full left-0 right-0 py-6 px-6 shadow-lg"
+            className="md:hidden absolute top-full left-0 right-0 py-6 px-6 shadow-lg z-50"
             style={{ background: colors.cream }}
           >
-            {['Menu', 'Locations', 'About', 'Catering', 'Gift Cards'].map(item => (
-              <a 
-                key={item}
-                href="#"
-                className="block py-3 text-lg font-medium border-b"
-                style={{ color: colors.darkBrown, borderColor: colors.warmBrown + '20' }}
-              >
-                {item}
-              </a>
-            ))}
-            <a 
-              href="#"
+            <Link 
+              to="/mediterranean/menu"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.darkBrown, borderColor: colors.warmBrown + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('menu')}
+            </Link>
+            <Link 
+              to="/mediterranean/locations"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.darkBrown, borderColor: colors.warmBrown + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('locations')}
+            </Link>
+            <Link 
+              to="/mediterranean/about"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.darkBrown, borderColor: colors.warmBrown + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('about')}
+            </Link>
+            <div className="flex items-center justify-between py-3" style={{ color: colors.darkBrown }}>
+              <span>Language:</span>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/mediterranean/order"
               className="block mt-4 py-3 text-center rounded-full font-semibold"
               style={{ background: colors.terracotta, color: colors.white }}
+              onClick={() => setMobileMenuOpen(false)}
             >
-              ORDER NOW
-            </a>
+              {t('orderOnline').toUpperCase()}
+            </Link>
           </div>
         )}
       </header>
@@ -230,32 +283,36 @@ function CalaShowcaseContent() {
                 className="text-6xl md:text-7xl lg:text-8xl font-bold mt-8 mb-6 leading-none"
                 style={{ fontFamily: "'Playfair Display', serif", color: colors.darkBrown }}
               >
-                Sunny Food.<br/>
-                <span style={{ color: colors.terracotta }}>Golden Mood.</span>
+                {tCustom(content.heroTitle).split('\n').map((line, i) => (
+                  <span key={i}>
+                    {i === 1 ? <span style={{ color: colors.terracotta }}>{line}</span> : line}
+                    {i < 2 && <br/>}
+                  </span>
+                ))}
               </h1>
               
               <p 
                 className="text-xl md:text-2xl mb-10 max-w-lg mx-auto lg:mx-0"
                 style={{ color: colors.mediumBrown, fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}
               >
-                Mediterranean cuisine made with love, served with sunshine
+                {tCustom(content.heroDesc)}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <a 
-                  href="#menu"
+                <Link 
+                  to="/mediterranean/menu"
                   className="px-8 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg inline-flex items-center justify-center gap-2"
                   style={{ background: colors.terracotta, color: colors.white }}
                 >
-                  View Our Menu
+                  {t('viewMenu')}
                   <ChevronRight size={20} />
-                </a>
+                </Link>
                 <a 
                   href="#locations"
                   className="px-8 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 border-2 inline-flex items-center justify-center gap-2"
                   style={{ borderColor: colors.terracotta, color: colors.terracotta, background: 'transparent' }}
                 >
-                  Find a Location
+                  {t('findUs')}
                 </a>
               </div>
             </div>
@@ -351,7 +408,7 @@ function CalaShowcaseContent() {
       >
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex justify-center mb-6">
-            <span className="text-4xl">☀️</span>
+            <Sun size={48} style={{ color: colors.terracotta }} />
           </div>
           <p 
             className="text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide"
@@ -480,14 +537,14 @@ function CalaShowcaseContent() {
           </div>
 
           <div className="text-center">
-            <a 
-              href="#"
+            <Link 
+              to="/mediterranean/menu"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold transition-transform hover:scale-105 border-2"
               style={{ borderColor: colors.darkBrown, color: colors.darkBrown }}
             >
               View Full Menu
               <ArrowRight size={18} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -517,7 +574,7 @@ function CalaShowcaseContent() {
                   className="text-2xl font-bold mb-2 flex items-center gap-2"
                   style={{ fontFamily: "'Playfair Display', serif", color: colors.darkBrown }}
                 >
-                  Our Locations 📍
+                  Our Locations
                 </h3>
                 <p className="mb-6" style={{ color: colors.mediumBrown }}>
                   We currently have 4 locations across the city. We hope 
@@ -542,7 +599,7 @@ function CalaShowcaseContent() {
                 className="text-2xl font-bold mb-2 flex items-center gap-2"
                 style={{ fontFamily: "'Playfair Display', serif", color: colors.darkBrown }}
               >
-                Get It Delivered 🚴
+                Get It Delivered
               </h3>
               <p className="mb-6" style={{ color: colors.darkBrown }}>
                 Want to stay home? Our meals are 
@@ -573,7 +630,7 @@ function CalaShowcaseContent() {
                 className="w-12 h-12 rounded-full flex items-center justify-center"
                 style={{ background: colors.terracotta }}
               >
-                <span className="text-white text-xl">☀</span>
+                <Sun size={22} className="text-white" />
               </div>
               <div>
                 <p className="font-bold" style={{ color: colors.darkBrown }}>Solara</p>
@@ -666,7 +723,7 @@ function CalaShowcaseContent() {
                   className="w-10 h-10 rounded-full flex items-center justify-center"
                   style={{ background: colors.terracotta }}
                 >
-                  <span className="text-white text-lg">☀</span>
+                  <Sun size={18} className="text-white" />
                 </div>
                 <span 
                   className="text-2xl font-bold"

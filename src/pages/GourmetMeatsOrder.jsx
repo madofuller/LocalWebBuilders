@@ -200,7 +200,7 @@ function GourmetMeatsOrderContent() {
 
           {/* Menu Sections */}
           <MenuSection 
-            title="🥩 Prime Steaks"
+            title="Prime Steaks"
             description="Dry-aged, USDA Prime cuts"
             items={menuData.steaks}
             accentColor={colors.gold}
@@ -208,7 +208,7 @@ function GourmetMeatsOrderContent() {
           />
 
           <MenuSection 
-            title="🦐 Starters"
+            title="Starters"
             description="Begin your experience"
             items={menuData.starters}
             accentColor={colors.gold}
@@ -216,7 +216,7 @@ function GourmetMeatsOrderContent() {
           />
 
           <MenuSection 
-            title="🥔 Sides"
+            title="Sides"
             description="Classic accompaniments"
             items={menuData.sides}
             accentColor={colors.gold}
@@ -224,7 +224,7 @@ function GourmetMeatsOrderContent() {
           />
 
           <MenuSection 
-            title="🥃 Cocktails & Wine"
+            title="Cocktails & Wine"
             description="Pair with your meal"
             items={menuData.drinks}
             accentColor={colors.gold}

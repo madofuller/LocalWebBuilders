@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, MapPin, Clock, Phone } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, Phone, Beer } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 
 /* ============================================
@@ -60,11 +60,11 @@ export default function BBQAbout() {
         {/* Hero */}
         <section className="py-16 px-6 text-center" style={{ background: colors.teal }}>
           <div className="max-w-4xl mx-auto">
-            {/* Decorative illustration placeholder */}
-            <div className="flex justify-center gap-8 mb-8 opacity-30">
-              <span className="text-6xl">🦑</span>
-              <span className="text-6xl">🌿</span>
-              <span className="text-6xl">🦐</span>
+            {/* Decorative divider */}
+            <div className="flex justify-center gap-4 mb-8 opacity-30">
+              <span className="w-12 h-px bg-current"></span>
+              <span className="w-2 h-2 rounded-full bg-current"></span>
+              <span className="w-12 h-px bg-current"></span>
             </div>
             
             <h1 
@@ -153,7 +153,7 @@ export default function BBQAbout() {
                 >
                   GRAB A SEAT.<br/>ORDER AT THE BAR.
                 </h3>
-                <p className="text-6xl">🍺</p>
+                <Beer size={48} style={{ color: colors.coral }} />
               </div>
             </div>
           </div>

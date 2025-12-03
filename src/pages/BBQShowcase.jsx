@@ -91,8 +91,12 @@ const locationData = [
   },
 ];
 
-// Translated content
+// Translated content - Full template translations
 const content = {
+  // Navigation
+  catering: { en: 'Catering', es: 'Catering', fr: 'Traiteur' },
+  
+  // Hero Section
   heroTitle: {
     en: 'Smoked meats,\nboozy slushees,\nrad veggies,\nchill vibes.',
     es: 'Carnes ahumadas,\nslushees con licor,\nverduras increíbles,\nvibraciones relajadas.',
@@ -108,6 +112,35 @@ const content = {
     es: 'VER MENÚ COMPLETO',
     fr: 'VOIR LE MENU COMPLET',
   },
+  
+  // Menu Section
+  menuSectionTitle: {
+    en: 'WHAT WE\'RE SERVING',
+    es: 'LO QUE SERVIMOS',
+    fr: 'CE QUE NOUS SERVONS',
+  },
+  smokedMeats: { en: 'Smoked Meats', es: 'Carnes Ahumadas', fr: 'Viandes Fumées' },
+  sides: { en: 'Sides', es: 'Guarniciones', fr: 'Accompagnements' },
+  brisket: { en: 'Brisket', es: 'Brisket', fr: 'Poitrine de bœuf' },
+  brisketDesc: { 
+    en: 'Central Texas-style, salt & pepper crust, 14-hour smoke', 
+    es: 'Estilo Texas Central, corteza de sal y pimienta, 14 horas de ahumado',
+    fr: 'Style Texas Central, croûte sel et poivre, fumage 14 heures'
+  },
+  porkRibs: { en: 'Pork Ribs', es: 'Costillas de Cerdo', fr: 'Côtes de Porc' },
+  porkRibsDesc: {
+    en: 'St. Louis cut, house dry rub, sticky glaze',
+    es: 'Corte St. Louis, adobo seco de la casa, glaseado pegajoso',
+    fr: 'Coupe St. Louis, épices maison, glaçage collant'
+  },
+  pulledPork: { en: 'Pulled Pork', es: 'Cerdo Desmenuzado', fr: 'Porc Effiloché' },
+  pulledPorkDesc: {
+    en: 'Shoulder, Carolina vinegar sauce, 12 hours',
+    es: 'Paletilla, salsa de vinagre Carolina, 12 horas',
+    fr: 'Épaule, sauce vinaigre Caroline, 12 heures'
+  },
+  
+  // Locations Section  
   locationsTitle: {
     en: 'Kick back, relax,\nand stay awhile.',
     es: 'Relájate, descansa,\ny quédate un rato.',
@@ -118,6 +151,8 @@ const content = {
     es: 'Terrazas de primera, interiores hermosos y un ambiente que se siente como una barbacoa en el jardín con tus mejores amigos.',
     fr: 'Terrasses haut de gamme, intérieurs magnifiques et une atmosphère de barbecue entre amis.',
   },
+  
+  // Founders Section
   foundersTitle: {
     en: 'JAKE\nTHORNTON\n×\nMARCUS\nREED',
     es: 'JAKE\nTHORNTON\n×\nMARCUS\nREED',
@@ -128,6 +163,9 @@ const content = {
     es: '¿Qué pasa cuando un legendario maestro del ahumado se une con un chef galardonado? Magia. Pura magia ahumada y deliciosa. Oakfire nació de su obsesión compartida por el fuego, el sabor y los buenos momentos.',
     fr: 'Que se passe-t-il quand un légendaire maître du fumoir fait équipe avec un chef primé? De la magie. Pure, fumée, délicieuse magie. Oakfire est né de leur obsession commune pour le feu, la saveur et les bons moments.',
   },
+  
+  // Drinks Section
+  beverageProgram: { en: 'BEVERAGE PROGRAM', es: 'PROGRAMA DE BEBIDAS', fr: 'PROGRAMME BOISSONS' },
   drinksTitle: {
     en: 'Drinks so good,\nyou\'ll forget about the meat.\n(almost)',
     es: 'Bebidas tan buenas,\nque olvidarás la carne.\n(casi)',
@@ -138,6 +176,20 @@ const content = {
     es: 'Nuestro programa de bar es tan serio como nuestro ahumador. Cócteles recién exprimidos, slushees con licor, cervezas texanas de barril y una selección de vinos.',
     fr: 'Notre programme de bar est aussi sérieux que notre fumoir. Cocktails fraîchement pressés, slushees alcoolisés, bières texanes à la pression et une sélection de vins.',
   },
+  craftBeer: { en: 'Craft Beer', es: 'Cerveza Artesanal', fr: 'Bière Artisanale' },
+  frozenCocktails: { en: 'Frozen Cocktails', es: 'Cócteles Helados', fr: 'Cocktails Glacés' },
+  whiskey: { en: 'Whiskey', es: 'Whiskey', fr: 'Whisky' },
+  naturalWine: { en: 'Natural Wine', es: 'Vino Natural', fr: 'Vin Naturel' },
+  
+  // Footer
+  followUs: { en: 'Follow us for the latest', es: 'Síguenos para lo último', fr: 'Suivez-nous' },
+  copyright: { 
+    en: '© 2025 Oakfire Smokehouse. All rights reserved.', 
+    es: '© 2025 Oakfire Smokehouse. Todos los derechos reservados.',
+    fr: '© 2025 Oakfire Smokehouse. Tous droits réservés.'
+  },
+  privacy: { en: 'Privacy', es: 'Privacidad', fr: 'Confidentialité' },
+  terms: { en: 'Terms', es: 'Términos', fr: 'Conditions' },
 };
 
 function BBQShowcaseContent() {
@@ -229,6 +281,51 @@ function BBQShowcaseContent() {
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div 
+            className="md:hidden absolute top-full left-0 right-0 py-6 px-6 shadow-lg z-50"
+            style={{ background: colors.cream }}
+          >
+            <Link 
+              to="/bbq/menu"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.teal, borderColor: colors.teal + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('menu')}
+            </Link>
+            <Link 
+              to="/bbq/about"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.teal, borderColor: colors.teal + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('about')}
+            </Link>
+            <Link 
+              to="/bbq/locations"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.teal, borderColor: colors.teal + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('locations')}
+            </Link>
+            <div className="flex items-center justify-between py-3">
+              <span style={{ color: colors.teal }}>Language:</span>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/bbq/order"
+              className="block mt-4 py-3 text-center rounded-full font-semibold"
+              style={{ background: colors.coral, color: colors.cream }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('orderOnline').toUpperCase()}
+            </Link>
+          </div>
+        )}
       </header>
 
       {/* ========== HERO ========== */}
@@ -307,26 +404,28 @@ function BBQShowcaseContent() {
 
             <div>
               <p className="text-sm tracking-widest mb-4" style={{ color: colors.coral }}>
-                SLOW SMOKED DAILY
+                {tCustom({ en: 'SLOW SMOKED DAILY', es: 'AHUMADO LENTO DIARIO', fr: 'FUMÉ LENTEMENT CHAQUE JOUR' })}
               </p>
               <h2 
                 className="text-4xl md:text-5xl font-bold mb-6"
                 style={{ fontFamily: "'Playfair Display', serif", color: colors.teal }}
               >
-                Low & slow<br/>
-                <span style={{ fontStyle: 'italic' }}>is the only<br/>way to go.</span>
+                {tCustom({ en: 'Low & slow', es: 'Bajo y lento', fr: 'Lent et doux' })}<br/>
+                <span style={{ fontStyle: 'italic' }}>{tCustom({ en: 'is the only', es: 'es la única', fr: 'c\'est la seule' })}<br/>{tCustom({ en: 'way to go.', es: 'manera.', fr: 'façon.' })}</span>
               </h2>
               <p className="text-lg mb-8" style={{ color: colors.darkText, opacity: 0.7 }}>
-                We smoke our meats for 14+ hours over post oak. 
-                Each cut is hand-rubbed with our signature spice 
-                blend and cooked until it's fall-apart tender.
+                {tCustom({ 
+                  en: 'We smoke our meats for 14+ hours over post oak. Each cut is hand-rubbed with our signature spice blend and cooked until it\'s fall-apart tender.',
+                  es: 'Ahumamos nuestras carnes durante más de 14 horas sobre roble. Cada corte se frota a mano con nuestra mezcla de especias y se cocina hasta que esté tierno.',
+                  fr: 'Nous fumons nos viandes pendant plus de 14 heures sur du chêne. Chaque morceau est frotté à la main avec notre mélange d\'épices et cuit jusqu\'à tendreté.'
+                })}
               </p>
               <a 
                 href="#"
                 className="inline-flex items-center gap-2 text-sm font-semibold underline"
                 style={{ color: colors.teal }}
               >
-                LEARN ABOUT OUR PROCESS
+                {tCustom({ en: 'LEARN ABOUT OUR PROCESS', es: 'CONOCE NUESTRO PROCESO', fr: 'DÉCOUVREZ NOTRE PROCESSUS' })}
               </a>
             </div>
           </div>
@@ -339,21 +438,22 @@ function BBQShowcaseContent() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-sm tracking-widest mb-4" style={{ color: colors.coral }}>
-                NOT JUST MEAT
+                {tCustom({ en: 'NOT JUST MEAT', es: 'NO SOLO CARNE', fr: 'PAS QUE DE LA VIANDE' })}
               </p>
               <h2 
                 className="text-4xl md:text-5xl font-bold mb-6"
                 style={{ fontFamily: "'Playfair Display', serif", color: colors.teal }}
               >
-                Veggies<br/>
-                <span style={{ fontStyle: 'italic' }}>everyone</span><br/>
-                will love.
+                {tCustom({ en: 'Veggies', es: 'Verduras', fr: 'Légumes' })}<br/>
+                <span style={{ fontStyle: 'italic' }}>{tCustom({ en: 'everyone', es: 'que todos', fr: 'que tout le monde' })}</span><br/>
+                {tCustom({ en: 'will love.', es: 'amarán.', fr: 'adorera.' })}
               </h2>
               <p className="text-lg mb-8" style={{ color: colors.darkText, opacity: 0.7 }}>
-                Our vegetable sides and mains are anything but an afterthought. 
-                Think miso-glazed sweet potatoes, smoked cauliflower 
-                with tahini, and charred broccolini that'll make 
-                you forget the meat entirely.
+                {tCustom({ 
+                  en: 'Our vegetable sides and mains are anything but an afterthought. Think miso-glazed sweet potatoes, smoked cauliflower with tahini, and charred broccolini that\'ll make you forget the meat entirely.',
+                  es: 'Nuestras guarniciones y platos de verduras no son un extra. Piensa en batatas glaseadas con miso, coliflor ahumada con tahini y broccolini carbonizado que te hará olvidar la carne.',
+                  fr: 'Nos accompagnements et plats de légumes ne sont pas un ajout. Pensez aux patates douces glacées au miso, au chou-fleur fumé au tahini et aux broccolini grillés qui vous feront oublier la viande.'
+                })}
               </p>
             </div>
 
@@ -390,10 +490,10 @@ function BBQShowcaseContent() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { name: 'Craft Beer', img: images.beer },
-              { name: 'Frozen Cocktails', img: images.cocktail },
-              { name: 'Whiskey', img: images.whiskey },
-              { name: 'Natural Wine', img: images.wine }
+              { name: tCustom(content.craftBeer), img: images.beer },
+              { name: tCustom(content.frozenCocktails), img: images.cocktail },
+              { name: tCustom(content.whiskey), img: images.whiskey },
+              { name: tCustom(content.naturalWine), img: images.wine }
             ].map((drink, i) => (
               <div 
                 key={i}
@@ -553,15 +653,19 @@ function BBQShowcaseContent() {
             className="text-3xl md:text-4xl font-bold mb-4"
             style={{ fontFamily: "'Playfair Display', serif", color: colors.cream }}
           >
-            Get the latest
+            {tCustom({ en: 'Get the latest', es: 'Recibe lo último', fr: 'Restez informé' })}
           </h2>
           <p className="mb-8" style={{ color: colors.cream, opacity: 0.7 }}>
-            New menu drops, events, and secret menu items. No spam, we promise.
+            {tCustom({ 
+              en: 'New menu drops, events, and secret menu items. No spam, we promise.',
+              es: 'Nuevos menús, eventos y platos secretos. Sin spam, lo prometemos.',
+              fr: 'Nouveaux menus, événements et plats secrets. Pas de spam, promis.'
+            })}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <input 
               type="email"
-              placeholder="Enter your email"
+              placeholder={tCustom({ en: 'Enter your email', es: 'Tu email', fr: 'Votre email' })}
               className="flex-1 px-6 py-4 rounded-full text-sm outline-none"
               style={{ background: colors.cream, color: colors.darkText }}
             />
@@ -569,7 +673,7 @@ function BBQShowcaseContent() {
               className="px-8 py-4 rounded-full font-semibold transition-transform hover:scale-105"
               style={{ background: colors.coral, color: colors.cream }}
             >
-              Subscribe
+              {tCustom({ en: 'Subscribe', es: 'Suscribirse', fr: 'S\'abonner' })}
             </button>
           </div>
         </div>
@@ -592,9 +696,9 @@ function BBQShowcaseContent() {
             </div>
 
             {[
-              { title: 'Locations', links: ['Austin', 'Dallas', 'Coming Soon'] },
-              { title: 'Menu', links: ['Food', 'Drinks', 'Catering'] },
-              { title: 'Connect', links: ['Instagram', 'Twitter', 'Contact'] }
+              { title: t('locations'), links: ['Austin', 'Dallas', tCustom({ en: 'Coming Soon', es: 'Próximamente', fr: 'Bientôt' })] },
+              { title: t('menu'), links: [tCustom({ en: 'Food', es: 'Comida', fr: 'Nourriture' }), tCustom({ en: 'Drinks', es: 'Bebidas', fr: 'Boissons' }), tCustom(content.catering)] },
+              { title: tCustom({ en: 'Connect', es: 'Conectar', fr: 'Nous suivre' }), links: ['Instagram', 'Twitter', t('contact')] }
             ].map((col, i) => (
               <div key={i}>
                 <h4 className="font-bold mb-4" style={{ color: colors.cream }}>
@@ -622,12 +726,12 @@ function BBQShowcaseContent() {
             style={{ borderTop: `1px solid ${colors.cream}20` }}
           >
             <p className="text-sm" style={{ color: colors.cream, opacity: 0.5 }}>
-              © 2025 Oakfire Smokehouse. All rights reserved.
+              {tCustom(content.copyright)}
             </p>
             <div className="flex gap-6">
-              {['Privacy', 'Terms'].map(link => (
+              {[tCustom(content.privacy), tCustom(content.terms)].map((link, i) => (
                 <a 
-                  key={link}
+                  key={i}
                   href="#"
                   className="text-sm hover:underline"
                   style={{ color: colors.cream, opacity: 0.5 }}

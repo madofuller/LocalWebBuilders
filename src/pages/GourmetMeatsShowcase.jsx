@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Instagram, Facebook, Twitter, ArrowRight, Menu, X, ShoppingCart, Star
+  Instagram, Facebook, Twitter, ArrowRight, Menu, X, ShoppingCart, Star, Leaf, Flame, Sparkles
 } from 'lucide-react';
 import TemplateFloatingCTA from '../components/TemplateFloatingCTA';
 import { LanguageProvider, useLanguage } from '../context/LanguageContext';
@@ -37,9 +37,39 @@ const images = {
   platter: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=80',
 };
 
+// Translated content
+const content = {
+  heroTitle: {
+    en: 'CALLING ALL\nOMNIVORES.',
+    es: 'LLAMANDO A TODOS\nLOS OMNÍVOROS.',
+    fr: 'APPEL À TOUS\nLES OMNIVORES.',
+  },
+  heroDesc: {
+    en: 'Premium gourmet sausages and meats crafted with passion. Bold flavors, quality ingredients, unforgettable taste.',
+    es: 'Salchichas y carnes gourmet premium elaboradas con pasión. Sabores atrevidos, ingredientes de calidad, sabor inolvidable.',
+    fr: 'Saucisses et viandes gastronomiques premium fabriquées avec passion. Saveurs audacieuses, ingrédients de qualité.',
+  },
+  productsTitle: {
+    en: 'Our Products',
+    es: 'Nuestros Productos',
+    fr: 'Nos Produits',
+  },
+  storyTitle: {
+    en: 'Our Story',
+    es: 'Nuestra Historia',
+    fr: 'Notre Histoire',
+  },
+  storyDesc: {
+    en: 'Phil started making sausages in his backyard with a simple goal: create the best damn sausage you\'ve ever tasted.',
+    es: 'Phil empezó a hacer salchichas en su patio con un objetivo simple: crear la mejor salchicha que hayas probado.',
+    fr: 'Phil a commencé à faire des saucisses dans son jardin avec un objectif simple: créer la meilleure saucisse que vous ayez jamais goûtée.',
+  },
+};
+
 function GourmetMeatsShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useLanguage();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, tCustom } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -87,7 +117,61 @@ function GourmetMeatsShowcaseContent() {
               {t('orderOnline')}
             </Link>
           </div>
+
+          <button 
+            className="md:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            style={{ color: colors.black }}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div 
+            className="md:hidden absolute top-full left-0 right-0 py-6 px-6 shadow-lg z-50"
+            style={{ background: colors.cream }}
+          >
+            <a 
+              href="#"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.black, borderColor: colors.coral + '30' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Products
+            </a>
+            <a 
+              href="#"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.black, borderColor: colors.coral + '30' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Our Story
+            </a>
+            <a 
+              href="#"
+              className="block py-3 text-lg font-medium border-b"
+              style={{ color: colors.black, borderColor: colors.coral + '30' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Recipes
+            </a>
+            <div className="flex items-center justify-between py-3" style={{ color: colors.black }}>
+              <span>Language:</span>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/gourmet-meats/order"
+              className="flex items-center justify-center gap-2 mt-4 py-3 rounded-full font-medium"
+              style={{ background: colors.coral, color: colors.white }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <ShoppingCart size={16} />
+              {t('orderOnline')}
+            </Link>
+          </div>
+        )}
       </header>
 
       {/* ========== HERO ========== */}
@@ -99,8 +183,13 @@ function GourmetMeatsShowcaseContent() {
                 className="text-5xl md:text-6xl lg:text-7xl font-black leading-none mb-6"
                 style={{ fontFamily: "'Fredoka', sans-serif", color: colors.black }}
               >
-                CALLING ALL<br/>
-                <span className="line-through decoration-4">OMNIVORES</span>.
+                {tCustom(content.heroTitle).split('\n').map((line, i) => (
+                  <span key={i}>
+                    {i === 1 ? <span className="line-through decoration-4">{line.replace('.', '')}</span> : line}
+                    {i === 0 && <br/>}
+                    {i === 1 && '.'}
+                  </span>
+                ))}
               </h1>
             </div>
             <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
@@ -214,12 +303,12 @@ function GourmetMeatsShowcaseContent() {
           
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: 'More Veggies', desc: 'Veggies as a full third—yup! Eat local.', icon: '🥬' },
-              { title: 'More Flavor', desc: 'Spices/herbs that make you say "OH WOW!"', icon: '🌶️' },
-              { title: 'More Fun', desc: 'More fuel—good for you AND the planet.', icon: '🎉' }
+              { title: 'More Veggies', desc: 'Veggies as a full third—yup! Eat local.', Icon: Leaf },
+              { title: 'More Flavor', desc: 'Spices/herbs that make you say "OH WOW!"', Icon: Flame },
+              { title: 'More Fun', desc: 'More fuel—good for you AND the planet.', Icon: Sparkles }
             ].map((item, i) => (
               <div key={i} className="p-8 rounded-3xl text-center" style={{ background: 'rgba(255,255,255,0.15)' }}>
-                <span className="text-5xl mb-4 block">{item.icon}</span>
+                <item.Icon size={48} className="mb-4 mx-auto" style={{ color: colors.white }} />
                 <h4 
                   className="text-2xl font-bold mb-2"
                   style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: colors.white }}

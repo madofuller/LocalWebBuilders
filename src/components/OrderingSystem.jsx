@@ -346,7 +346,7 @@ export function CheckoutForm({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: '9eb905d2-2fba-4295-bb14-4efb62c5bd80',
-          subject: `🍽️ New Order from ${formData.name} - ${restaurantName}`,
+          subject: `New Order from ${formData.name} - ${restaurantName}`,
           from_name: `${restaurantName} Orders`,
           // Format order nicely for email
           message: `

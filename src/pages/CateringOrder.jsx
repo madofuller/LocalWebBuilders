@@ -199,7 +199,7 @@ function CateringOrderContent() {
             style={{ background: colors.blush }}
           >
             <p className="font-medium" style={{ color: colors.charcoal }}>
-              📅 For events within 48 hours, please call us directly at (555) 123-4567
+              For events within 48 hours, please call us directly at (555) 123-4567
             </p>
           </div>
 

@@ -201,7 +201,7 @@ function AfricanOrderContent() {
 
           {/* Menu Sections */}
           <MenuSection 
-            title="🌶️ Starters"
+            title="Starters"
             description="Begin your journey"
             items={menuData.starters}
             accentColor={colors.rust}
@@ -209,7 +209,7 @@ function AfricanOrderContent() {
           />
 
           <MenuSection 
-            title="🍲 Main Courses"
+            title="Main Courses"
             description="Signature dishes from across Africa"
             items={menuData.mains}
             accentColor={colors.rust}
@@ -217,7 +217,7 @@ function AfricanOrderContent() {
           />
 
           <MenuSection 
-            title="🥗 Sides"
+            title="Sides"
             description="Perfect accompaniments"
             items={menuData.sides}
             accentColor={colors.rust}
@@ -225,7 +225,7 @@ function AfricanOrderContent() {
           />
 
           <MenuSection 
-            title="🥤 Drinks"
+            title="Drinks"
             description="Refresh and enjoy"
             items={menuData.drinks}
             accentColor={colors.rust}

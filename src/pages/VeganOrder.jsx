@@ -185,7 +185,7 @@ function VeganOrderContent() {
 
           {/* Menu Sections */}
           <MenuSection 
-            title="🥗 Power Bowls"
+            title="Power Bowls"
             description="Nourishing and satisfying"
             items={menuData.bowls}
             accentColor={colors.green}
@@ -193,7 +193,7 @@ function VeganOrderContent() {
           />
 
           <MenuSection 
-            title="🍽️ Main Courses"
+            title="Main Courses"
             description="Plant-forward favorites"
             items={menuData.mains}
             accentColor={colors.green}
@@ -201,7 +201,7 @@ function VeganOrderContent() {
           />
 
           <MenuSection 
-            title="🌱 Starters"
+            title="Starters"
             description="Light bites to begin"
             items={menuData.starters}
             accentColor={colors.green}
@@ -209,7 +209,7 @@ function VeganOrderContent() {
           />
 
           <MenuSection 
-            title="🍵 Drinks"
+            title="Drinks"
             description="Refreshing & energizing"
             items={menuData.drinks}
             accentColor={colors.green}

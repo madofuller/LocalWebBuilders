@@ -45,9 +45,44 @@ const JaggedEdge = ({ color }) => (
   </svg>
 );
 
+// Translated content
+const content = {
+  heroTitle: {
+    en: 'THE HOTTEST\nORGANIC SMASH\nBURGERS IN\nYOUR REGION',
+    es: 'LAS HAMBURGUESAS\nSMASH ORGÁNICAS\nMÁS CALIENTES\nDE TU REGIÓN',
+    fr: 'LES MEILLEURS\nSMASH BURGERS\nBIO DE\nVOTRE RÉGION',
+  },
+  pickup: {
+    en: 'PICKUP',
+    es: 'RECOGER',
+    fr: 'À EMPORTER',
+  },
+  delivery: {
+    en: 'DELIVERY',
+    es: 'ENTREGA',
+    fr: 'LIVRAISON',
+  },
+  menuTitle: {
+    en: 'THE GOODS',
+    es: 'LO BUENO',
+    fr: 'NOS PRODUITS',
+  },
+  aboutTitle: {
+    en: 'WHY WE SMASH',
+    es: 'POR QUÉ SMASH',
+    fr: 'POURQUOI SMASH',
+  },
+  aboutDesc: {
+    en: 'We believe in simple, honest food. Quality beef, smashed thin on a hot griddle for maximum crust. No frills, just flavor.',
+    es: 'Creemos en la comida simple y honesta. Carne de calidad, aplastada fina en una plancha caliente para máxima costra.',
+    fr: 'Nous croyons en une nourriture simple et honnête. Du bœuf de qualité, écrasé finement sur une plancha chaude.',
+  },
+};
+
 function SmashBurgerShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useLanguage();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, tCustom } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -90,12 +125,65 @@ function SmashBurgerShowcaseContent() {
 
           <Link 
             to="/smash-burger/order"
-            className="px-5 py-2.5 font-bold text-sm"
+            className="hidden md:block px-5 py-2.5 font-bold text-sm"
             style={{ background: colors.black, color: colors.yellow }}
           >
             [ {t('orderOnline').toUpperCase()} ]
           </Link>
+
+          <button 
+            className="md:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            style={{ color: colors.black }}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div 
+            className="md:hidden absolute top-full left-0 right-0 py-6 px-6 shadow-lg z-50"
+            style={{ background: colors.cream }}
+          >
+            <Link 
+              to="/smash-burger/menu"
+              className="block py-3 text-lg font-bold border-b"
+              style={{ color: colors.black, borderColor: colors.black + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              MENU
+            </Link>
+            <a 
+              href="#locations"
+              className="block py-3 text-lg font-bold border-b"
+              style={{ color: colors.black, borderColor: colors.black + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              OUR SPOTS
+            </a>
+            <a 
+              href="#about"
+              className="block py-3 text-lg font-bold border-b"
+              style={{ color: colors.black, borderColor: colors.black + '20' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              OUR STORY
+            </a>
+            <div className="flex items-center justify-between py-3" style={{ color: colors.black }}>
+              <span className="font-bold">LANGUAGE:</span>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/smash-burger/order"
+              className="block mt-4 py-3 text-center font-bold"
+              style={{ background: colors.black, color: colors.yellow }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              [ {t('orderOnline').toUpperCase()} ]
+            </Link>
+          </div>
+        )}
       </header>
 
       {/* ========== HERO ========== */}
@@ -107,18 +195,17 @@ function SmashBurgerShowcaseContent() {
                 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6"
                 style={{ fontFamily: "'Arial Black', sans-serif", color: colors.black }}
               >
-                THE HOTTEST<br/>
-                ORGANIC SMASH<br/>
-                BURGERS IN<br/>
-                YOUR REGION
+                {tCustom(content.heroTitle).split('\n').map((line, i) => (
+                  <span key={i}>{line}{i < 3 && <br/>}</span>
+                ))}
               </h1>
               <div className="flex gap-4">
-                <a href="#" className="px-6 py-3 font-bold text-sm" style={{ background: colors.black, color: colors.yellow }}>
-                  [ PICKUP ]
-                </a>
-                <a href="#" className="px-6 py-3 font-bold text-sm" style={{ background: colors.black, color: colors.yellow }}>
-                  [ DELIVERY ]
-                </a>
+                <Link to="/smash-burger/order" className="px-6 py-3 font-bold text-sm" style={{ background: colors.black, color: colors.yellow }}>
+                  [ {tCustom(content.pickup)} ]
+                </Link>
+                <Link to="/smash-burger/order" className="px-6 py-3 font-bold text-sm" style={{ background: colors.black, color: colors.yellow }}>
+                  [ {tCustom(content.delivery)} ]
+                </Link>
               </div>
             </div>
             <div className="relative">
@@ -236,7 +323,7 @@ function SmashBurgerShowcaseContent() {
         <div className="flex whitespace-nowrap animate-scroll">
           {[...Array(10)].map((_, i) => (
             <span key={i} className="text-4xl md:text-6xl font-black mx-8" style={{ fontFamily: "'Arial Black', sans-serif", color: colors.black }}>
-              SMASH BURGERS 🍔
+              SMASH BURGERS
             </span>
           ))}
         </div>

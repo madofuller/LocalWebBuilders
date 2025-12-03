@@ -43,9 +43,39 @@ const BlobShape = ({ color, className = "" }) => (
   </svg>
 );
 
+// Translated content
+const content = {
+  heroTitle: {
+    en: 'Pure.\nPlant.\nPerfect.',
+    es: 'Puro.\nVegetal.\nPerfecto.',
+    fr: 'Pur.\nVégétal.\nParfait.',
+  },
+  heroDesc: {
+    en: 'Artisanal plant-based spreads and sauces that bring joy to every meal. Made with love, made with plants.',
+    es: 'Untables y salsas vegetales artesanales que aportan alegría a cada comida. Hecho con amor, hecho con plantas.',
+    fr: 'Tartinades et sauces végétales artisanales qui apportent de la joie à chaque repas. Fait avec amour, fait avec des plantes.',
+  },
+  productsTitle: {
+    en: 'Our Products',
+    es: 'Nuestros Productos',
+    fr: 'Nos Produits',
+  },
+  missionTitle: {
+    en: 'Our Mission',
+    es: 'Nuestra Misión',
+    fr: 'Notre Mission',
+  },
+  missionDesc: {
+    en: 'We believe that plant-based eating should be delicious, accessible, and joyful. Every jar is crafted with intention.',
+    es: 'Creemos que comer a base de plantas debe ser delicioso, accesible y alegre. Cada frasco está hecho con intención.',
+    fr: 'Nous croyons que manger végétal doit être délicieux, accessible et joyeux. Chaque pot est fait avec intention.',
+  },
+};
+
 function PlantBasedShowcaseContent() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useLanguage();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, tCustom } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -84,12 +114,52 @@ function PlantBasedShowcaseContent() {
 
           <Link 
             to="/plant-based/order"
-            className="px-5 py-2.5 rounded-full text-sm font-medium"
+            className="hidden md:block px-5 py-2.5 rounded-full text-sm font-medium"
             style={{ background: colors.sage, color: colors.cream }}
           >
             {t('orderOnline').toUpperCase()}
           </Link>
+
+          <button 
+            className="md:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            style={{ color: colors.darkText }}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div 
+            className="md:hidden absolute top-full left-0 right-0 py-6 px-6 shadow-lg z-50"
+            style={{ background: colors.cream }}
+          >
+            {['Our Mission', 'Our Products', 'Contact'].map(item => (
+              <a 
+                key={item}
+                href="#"
+                className="block py-3 text-lg font-medium border-b"
+                style={{ color: colors.darkText, borderColor: colors.sage + '30' }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+            <div className="flex items-center justify-between py-3" style={{ color: colors.darkText }}>
+              <span>Language:</span>
+              <LanguageToggle style="buttons" />
+            </div>
+            <Link 
+              to="/plant-based/order"
+              className="block mt-4 py-3 text-center rounded-full font-medium"
+              style={{ background: colors.sage, color: colors.cream }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('orderOnline').toUpperCase()}
+            </Link>
+          </div>
+        )}
       </header>
 
       {/* ========== HERO ========== */}
@@ -112,15 +182,18 @@ function PlantBasedShowcaseContent() {
               className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight mb-6"
               style={{ fontFamily: "'Playfair Display', serif", color: colors.darkText }}
             >
-              GROW YOUR<br/>
-              <span className="font-bold">PLANT KITCHEN</span>
+              {tCustom(content.heroTitle).split('\n').map((line, i) => (
+                <span key={i} className={i === 2 ? 'font-bold' : ''}>
+                  {line}{i < 2 && <br/>}
+                </span>
+              ))}
             </h1>
             <p className="text-lg mb-2" style={{ color: colors.lightText }}>• • • • • • • • • •</p>
             <p 
               className="text-xl mb-10"
               style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: colors.darkText }}
             >
-              The future of cooking — today
+              {tCustom(content.heroDesc)}
             </p>
           </div>
         </div>
